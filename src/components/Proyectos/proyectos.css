@@ -1,0 +1,77 @@
+.project-card {
+  max-width: 780px;
+  display: flex;
+  flex-wrap: wrap;
+ 
+  padding: 1rem;
+  border-radius: 1rem;
+  color: #f0f0f0;
+  border-radius: 12px;
+  padding: 1rem;
+  gap: 1.5rem;
+  margin: auto;
+}
+
+.project-info {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-info h2 {
+  font-size: 1.8rem;
+  color: #00ffcc;
+}
+
+.project-info h4 {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-item {
+  background-color: #333;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-actions button,
+.project-actions a {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #00ffcc;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.project-actions button:hover,
+.project-actions a:hover {
+  transform: scale(1.2);
+}
+
+.project-image {
+  flex: 1 1 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}

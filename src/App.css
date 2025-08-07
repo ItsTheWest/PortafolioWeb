@@ -1,0 +1,68 @@
+*{
+  font-family: "Ancizar Sans", sans-serif;
+  margin: 0;
+}
+
+body {
+  color: white;
+
+}
+
+body {
+  min-height: 100vh;
+  background-color: #171717; /* neutral-950 */
+  background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(49, 47, 170, 0.3), rgba(11, 11, 39, 0.3));
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main{
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffffff, #007bff, #ffa600 , #ffffff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s linear infinite;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.parra{
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffffff; /* text-slate-300 */
+  font-size: 18px;
+max-width: 810px;
+margin: auto;
+margin-bottom: 1rem;
+ line-height: 1.6;
+}
+
+ @media (max-width: 360px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .parra {
+    font-size: 16px;
+    max-width: 89%;
+  }
+ }

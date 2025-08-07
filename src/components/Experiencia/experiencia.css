@@ -1,0 +1,71 @@
+.timeline-section {
+padding: 1rem;
+padding-top: 0;
+padding-bottom: 0;
+  max-width: 800px;
+  margin: 0 auto;
+ 
+}
+
+
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 2rem 0;
+  max-width: 800px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.5rem; /* Centra la línea detrás del ícono */
+  width: 2px;
+  height: 80%;
+  background-color: #ccc;
+  z-index: 0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 3.5rem;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: 0.6rem;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #0070c0;
+  z-index: 1; /* Asegura que el ícono esté sobre la línea */
+}
+
+.timeline-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+      color:  #0ea5e9;
+}
+
+.timeline-content h3 span {
+  font-weight: normal;
+
+}
+
+.timeline-content p {
+  margin: 0.25rem 0;
+  line-height: 1.6;
+}
+
+.timeline-content p strong {
+  color: #ffc250;
+}
