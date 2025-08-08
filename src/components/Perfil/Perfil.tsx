@@ -13,7 +13,7 @@ function Perfil(props:PerfilProps) {
   
     <div className="container-perfil">
     <div className="profile-pic">
-      <img src="public\img\profile.jpeg" alt="Perfil"></img>
+      <img src="public/img/profile.jpeg" alt="Perfil"></img>
     </div>
     <div className="info">
       <h1>Hola, <span>soy Nelson</span></h1>
