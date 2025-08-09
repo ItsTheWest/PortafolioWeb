@@ -10,6 +10,7 @@ const skills = [
   { icon: '/img/htmlLogo.svg', name: 'HTML5', bgColor: '#e44d26' },     
   { icon: '/img/cssLogo.svg', name: 'CSS3', bgColor: '#264de4' },      
   { icon: '/img/jsLogo.svg', name: 'JavaScript', bgColor: '#f0db4f' }, 
+   { icon: '/img/tsLogo.svg', name: 'TypeScript', bgColor: 'rgba(22, 93, 247, 1)' } ,
   { icon: '/img/phpLogo.svg', name: 'PHP', bgColor: '#8892BF' },        
   { icon: '/img/cLogo.svg', name: 'C++', bgColor: '#00599C' },  
   { icon: '/img/365Logo.png', name: 'M365', bgColor: '#00758F' },        
@@ -17,7 +18,9 @@ const skills = [
   { icon: '/img/angularLogo.svg', name: 'Angular', bgColor: '#dd0031' },
   { icon: '/img/laravelLogo.svg', name: 'Laravel', bgColor: '#FF2D20' },
   { icon: '/img/mysqlLogo.svg', name: 'Mysql', bgColor: '#00758F' }, 
-  { icon: '/img/gitLogo.svg', name: 'GitHub', bgColor: 'rgba(255, 255, 255, 1)' } // Fondo blanco para GitHub
+  { icon: '/img/gitLogo.svg', name: 'GitHub', bgColor: 'rgba(255, 255, 255, 1)' },
+  { icon: '/img/git2Logo.svg', name: 'Git', bgColor: '#FF2D20' } ,
+ 
 ];
 
  return(
