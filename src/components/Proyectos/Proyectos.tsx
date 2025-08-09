@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './proyectos.css';
 
 type Tech = {
@@ -25,8 +25,12 @@ export const Proyectos: React.FC<ProyectosProps> = ({
   githubUrl,
   liveUrl,
 }) => {
+  const [copied, setCopied] = useState(false);
+
   const copyLink = () => {
     navigator.clipboard.writeText(liveUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
   };
 
   return (
@@ -46,11 +50,30 @@ export const Proyectos: React.FC<ProyectosProps> = ({
           ))}
         </div>
         <div className="project-actions">
-          <button onClick={copyLink} title="Copiar link">
-            🔗
+          <button
+            onClick={copyLink}
+            title="Copiar link"
+            className="action-btn copy-btn"
+            aria-label="Copiar link"
+            type="button"
+          >
+            <span className={`icon-wrapper${copied ? ' copied' : ''}`}>
+              <i className="fa-solid fa-link icon icon-copy"></i>
+              <i className="fa-solid fa-check icon icon-check"></i>
+            </span>
           </button>
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer" title="Ver en GitHub">
-            🐙
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Ver en GitHub"
+            className="action-btn"
+            aria-label="Ver en GitHub"
+            tabIndex={0}
+          >
+            <span className="icon-wrapper">
+              <i className="fa-brands fa-github icon"></i>
+            </span>
           </a>
         </div>
       </div>

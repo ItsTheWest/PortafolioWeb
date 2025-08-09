@@ -6,6 +6,10 @@ interface PerfilProps{
     children?:ReactNode;
 }
 
+  const abrirDocumento = () => {
+    // Ruta relativa desde /public
+    window.open("/documents/CV-NelsonFigueroa-2025.pdf", "_blank");
+  };
 
 function Perfil(props:PerfilProps) {
     const{children} = props;
@@ -28,13 +32,13 @@ function Perfil(props:PerfilProps) {
           <i className="fas fa-envelope"></i> nelsonjosue0407@gmail.com
         </a>
         <div className="icon-buttons">
-           <a href="#" className="btn btn-icon-only" title="CV">
+           <a onClick={abrirDocumento} target='_blank' className="btn btn-icon-only" title="CV">
             <i className="fa-regular fa-file"></i>
           </a>
-          <a href="#" className="btn btn-icon-only" title="LinkedIn">
+          <a href="https://www.linkedin.com/in/figueroa2007" target='_blank' className="btn btn-icon-only" title="LinkedIn">
             <i className="fab fa-linkedin-in"></i>
           </a>
-          <a href="#" className="btn btn-icon-only" title="GitHub">
+          <a href="https://github.com/ItsTheWest" target='_blank' className="btn btn-icon-only" title="GitHub">
             <i className="fab fa-github"></i>
           </a>
         </div>

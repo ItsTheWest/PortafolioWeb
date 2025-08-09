@@ -252,7 +252,7 @@
     }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 400px) {
     .typewriter {
       font-size: 1.2rem;
       min-height: 1.4rem;

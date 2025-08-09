@@ -4,6 +4,7 @@ import Perfil,{Typewriter} from './components/Perfil/Perfil'
 import Tecnologias from './components/tecnologias/Tecnologias';
 import Experiencia from './components/Experiencia/Experiencia'; 
 import { Proyectos } from './components/Proyectos/Proyectos';
+import { Footer } from './components/footer/footer';
 
 function App() {
 const skills = [
@@ -33,14 +34,14 @@ const skills = [
     <Typewriter></Typewriter>
   </Perfil>
    <hr></hr>
-   <h2 className="title">Tecnologías</h2>
+   <h2 id="Tec"className="title">Tecnologías</h2>
   <p className='parra'>Este apartado reúne los lenguajes y tecnologías aplicados en el ámbito del desarrollo web interfaces dinámicas, aplicaciones escalables y soluciones robustas</p>
   <Tecnologias skills={skills} />
    <hr></hr>
-   <h2 className="title">Experiencia</h2>
+   <h2 id="Ex" className="title">Experiencia</h2>
   <Experiencia></Experiencia>
   <hr></hr>
-   <h2 className="title">Proyectos</h2>
+   <h2 id="Pro"className="title">Proyectos</h2>
     
     <Proyectos
   title="Sistema Web de Análisis Estadístico"
@@ -81,15 +82,13 @@ const skills = [
     },
   ]}
   image="/img/proyectoelvalle.png"
-  githubUrl="https://github.com/usuario/hackeo-matrix"
-  liveUrl="https://hackeo-matrix.vercel.app"
+  githubUrl="https://github.com/ItsTheWest/SistemaWebDeAnalisis"
+  liveUrl="https://github.com/ItsTheWest/SistemaWebDeAnalisis"
 />
- <hr></hr>
-  </main>
- 
 
- 
-  
+
+  </main>
+ <Footer />
   </>
   
  )

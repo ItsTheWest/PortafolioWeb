@@ -56,9 +56,10 @@ margin-bottom: 1rem;
  line-height: 1.6;
 }
 
- @media (max-width: 360px) {
+ @media (max-width: 400px) {
   .title {
     font-size: 1.8rem;
+    margin-top: 10%;
   }
 
   .parra {
@@ -66,3 +67,7 @@ margin-bottom: 1rem;
     max-width: 89%;
   }
  }
+
+ h2[id], section[id] {
+  scroll-margin-top: 70px; /* Cambia 80px por la altura de tu header */
+}

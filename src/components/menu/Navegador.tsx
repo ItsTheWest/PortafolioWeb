@@ -38,10 +38,10 @@ function Navegador(props:NavegadorProps) {
       
       {/* Menú de escritorio */}
       <nav className="desktop-nav">
-        <a href="#">Sobre mi</a>
-        <a href="#">Tegnologías</a>
-        <a href="#">Experiencia</a>
-        <a href="#">Proyectos</a>
+        <a href="#SobreMi">Sobre mi</a>
+        <a href="#Tec">Tecnologías</a>
+        <a href="#Ex">Experiencia</a>
+        <a href="#Pro">Proyectos</a>
       </nav>
       <div className="acciones desktop-actions">
         {children}
@@ -64,10 +64,10 @@ function Navegador(props:NavegadorProps) {
         <h3>Menú</h3>
       </div>
       <nav className="mobile-nav">
-        <a href="#" onClick={closeMenu}><i className="fa-solid fa-user"></i>Sobre mi</a>
-        <a href="#" onClick={closeMenu}><i className="fa-solid fa-code"></i>Tegnologías</a>
-        <a href="#" onClick={closeMenu}><i className="fa-solid fa-briefcase"></i>Experiencia</a>
-        <a href="#" onClick={closeMenu}><i className="fa-solid fa-folder-open"></i>Proyectos</a>
+        <a href="#SobreMi" onClick={closeMenu}><i className="fa-solid fa-user"></i>Sobre mi</a>
+        <a href="#Tec" onClick={closeMenu}><i className="fa-solid fa-code"></i>Tecnologías</a>
+        <a href="#Ex" onClick={closeMenu}><i className="fa-solid fa-briefcase"></i>Experiencia</a>
+        <a href="#Pro" onClick={closeMenu}><i className="fa-solid fa-folder-open"></i>Proyectos</a>
       </nav>
       <div className="mobile-actions">
         {children}
