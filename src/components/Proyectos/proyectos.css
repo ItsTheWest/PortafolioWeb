@@ -1,14 +1,14 @@
 .project-card {
-  max-width: 780px;
+  max-width: 800px;
   display: flex;
   flex-wrap: wrap;
  
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   color: #f0f0f0;
   border-radius: 12px;
   padding: 1rem;
-  gap: 1.5rem;
+padding-left: 1.2rem;
   margin: auto;
 }
 
@@ -20,13 +20,13 @@
 }
 
 .project-info h2 {
-  font-size: 1.8rem;
-  color: #00ffcc;
+  font-size: 1.5rem;
+       color:  #0ea5e9;
 }
 
 .project-info h4 {
   font-size: 1.2rem;
-  color: #ccc;
+   color: #ffc250;
 }
 
 .tech-list {
@@ -63,15 +63,41 @@
   transform: scale(1.2);
 }
 
+.project-info p{
+      line-height: 1.6;
+}
+
 .project-image {
-  flex: 1 1 10px;
+  flex: 1 1 280px;         /* Aumenta el tamaño base */
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 260px;        /* Más ancho mínimo */
+  min-height: 280px;       /* Aumenta la altura mínima */
+  max-width: 100%;
+  max-height: 100%;
+        /* Espacio alrededor */
 }
 
 .project-image img {
-  max-width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
+  width: 100%;             /* Ocupa todo el ancho disponible */
+  height: auto;            /* Mantiene la proporción */
+  max-width: 350px;        /* Limita el tamaño máximo */
+  max-height: 280px;       /* Aumenta la altura máxima */
+  border-radius: 12px;
+  object-fit: cover;       /* Recorta si es necesario, mantiene proporción */
+  box-shadow: 0 2px 16px #0006;
 }
+
+@media (max-width: 460px) {
+    .project-info h2 {
+          font-size: 1.35rem;
+    }
+    .project-image{
+      align-items: normal;
+      min-height: 170px;       /* Reduce la altura mínima */  
+      max-height: 220px;       /* Reduce la altura máxima */
+      margin-top: 25px;
+    }
+
+  }

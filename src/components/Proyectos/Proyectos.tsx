@@ -1,17 +1,22 @@
 import React from 'react';
-import './proyectos.css'
+import './proyectos.css';
 
-type Proyectos = {
+type Tech = {
+  name: string;
+  icon: React.ReactNode;
+};
+
+type ProyectosProps = {
   title: string;
   subtitle: string;
   description: string;
-  tech: string[];
+  tech: Tech[];
   image: string;
   githubUrl: string;
   liveUrl: string;
 };
 
-export const Proyectos: React.FC<Proyectos> = ({
+export const Proyectos: React.FC<ProyectosProps> = ({
   title,
   subtitle,
   description,
@@ -22,7 +27,6 @@ export const Proyectos: React.FC<Proyectos> = ({
 }) => {
   const copyLink = () => {
     navigator.clipboard.writeText(liveUrl);
-    alert('¡Link copiado al portapapeles!');
   };
 
   return (
@@ -33,7 +37,12 @@ export const Proyectos: React.FC<Proyectos> = ({
         <p>{description}</p>
         <div className="tech-list">
           {tech.map((t, i) => (
-            <span key={i} className="tech-item">{t}</span>
+            <span key={i} className="tech-item">
+              <span style={{ marginRight: '0.5em', display: 'inline-flex', verticalAlign: 'middle' }}>
+                {t.icon}
+              </span>
+              {t.name}
+            </span>
           ))}
         </div>
         <div className="project-actions">
