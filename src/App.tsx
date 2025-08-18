@@ -27,9 +27,11 @@ const skills = [
  return(
   <>
   <Navegador>
+   
     <Dropdown></Dropdown>
   </Navegador>
-  <main>
+  <main >
+     <h1 id="main"></h1>
   <Perfil>
     <Typewriter></Typewriter>
   </Perfil>

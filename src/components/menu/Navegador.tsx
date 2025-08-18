@@ -34,7 +34,11 @@ function Navegador(props:NavegadorProps) {
     <>
     <header>
     <div className="contenedorMenu">
-      <div className="logo">MiLogo</div>
+      <div className="logo">
+          <a href="#">
+        <img src="/img/logo-nfdev.png"></img>
+         </a>
+        </div>
       
       {/* Menú de escritorio */}
       <nav className="desktop-nav">
