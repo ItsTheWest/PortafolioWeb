@@ -9,6 +9,7 @@ interface NavegadorProps{
 function Navegador(props:NavegadorProps) {
  const{children} = props;
  const [isMenuOpen, setIsMenuOpen] = useState(false);
+ const [selectedMenu, setSelectedMenu] = useState<string>("#Yo");
 
  const toggleMenu = () => {
    setIsMenuOpen(!isMenuOpen);
@@ -30,6 +31,14 @@ function Navegador(props:NavegadorProps) {
    return () => document.removeEventListener("mousedown", handleClickOutside);
  }, []);
 
+  // Opciones del menú lateral
+  const menuOptions = [
+    { href: "#Yo", icon: "fa-solid fa-user", label: "Sobre mi" },
+    { href: "#Tec", icon: "fa-solid fa-code", label: "Tecnologías" },
+    { href: "#Ex", icon: "fa-solid fa-briefcase", label: "Experiencia" },
+    { href: "#Pro", icon: "fa-solid fa-folder-open", label: "Proyectos" },
+  ];
+
   return (
     <>
     <header>
@@ -42,7 +51,7 @@ function Navegador(props:NavegadorProps) {
       
       {/* Menú de escritorio */}
       <nav className="desktop-nav">
-        <a href="#SobreMi">Sobre mi</a>
+        <a href="#Yo">Sobre mi</a>
         <a href="#Tec">Tecnologías</a>
         <a href="#Ex">Experiencia</a>
         <a href="#Pro">Proyectos</a>
@@ -68,10 +77,16 @@ function Navegador(props:NavegadorProps) {
         <h3>Menú</h3>
       </div>
       <nav className="mobile-nav">
-        <a href="#SobreMi" onClick={closeMenu}><i className="fa-solid fa-user"></i>Sobre mi</a>
-        <a href="#Tec" onClick={closeMenu}><i className="fa-solid fa-code"></i>Tecnologías</a>
-        <a href="#Ex" onClick={closeMenu}><i className="fa-solid fa-briefcase"></i>Experiencia</a>
-        <a href="#Pro" onClick={closeMenu}><i className="fa-solid fa-folder-open"></i>Proyectos</a>
+        {menuOptions.map(opt => (
+          <a
+            key={opt.href}
+            href={opt.href}
+            onClick={() => { setSelectedMenu(opt.href); closeMenu(); }}
+            className={selectedMenu === opt.href ? "selected" : ""}
+          >
+            <i className={opt.icon}></i>{opt.label}
+          </a>
+        ))}
       </nav>
       <div className="mobile-actions">
         {children}
@@ -130,4 +145,4 @@ export const Dropdown: React.FC = () => {
     
     
 
-export default Navegador
+export default Navegador;

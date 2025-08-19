@@ -5,6 +5,7 @@ import Tecnologias from './components/tecnologias/Tecnologias';
 import Experiencia from './components/Experiencia/Experiencia'; 
 import { Proyectos } from './components/Proyectos/Proyectos';
 import { Footer } from './components/footer/footer';
+import Sobremi from './components/sobremi/Sobremi';
 
 function App() {
 const skills = [
@@ -31,10 +32,12 @@ const skills = [
     <Dropdown></Dropdown>
   </Navegador>
   <main >
-     <h1 id="main"></h1>
   <Perfil>
     <Typewriter></Typewriter>
   </Perfil>
+  <hr></hr>
+   <h2 id="Yo"className="title">Sobre Mi</h2>
+   <Sobremi></Sobremi>
    <hr></hr>
    <h2 id="Tec"className="title">Tecnologías</h2>
   <p className='parra'>Este apartado reúne los lenguajes y tecnologías aplicados en el ámbito del desarrollo web interfaces dinámicas, aplicaciones escalables y soluciones robustas</p>
