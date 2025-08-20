@@ -9,7 +9,8 @@ interface NavegadorProps{
 function Navegador(props:NavegadorProps) {
  const{children} = props;
  const [isMenuOpen, setIsMenuOpen] = useState(false);
- const [selectedMenu, setSelectedMenu] = useState<string>("#Yo");
+ const [selectedMenu, setSelectedMenu] = useState<string>("#");
+ const [showLangSubmenu, setShowLangSubmenu] = useState(false); // Nuevo estado para submenú idiomas
 
  const toggleMenu = () => {
    setIsMenuOpen(!isMenuOpen);
@@ -37,7 +38,16 @@ function Navegador(props:NavegadorProps) {
     { href: "#Tec", icon: "fa-solid fa-code", label: "Tecnologías" },
     { href: "#Ex", icon: "fa-solid fa-briefcase", label: "Experiencia" },
     { href: "#Pro", icon: "fa-solid fa-folder-open", label: "Proyectos" },
+    { href: "#Lang", icon: "fa-solid fa-globe", label: "Idiomas", isLang: true }
   ];
+
+  // Opciones de idioma
+  const LANGUAGES = [
+    { code: "es", label: "Español", icon: "/img/banderas/spain.svg" },
+    { code: "en", label: "Inglés", icon: "/img/banderas/eeuu.svg" },
+    { code: "de", label: "Portugues", icon: "/img/banderas/portugal.svg" }
+  ];
+  const [selectedLang, setSelectedLang] = useState("es");
 
   return (
     <>
@@ -78,14 +88,67 @@ function Navegador(props:NavegadorProps) {
       </div>
       <nav className="mobile-nav">
         {menuOptions.map(opt => (
-          <a
-            key={opt.href}
-            href={opt.href}
-            onClick={() => { setSelectedMenu(opt.href); closeMenu(); }}
-            className={selectedMenu === opt.href ? "selected" : ""}
-          >
-            <i className={opt.icon}></i>{opt.label}
-          </a>
+          !opt.isLang ? (
+            <a
+              key={opt.href}
+              href={opt.href}
+              onClick={() => { 
+                setSelectedMenu(opt.href); 
+                setShowLangSubmenu(false); // <-- Cierra el submenú de idiomas si estaba abierto
+                closeMenu(); 
+              }}
+              className={selectedMenu === opt.href ? "selected" : ""}
+            >
+              <i className={opt.icon}></i>{opt.label}
+            </a>
+          ) : (
+            <div key={opt.href} style={{position: "relative"}}>
+              <a
+                href="#"
+                onClick={e => {
+                  e.preventDefault();
+                  setSelectedMenu(""); // Limpiar selección al abrir idiomas
+                  setShowLangSubmenu(v => !v);
+                }}
+                className={showLangSubmenu ? "selected" : ""}
+                style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}
+              >
+                <span>
+                  <i className={opt.icon}></i>{opt.label}
+                </span>
+                <i className={`fa-solid fa-chevron-${showLangSubmenu ? "up" : "down"}`} style={{marginLeft: 8}}></i>
+              </a>
+              {showLangSubmenu && (
+                <div
+                  className={`lang-submenu${showLangSubmenu ? " open" : ""}`}
+                  aria-expanded={showLangSubmenu}
+                >
+                  {LANGUAGES.map(lang => (
+                    <a
+                      key={lang.code}
+                      href="#"
+                      onClick={e => {
+                        e.preventDefault();
+                        setSelectedLang(lang.code);
+                        // Espera un frame para actualizar el estado visual antes de cerrar el menú
+                        setTimeout(() => {
+                          setShowLangSubmenu(false);
+                          closeMenu();
+                        }, 0);
+                      }}
+                      className={`lang-option${selectedLang === lang.code ? " selected" : ""}`}
+                    >
+                      <img src={lang.icon} alt={lang.label} className="lang-flag-svg" />
+                      {lang.label}
+                      {selectedLang === lang.code && (
+                        <i className="fa-solid fa-check lang-check"></i>
+                      )}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          )
         ))}
       </nav>
       <div className="mobile-actions">

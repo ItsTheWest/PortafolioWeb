@@ -11,7 +11,7 @@ header {
 .contenedorMenu {
   max-width: 810px;
   margin: 0 auto;
-  padding: 7px 40px 7px 20px;
+  padding: 7px 40px 7px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -103,6 +103,9 @@ header {
 .menu-container.open {
   opacity: 1;
   visibility: visible;
+  .dropdown-toggle{
+    display: none;
+  }
 }
 
 .menu-overlay {
@@ -280,6 +283,92 @@ header {
   color: white;
 }
 
+/* Submenú de idiomas en menú móvil */
+.lang-submenu {
+  background: #181818;
+  border-radius: 8px;
+  margin-top: 6px;
+  margin-left: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 10;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  padding: 4px 0;
+  /* Animación para apertura/cierre */
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: scaleY(0.85);
+  transition:
+    max-height 0.45s cubic-bezier(.4,0,.2,1),
+    opacity 0.35s cubic-bezier(.4,0,.2,1),
+    transform 0.45s cubic-bezier(.4,0,.2,1);
+}
+
+.lang-submenu[aria-expanded="true"], 
+.lang-submenu.open {
+  max-height: 400px;
+  opacity: 1;
+  transform: scaleY(1);
+  transition:
+    max-height 0.45s cubic-bezier(.4,0,.2,1),
+    opacity 0.35s cubic-bezier(.4,0,.2,1),
+    transform 0.45s cubic-bezier(.4,0,.2,1);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  color: #e5e5e5;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 500;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+  border-left: none !important;
+  padding-left: 16px !important;
+}
+
+/* Solo hover si NO está seleccionada */
+.lang-option:hover:not(.selected) {
+  color: #007bff;
+  background: rgba(0,123,255,0.08);
+  border-left: none !important;
+}
+
+/* Solo fondo azul si está seleccionada */
+.lang-option.selected {
+  color: #007bff;
+  background: rgba(0,123,255,0.08);
+  border-left: none !important;
+}
+
+.lang-flag {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.lang-flag-svg {
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.lang-check {
+  margin-left: auto;
+  color: #007bff;
+  font-size: 1rem;
+}
+
 /* Media queries para responsive */
 @media (max-width: 700px) {
   .desktop-nav,
@@ -293,9 +382,6 @@ header {
   
   .contenedorMenu {
     justify-content: flex-start;
-  }
-  .dropdown{
-    display: none;
   }
 }
 
@@ -324,3 +410,4 @@ header {
     text-overflow: ellipsis;
   }
 }
+
