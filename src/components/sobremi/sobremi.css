@@ -3,9 +3,10 @@
   justify-content: space-between;
   align-items: center;
   gap: 40px; /* Espaciado considerable entre texto e imagen */
-  max-width: 805px;
+  max-width: 790px;
     margin: auto;
     margin-bottom: 3rem;
+    margin-top: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -29,7 +30,7 @@
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #23272f;
-  box-shadow: 0 2px 16px #0ea5e9;
+  box-shadow: 0 2px 16px #0ea4e9c2;
   background: #171717;
 }
 
@@ -56,7 +57,7 @@
     font-size: 16px;
       text-align: center;
       margin: auto;
-      max-width: 88%;
+      max-width: 89%;
   }
 
   }
@@ -64,3 +65,10 @@
     width: 220px;
     height: 220px;
   }
+
+  @media (max-width:  800px) {
+  .contenedor-sobremi {
+   margin: 1rem;
+   margin-bottom: 4rem;
+  }
+}

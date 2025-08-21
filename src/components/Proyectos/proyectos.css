@@ -2,13 +2,11 @@
   max-width: 800px;
   display: flex;
   flex-wrap: wrap;
- 
-  padding: 0.5rem;
   border-radius: 1rem;
   color: #f0f0f0;
   border-radius: 12px;
-  padding: 1rem;
-padding-left: 1.2rem;
+  padding: 0 1.8rem 1.8rem 1.8rem;
+
   margin: auto;
 }
 
@@ -205,6 +203,10 @@ padding-left: 1.2rem;
 
   }
 
+
+  @media (max-width: 400px) {
+  
+  }
 /* Responsivo */
 @media (max-width: 600px) {
   .action-btn {

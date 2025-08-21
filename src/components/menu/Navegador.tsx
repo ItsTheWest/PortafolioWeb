@@ -44,8 +44,7 @@ function Navegador(props:NavegadorProps) {
   // Opciones de idioma
   const LANGUAGES = [
     { code: "es", label: "Español", icon: "/img/banderas/spain.svg" },
-    { code: "en", label: "Inglés", icon: "/img/banderas/eeuu.svg" },
-    { code: "de", label: "Portugues", icon: "/img/banderas/portugal.svg" }
+    { code: "en", label: "Inglés", icon: "/img/banderas/eeuu.svg" }
   ];
   const [selectedLang, setSelectedLang] = useState("es");
 
@@ -162,7 +161,7 @@ function Navegador(props:NavegadorProps) {
 
 
     
-const ALL_LANGUAGES = ["Español", "Inglés", "Alemán"];
+const ALL_LANGUAGES = ["Español", "Inglés"];
 
 export const Dropdown: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
