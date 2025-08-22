@@ -6,7 +6,6 @@ import Experiencia from './components/Experiencia/Experiencia';
 import { Proyectos } from './components/Proyectos/Proyectos';
 import { Footer } from './components/footer/footer';
 import Sobremi from './components/sobremi/Sobremi';
-import { useTranslation } from 'react-i18next';
 import { Suspense } from 'react';
 
 function App() {
@@ -104,4 +103,5 @@ const skills = [
 
 }
 
+export default App
 export default App
