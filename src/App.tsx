@@ -104,4 +104,4 @@ const skills = [
 }
 
 export default App
-export default App
+
