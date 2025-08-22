@@ -6,6 +6,8 @@ import Experiencia from './components/Experiencia/Experiencia';
 import { Proyectos } from './components/Proyectos/Proyectos';
 import { Footer } from './components/footer/footer';
 import Sobremi from './components/sobremi/Sobremi';
+import { useTranslation } from 'react-i18next';
+import { Suspense } from 'react';
 
 function App() {
 const skills = [
@@ -27,6 +29,7 @@ const skills = [
 
  return(
   <>
+  <Suspense fallback="Cargando traduciones">
   <Navegador>
    
     <Dropdown></Dropdown>
@@ -94,6 +97,7 @@ const skills = [
 
   </main>
  <Footer />
+ </Suspense>
   </>
   
  )
