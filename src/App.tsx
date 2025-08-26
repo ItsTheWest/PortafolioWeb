@@ -7,8 +7,10 @@ import { Proyectos } from './components/Proyectos/Proyectos';
 import { Footer } from './components/footer/footer';
 import Sobremi from './components/sobremi/Sobremi';
 import { Suspense } from 'react';
+import { useTranslation } from "react-i18next";
 
 function App() {
+const { t } = useTranslation();
 const skills = [
   { icon: '/img/htmlLogo.svg', name: 'HTML5', bgColor: '#e44d26' },     
   { icon: '/img/cssLogo.svg', name: 'CSS3', bgColor: '#264de4' },      
@@ -38,22 +40,21 @@ const skills = [
     <Typewriter></Typewriter>
   </Perfil>
   <hr></hr>
-   <h2 id="Yo"className="title">Sobre Mi</h2>
+   <h2 id="Yo"className="title">{t('secciones.sobremi')}</h2>
    <Sobremi></Sobremi>
    <hr></hr>
-   <h2 id="Tec"className="title">Tecnologías</h2>
-  <p className='parra'>Este apartado reúne los lenguajes y tecnologías aplicados en el ámbito del desarrollo web interfaces dinámicas, aplicaciones escalables y soluciones robustas</p>
+   <h2 id="Tec"className="title">{t('secciones.tecnologias')}</h2>
+  <p className='parra'>{t('tecnologias.parrafo')}</p>
   <Tecnologias skills={skills} />
    <hr></hr>
-   <h2 id="Ex" className="title">Experiencia</h2>
+   <h2 id="Ex" className="title">{t('secciones.experiencia')}</h2>
   <Experiencia></Experiencia>
   <hr></hr>
-   <h2 id="Pro"className="title">Proyectos</h2>
-    
+   <h2 id="Pro"className="title">{t('secciones.proyectos')}</h2>
     <Proyectos
-  title="Sistema Web de Análisis Estadístico"
-  subtitle="Proyecto de Bachiller"
-  description="Junto a un equipo de tres personas, se diseñó y desarrolló un sistema web orientado al análisis de precios y demanda en una cadena de supermercados, utilizando herramientas estadísticas para facilitar la toma de decisiones comerciales"
+  title={t('proyectos.item1.title')}
+  subtitle={t('proyectos.item1.subtitle')}
+  description={t('proyectos.item1.description')}
   tech={[
     {
       name: "HTML",

@@ -1,6 +1,7 @@
 import './menustyle.css';
 import React, { useState, useEffect, useRef } from "react";
 import type { ReactNode } from "react"; 
+import { useTranslation } from "react-i18next";
 
 interface NavegadorProps{
   children?:ReactNode;
@@ -11,6 +12,7 @@ function Navegador(props:NavegadorProps) {
  const [isMenuOpen, setIsMenuOpen] = useState(false);
  const [selectedMenu, setSelectedMenu] = useState<string>("#");
  const [showLangSubmenu, setShowLangSubmenu] = useState(false); // Nuevo estado para submenú idiomas
+ const { t, i18n } = useTranslation();
 
  const toggleMenu = () => {
    setIsMenuOpen(!isMenuOpen);
@@ -34,19 +36,19 @@ function Navegador(props:NavegadorProps) {
 
   // Opciones del menú lateral
   const menuOptions = [
-    { href: "#Yo", icon: "fa-solid fa-user", label: "Sobre mi" },
-    { href: "#Tec", icon: "fa-solid fa-code", label: "Tecnologías" },
-    { href: "#Ex", icon: "fa-solid fa-briefcase", label: "Experiencia" },
-    { href: "#Pro", icon: "fa-solid fa-folder-open", label: "Proyectos" },
-    { href: "#Lang", icon: "fa-solid fa-globe", label: "Idiomas", isLang: true }
+    { href: "#Yo", icon: "fa-solid fa-user", label: t('nav.sobremi') },
+    { href: "#Tec", icon: "fa-solid fa-code", label: t('nav.habilidades') },
+    { href: "#Ex", icon: "fa-solid fa-briefcase", label: t('nav.experiencia') },
+    { href: "#Pro", icon: "fa-solid fa-folder-open", label: t('nav.proyectos') },
+    { href: "#Lang", icon: "fa-solid fa-globe", label: t('nav.idiomas'), isLang: true }
   ];
 
   // Opciones de idioma
   const LANGUAGES = [
-    { code: "es", label: "Español", icon: "/img/banderas/spain.svg" },
-    { code: "en", label: "Inglés", icon: "/img/banderas/eeuu.svg" }
+    { code: "es", label: t('lang.es'), icon: "/img/banderas/spain.svg" },
+    { code: "en", label: t('lang.en'), icon: "/img/banderas/eeuu.svg" }
   ];
-  const [selectedLang, setSelectedLang] = useState("es");
+  const selectedLang = i18n.language.startsWith("en") ? "en" : "es";
 
   return (
     <>
@@ -60,10 +62,10 @@ function Navegador(props:NavegadorProps) {
       
       {/* Menú de escritorio */}
       <nav className="desktop-nav">
-        <a href="#Yo">Sobre mi</a>
-        <a href="#Tec">Tecnologías</a>
-        <a href="#Ex">Experiencia</a>
-        <a href="#Pro">Proyectos</a>
+        <a href="#Yo">{t('nav.sobremi')}</a>
+        <a href="#Tec">{t('nav.habilidades')}</a>
+        <a href="#Ex">{t('nav.experiencia')}</a>
+        <a href="#Pro">{t('nav.proyectos')}</a>
       </nav>
       <div className="acciones desktop-actions">
         {children}
@@ -128,8 +130,8 @@ function Navegador(props:NavegadorProps) {
                       href="#"
                       onClick={e => {
                         e.preventDefault();
-                        setSelectedLang(lang.code);
-                        // Espera un frame para actualizar el estado visual antes de cerrar el menú
+                        // Cambia el idioma global
+                        i18n.changeLanguage(lang.code);
                         setTimeout(() => {
                           setShowLangSubmenu(false);
                           closeMenu();
@@ -161,33 +163,35 @@ function Navegador(props:NavegadorProps) {
 
 
     
-const ALL_LANGUAGES = ["Español", "Inglés"];
-
 export const Dropdown: React.FC = () => {
+  const { t, i18n } = useTranslation(); // Hook para acceder y cambiar el idioma global
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string>("Español");
   const dropdownRef = useRef<HTMLDivElement>(null);
-
+ 
+  // Determina el idioma seleccionado según el idioma actual de i18n
+  const selectedCode = i18n.language.startsWith("en") ? "en" : "es";
+  const selected = selectedCode === 'en' ? t('lang.en') : t('lang.es');
+  const optionsCodes = ["es", "en"].filter(code => code !== selectedCode);
+ 
   const toggleDropdown = () => setIsOpen(prev => !prev);
-
-  const handleSelect = (option: string) => {
-    setSelected(option);
-    setIsOpen(false);
+ 
+  const handleSelect = (code: string) => {
+    // Cambia el idioma global según la opción seleccionada
+    i18n.changeLanguage(code);
+    setIsOpen(false); // Cierra el menú después de seleccionar
   };
-
+ 
   // Cierre automático al hacer clic fuera del dropdown
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
+        setIsOpen(false); // Cierra el menú si se hace clic fuera
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  const options = ALL_LANGUAGES.filter(lang => lang !== selected);
-
+ 
   return (
     <div className="dropdown" ref={dropdownRef}>
       <button className="dropdown-toggle" onClick={toggleDropdown}>
@@ -195,9 +199,9 @@ export const Dropdown: React.FC = () => {
         <span className={`triangle ${isOpen ? "rotate" : ""}`}>▾</span>
       </button>
       <ul className={`dropdown-menu ${isOpen ? "open" : ""}`}>
-        {options.map(lang => (
-          <li key={lang} onClick={() => handleSelect(lang)}>
-            {lang}
+        {optionsCodes.map(code => (
+          <li key={code} onClick={() => handleSelect(code)}>
+            {code === 'en' ? t('lang.en') : t('lang.es')}
           </li>
         ))}
       </ul>

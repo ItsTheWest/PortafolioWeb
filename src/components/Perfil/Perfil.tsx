@@ -1,6 +1,7 @@
 import './perfilstyle.css'
 import { useEffect, useState } from "react";
 import type { ReactNode, FC } from "react";
+import { useTranslation } from "react-i18next";
 
 interface PerfilProps{
     children?:ReactNode;
@@ -12,17 +13,17 @@ const abrirDocumento = () => {
 
 const Perfil: FC<PerfilProps> = (props) => {
   const { children } = props;
+  const { t } = useTranslation();
   return (
     <div className="container-perfil">
       <div className="profile-pic">
-        <img src="/img/profile.jpeg" alt="Perfil" />
+        <img src="/img/profile.jpeg" alt={t("perfil.alt")} />
       </div>
       <div className="info">
-        <h1>Hola, <span>soy Nelson</span></h1>
+        <h1>{t("perfil.hola")} <span>{t("perfil.nombre")}</span></h1>
         {children}
         <p className="description">
-          Transformo el tiempo en conocimiento, el conocimiento en soluciones, y las soluciones en oportunidades que impulsan mi 
-          evolución personal y profesional.
+          {t("perfil.descripcion")}
         </p>
         <div className="buttons">
           <a href="mailto:nelson@email.com" className="btn btn-email">
@@ -45,14 +46,25 @@ const Perfil: FC<PerfilProps> = (props) => {
   );
 };
 
-const palabras = ["Técnico Medio en Informática","Desarrollador Web Junior"];
-const velocidad = 70;
-const pausa = 2000;
-
 export const Typewriter: FC = () => {
+  const { t, i18n } = useTranslation();
+  const velocidad = 70;
+  const pausa = 2000;
   const [indice, setIndice] = useState(0);
   const [texto, setTexto] = useState("");
   const [borrando, setBorrando] = useState(false);
+
+  // Obtén las palabras traducidas dentro del componente y actualízalas al cambiar el idioma
+  const palabras = [
+    t("perfil.typewriter.0"),
+    t("perfil.typewriter.1")
+  ];
+
+  useEffect(() => {
+    setTexto("");      // Reinicia el texto al cambiar idioma
+    setIndice(0);      // Reinicia el índice al cambiar idioma
+    setBorrando(false);// Reinicia el borrado al cambiar idioma
+  }, [i18n.language]); // Se ejecuta cuando cambia el idioma
 
   useEffect(() => {
     const palabraActual = palabras[indice];

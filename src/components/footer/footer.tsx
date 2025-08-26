@@ -1,12 +1,15 @@
 import React from 'react';
 import './footerstyle.css';
+import { useTranslation } from 'react-i18next';
 
 export const Footer: React.FC = () => {
+  const { t } = useTranslation();
+  const year = new Date().getFullYear();
   return (
     <footer className="footer">
       <div className="footer-content">
         <p>
-          Desarrollado por Nelson &copy; {new Date().getFullYear()}  Transformando ideas en código.
+          {t('footer.texto', { name: 'Nelson', year })}
         </p>
       </div>
     </footer>

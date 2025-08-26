@@ -64,6 +64,7 @@ padding-bottom: 0;
 .timeline-content p {
   margin: 0.25rem 0;
   line-height: 1.6;
+  font-size: 18px;
 }
 
 .timeline-content p strong {

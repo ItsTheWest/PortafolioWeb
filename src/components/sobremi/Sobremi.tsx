@@ -1,21 +1,18 @@
 import './sobremi.css';
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 function Sobremi() {
+    const { t } = useTranslation();
    return (
     <section className="contenedor-sobremi">
       {/* Texto */}
       <div className="sobremi-texto">
         <p>
-          Soy un apasionado del desarrollo web y la programación. Me encanta
-          crear aplicaciones que mejoren la vida de las personas y resuelvan
-          problemas reales. Siempre estoy aprendiendo nuevas tecnologías y
-          buscando formas de mejorar mis habilidades.
+          {t("sobremi.Parrafo1")}
         </p>
         <p style={{ marginTop: "1.2rem" }}>
-          En mi tiempo libre, disfruto explorando nuevas herramientas,
-          contribuyendo a proyectos de código abierto y compartiendo mis
-          conocimientos con la comunidad.
+          {t("sobremi.Parrafo2")}
         </p>
       </div>
 

@@ -1,0 +1,56 @@
+{
+    "nav": {
+        "inicio": "Inicio",
+        "sobremi": "Sobre mí",
+        "habilidades": "Habilidades",
+        "proyectos": "Proyectos",
+        "experiencia": "Experiencia",
+        "idiomas": "Idiomas"
+    },
+  "perfil": {
+    "alt": "Perfil",
+    "hola": "Hola,",
+    "nombre": "soy Nelson",
+    "descripcion": "Transformo el tiempo en conocimiento, el conocimiento en soluciones, y las soluciones en oportunidades que impulsan mi evolución personal y profesional.",
+    "typewriter": [
+      "Técnico Medio en Informática",
+      "Desarrollador Web Junior"
+    ]
+  },
+  "sobremi":{
+    "Parrafo1": "Soy un apasionado de la tecnología y el desarrollo web, con una sólida formación como Técnico Medio en Informática y experiencia práctica en la creación de sitios web. Me especializo en HTML, CSS, JavaScript y frameworks como React, y siempre estoy buscando aprender nuevas tecnologías para mejorar mis habilidades.",
+    "Parrafo2": "Mi objetivo es contribuir al éxito de proyectos web innovadores, aportando soluciones creativas y eficientes. Estoy comprometido con el aprendizaje continuo y la mejora constante, y busco oportunidades para crecer profesionalmente en el campo del desarrollo web."
+  },
+  "experiencia": [
+    {
+      "title": "Analista en documentación",
+      "company": "Clover International, C.A",
+      "date": "Mayo 2025 - Julio 2025",
+      "description": "Encargado en el desarrollo de aplicación para la gestión de los procesos relacionados a una licitación, mediante las herramientas tecnológicas de Microsoft 365. Además de colaborar en el desarrollo de un sistema web de cotización empresarial, implementado con Angular CLI, MySQL y JavaScript."
+    }
+  ],
+  "secciones": {
+    "sobremi": "Sobre Mi",
+    "tecnologias": "Tecnologías",
+    "experiencia": "Experiencia",
+    "proyectos": "Proyectos"
+  },
+  "tecnologias": {
+    "parrafo": "Este apartado reúne los lenguajes y tecnologías aplicados en el ámbito del desarrollo web, interfaces dinámicas, aplicaciones escalables y soluciones robustas"
+  },
+  "proyectos": {
+    "item1": {
+      "title": "Sistema Web de Análisis Estadístico",
+      "subtitle": "Proyecto de Bachiller",
+      "description": "Junto a un equipo de tres personas, se diseñó y desarrolló un sistema web orientado al análisis de precios y demanda en una cadena de supermercados, utilizando herramientas estadísticas para facilitar la toma de decisiones comerciales"
+    }
+  },
+  "footer": {
+    "texto": "Desarrollado por {{name}} © {{year}}  Transformando ideas en código."
+  },
+  "lang": {
+    "es": "Español",
+    "en": "Inglés"
+  }
+  
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import './experiencia.css'
-
+import { useTranslation } from "react-i18next";
 
 type ExperienceItem = {
   title: string;
@@ -9,17 +9,11 @@ type ExperienceItem = {
   description: string;
 };
 
-const experiences: ExperienceItem[] = [
-  {
-    title: 'Analista en documentación',
-    company: 'Clover International, C.A',
-    date: 'Mayo 2025 - Julio 2025',
-    description:
-      "Encargado en el desarrollo de aplicación para la gestión de los procesos relacionados a una licitación, mediante las herramientas tecnológicas de Microsoft 365. Además de colaborar en el desarrollo de un sistema web de cotización empresarial, implementado con Angular CLI, MySQL y JavaScript."
-  },
-];
-
 const Experiencia: React.FC = () => {
+  const { t } = useTranslation();
+  // Type assertion para evitar error de tipos
+  const experiences = t('experiencia', { returnObjects: true }) as ExperienceItem[];
+
   return (
     <section className="timeline-section">
       <div className="timeline">
@@ -41,3 +35,4 @@ const Experiencia: React.FC = () => {
 };
 
 export default Experiencia;
+
