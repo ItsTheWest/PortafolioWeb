@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
     <footer className="footer">
       <div className="footer-content">
         <p>
-          {t('footer.texto', { name: 'Nelson', year })}
+          {t('footer.texto', { name: 'NewForgerDev', year })}
         </p>
       </div>
     </footer>

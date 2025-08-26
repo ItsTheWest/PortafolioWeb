@@ -6,10 +6,11 @@ import Experiencia from './components/Experiencia/Experiencia';
 import { Proyectos } from './components/Proyectos/Proyectos';
 import { Footer } from './components/footer/footer';
 import Sobremi from './components/sobremi/Sobremi';
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useTranslation } from "react-i18next";
 
 function App() {
+const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
 const { t } = useTranslation();
 const skills = [
   { icon: '/img/htmlLogo.svg', name: 'HTML5', bgColor: '#e44d26' },     
@@ -27,6 +28,68 @@ const skills = [
   { icon: '/img/git2Logo.svg', name: 'Git', bgColor: '#FF2D20' } ,
  
 ];
+
+ useEffect(() => {
+  const handleOnline = () => setIsOnline(true);
+  const handleOffline = () => setIsOnline(false);
+  window.addEventListener('online', handleOnline);
+  window.addEventListener('offline', handleOffline);
+  return () => {
+   window.removeEventListener('online', handleOnline);
+   window.removeEventListener('offline', handleOffline);
+  };
+ }, []);
+
+ // Actualizar el título de la página según el idioma
+ useEffect(() => {
+  const updateTitle = () => {
+   const currentLang = localStorage.getItem('i18nextLng') || 'es';
+   const title = currentLang === 'es' ? 'nfdev | Portafolio' : 'nfdev | Portfolio';
+   document.title = title;
+  };
+
+  // Actualizar título inicial
+  updateTitle();
+
+     // Escuchar cambios en el localStorage para detectar cambio de idioma
+   const handleStorageChange = (e: StorageEvent) => {
+    if (e.key === 'i18nextLng') {
+     updateTitle();
+    }
+   };
+
+   window.addEventListener('storage', handleStorageChange);
+   
+   // También escuchar cambios en el mismo tab
+   const originalSetItem = localStorage.setItem;
+   localStorage.setItem = function(key: string, value: string) {
+    originalSetItem.call(this, key, value);
+    if (key === 'i18nextLng') {
+     updateTitle();
+    }
+   };
+
+  return () => {
+   window.removeEventListener('storage', handleStorageChange);
+   localStorage.setItem = originalSetItem;
+  };
+ }, []);
+
+   if (!isOnline) {
+   return (
+    <div className="offline-container">
+     <div className="offline-card">
+      <div className="wifi-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 24 24">
+	<path fill="#ef4444" d="m19.75 22.6l-9.4-9.45q-1.175.275-2.187.825T6.35 15.35l-2.1-2.15q.8-.8 1.725-1.4t1.975-1.05L5.7 8.5q-1.025.525-1.913 1.163T2.1 11.1L0 8.95q.8-.8 1.663-1.437T3.5 6.3L1.4 4.2l1.4-1.4l18.4 18.4zM12 21q-1.05 0-1.775-.737T9.5 18.5q0-1.05.725-1.775T12 16t1.775.725t.725 1.775q0 1.025-.725 1.763T12 21m5.9-5.95l-.725-.725l-.725-.725l-3.6-3.6q2.025.2 3.787 1.025T19.75 13.2zm4-3.95q-1.925-1.925-4.462-3.012T12 7q-.525 0-1.012.038T10 7.15L7.45 4.6q1.1-.3 2.238-.45T12 4q3.55 0 6.625 1.325T24 8.95z" />
+</svg>
+      </div>
+      <h1>Sin conexión a internet</h1>
+      <p>Por favor, verifica tu conexión Wi‑Fi o datos móviles para continuar.</p>
+     </div>
+    </div>
+   );
+  }
 
  return(
   <>

@@ -78,3 +78,9 @@ padding-bottom: 0;
           font-size: 1.35rem;
     }
   }
+
+@media (max-width: 400px) {
+  .timeline-content p{
+    font-size: 16px;
+  }
+}

@@ -16,6 +16,52 @@ body {
   background-size: cover;
 }
 
+.offline-container{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.offline-card{
+  max-width: 620px;
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  animation: offlineAppear 0.6s ease-out;
+}
+
+.offline-card h1{
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.offline-card p{
+  color: #cbd5e1;
+  animation: textFadeIn 0.8s ease-out 0.2s both;
+}
+
+.wifi-icon {
+  margin-bottom: 1rem; /* Reduced from 1.5rem */
+  color: #ef4444;
+  animation: wifiPulse 2s ease-in-out infinite;
+}
+
+.wifi-icon svg {
+  filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.3));
+}
+
 main{
   margin-left: 3%;
   margin-right: 3%;
@@ -77,4 +123,40 @@ margin-top: 1.5rem;
 
 @media (max-width:  800px) {
 
+}
+
+@keyframes offlineAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wifiPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
 }

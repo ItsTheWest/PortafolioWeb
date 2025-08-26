@@ -206,7 +206,9 @@
 
 
   @media (max-width: 400px) {
-  
+  .project-info{
+    font-size: 16px;
+  }
   }
 /* Responsivo */
 @media (max-width: 600px) {

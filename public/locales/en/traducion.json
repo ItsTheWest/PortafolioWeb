@@ -46,7 +46,7 @@
     }
   },
   "footer": {
-    "texto": "Built by {{name}} © {{year}}  Turning ideas into code."
+    "texto": "Built by {{name}} {{year}}  Turning ideas into code."
   },
   "lang": {
     "es": "Spanish",

@@ -46,7 +46,7 @@
     }
   },
   "footer": {
-    "texto": "Desarrollado por {{name}} © {{year}}  Transformando ideas en código."
+    "texto": "Desarrollado por {{name}}  {{year}}  Transformando ideas en código."
   },
   "lang": {
     "es": "Español",
