@@ -18,6 +18,7 @@ body {
 
 .offline-container{
   min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,11 +29,13 @@ body {
   right: 0;
   bottom: 0;
   overflow: hidden;
+  /* Centrado perfecto en todos los dispositivos */
+  box-sizing: border-box;
 }
 
 .offline-card{
   max-width: 620px;
-  width: 100%;
+  width: calc(100% - 2rem);
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(8px);
@@ -40,6 +43,9 @@ body {
   padding: 2rem;
   text-align: center;
   animation: offlineAppear 0.6s ease-out;
+  /* Centrado perfecto */
+  margin: auto;
+  box-sizing: border-box;
 }
 
 .offline-card h1{
@@ -121,8 +127,103 @@ margin-top: 1.5rem;
   scroll-margin-top: 70px; /* Cambia 80px por la altura de tu header */
 }
 
-@media (max-width:  800px) {
+@media (max-width: 800px) {
+  .offline-container {
+    padding: 0.5rem;
+  }
+  
+  .offline-card {
+    width: calc(100% - 1rem);
+    padding: 1.5rem;
+    margin: 0;
+    /* Centrado absoluto en móviles */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 
+@media (max-width: 480px) {
+  .offline-container {
+    padding: 0.25rem;
+  }
+  
+  .offline-card {
+    width: calc(100% - 0.5rem);
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .offline-card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .offline-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .wifi-icon {
+    margin-bottom: 0.75rem;
+  }
+  
+  .wifi-icon svg {
+    width: 4em;
+    height: 4em;
+  }
+}
+
+/* Para dispositivos muy pequeños */
+@media (max-width: 360px) {
+  .offline-card {
+    padding: 0.75rem;
+  }
+  
+  .offline-card h1 {
+    font-size: 1.3rem;
+  }
+  
+  .offline-card p {
+    font-size: 0.85rem;
+  }
+  
+  .wifi-icon svg {
+    width: 3.5em;
+    height: 3.5em;
+  }
+}
+
+/* Para orientación landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .offline-container {
+    padding: 0.25rem;
+  }
+  
+  .offline-card {
+    padding: 1rem;
+    max-width: 500px;
+  }
+  
+  .wifi-icon {
+    margin-bottom: 0.5rem;
+  }
+  
+  .wifi-icon svg {
+    width: 3em;
+    height: 3em;
+  }
+  
+  .offline-card h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .offline-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 @keyframes offlineAppear {
