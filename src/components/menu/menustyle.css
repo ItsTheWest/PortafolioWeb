@@ -399,6 +399,24 @@ header {
   object-fit: cover;
 }
 
+/* Placeholder (spinner) para banderas mientras cargan */
+.flag-placeholder {
+  width: 1.4em;
+  height: 1.4em;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  border: 2px solid rgba(255,255,255,0.12);
+  border-top-color: rgba(255,255,255,0.6);
+  animation: flag-spin 1s linear infinite;
+}
+
+@keyframes flag-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .lang-check {
   margin-left: auto;
   color: #007bff;

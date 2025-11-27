@@ -37,7 +37,7 @@ function Navegador(props:NavegadorProps) {
   // Opciones del menú lateral
   const menuOptions = [
     { href: "#Yo", icon: "fa-solid fa-user", label: t('nav.sobremi') },
-    { href: "#Tec", icon: "fa-solid fa-code", label: t('nav.habilidades') },
+    { href: "#Tec", icon: "fa-solid fa-code", label: t('nav.tegnologías') },
     { href: "#Ex", icon: "fa-solid fa-briefcase", label: t('nav.experiencia') },
     { href: "#Pro", icon: "fa-solid fa-folder-open", label: t('nav.proyectos') },
     { href: "#Lang", icon: "fa-solid fa-globe", label: t('nav.idiomas'), isLang: true }
@@ -49,6 +49,17 @@ function Navegador(props:NavegadorProps) {
     { code: "en", label: t('lang.en'), icon: "/img/banderas/eeuu.svg" }
   ];
   const selectedLang = i18n.language.startsWith("en") ? "en" : "es";
+
+  // Estado para controlar carga de cada bandera por separado
+  const [flagsLoaded, setFlagsLoaded] = useState<Record<string, boolean>>({});
+
+  // Inicializar estados de carga para cada idioma (false = cargando)
+  useEffect(() => {
+    const initial: Record<string, boolean> = {};
+    LANGUAGES.forEach(l => { initial[l.code] = false; });
+    setFlagsLoaded(initial);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -63,7 +74,7 @@ function Navegador(props:NavegadorProps) {
       {/* Menú de escritorio */}
       <nav className="desktop-nav">
         <a href="#Yo">{t('nav.sobremi')}</a>
-        <a href="#Tec">{t('nav.habilidades')}</a>
+        <a href="#Tec">{t('nav.tegnologías')}</a>
         <a href="#Ex">{t('nav.experiencia')}</a>
         <a href="#Pro">{t('nav.proyectos')}</a>
       </nav>
@@ -139,7 +150,20 @@ function Navegador(props:NavegadorProps) {
                       }}
                       className={`lang-option${selectedLang === lang.code ? " selected" : ""}`}
                     >
-                      <img src={lang.icon} alt={lang.label} className="lang-flag-svg" />
+                      <span style={{display: 'inline-flex', alignItems: 'center'}}>
+                        {/* Placeholder mientras la imagen carga; luego se muestra la imagen */}
+                        {!flagsLoaded[lang.code] && (
+                          <span className="flag-placeholder" aria-hidden="true" />
+                        )}
+                        <img
+                          src={lang.icon}
+                          alt={lang.label}
+                          className="lang-flag-svg"
+                          style={{display: flagsLoaded[lang.code] ? 'inline-block' : 'none'}}
+                          onLoad={() => setFlagsLoaded(prev => ({...prev, [lang.code]: true}))}
+                          onError={() => setFlagsLoaded(prev => ({...prev, [lang.code]: false}))}
+                        />
+                      </span>
                       {lang.label}
                       {selectedLang === lang.code && (
                         <i className="fa-solid fa-check lang-check"></i>

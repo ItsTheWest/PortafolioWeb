@@ -8,7 +8,7 @@ interface PerfilProps{
 }
 
 const abrirDocumento = () => {
-  window.open("/documents/CV-NelsonFigueroa-2025.pdf", "_blank");
+  window.open("/documents/CV-NelsonFigueroa-2025-2.pdf", "_blank");
 };
 
 const Perfil: FC<PerfilProps> = (props) => {
