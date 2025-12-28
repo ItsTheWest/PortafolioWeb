@@ -1,11 +1,11 @@
 {
   "nav": {
-      "inicio": "Home",
-      "sobremi": "About Me",
-      "tegnologías": "Technologies",
-      "proyectos": "Projects",
-      "experiencia": "Experience",
-      "idiomas": "Languages"
+    "inicio": "Home",
+    "sobremi": "About Me",
+    "tegnologías": "Technologies",
+    "proyectos": "Projects",
+    "experiencia": "Experience",
+    "idiomas": "Languages"
   },
   "perfil": {
     "alt": "Profile",
@@ -17,7 +17,7 @@
       "Junior Web Developer"
     ]
   },
-  "sobremi":{
+  "sobremi": {
     "Parrafo1": "I am passionate about technology and web development, with a solid background as an IT Technician and practical experience creating websites. I am always looking to learn new technologies to improve my skills.",
     "Parrafo2": "My goal is to contribute to the success of innovative web projects by providing creative and efficient solutions. I am committed to continuous learning and constant improvement, seeking opportunities to grow professionally in the field of web development."
   },
@@ -36,13 +36,18 @@
     "proyectos": "Projects"
   },
   "tecnologias": {
-    "parrafo": "This section gathers the languages and technologies I use and have applied in the field of web development, dynamic interfaces, scalable applications, and robust solutions."
+    "parrafo": "This section gathers the technologies and technologies I use and have applied in the field of web development, dynamic interfaces, scalable applications, and robust solutions."
   },
   "proyectos": {
     "item1": {
       "title": "Web System for Statistical Analysis",
       "subtitle": "High School Project",
       "description": "Together with a team of three people, a web system was designed and developed focused on analyzing prices and demand in a supermarket chain, using statistical tools to facilitate business decision-making"
+    },
+    "item2": {
+      "title": "Inventory and Billing Web System",
+      "subtitle": "Personal Project (In Development)",
+      "description": "This comprehensive web system automates inventory management and billing for businesses, providing detailed sales reports and statistics. It integrates key processes through AI automation."
     }
   },
   "footer": {

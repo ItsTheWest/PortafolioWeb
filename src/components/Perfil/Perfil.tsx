@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import type { ReactNode, FC } from "react";
 import { useTranslation } from "react-i18next";
 
-interface PerfilProps{
-    children?:ReactNode;
+interface PerfilProps {
+  children?: ReactNode;
 }
 
 const abrirDocumento = () => {
-  window.open("/documents/CV-NelsonFigueroa-2025-2.pdf", "_blank");
+  window.open("/documents/CV-NelsonFigueroa-2025.3.pdf", "_blank");
 };
 
 const Perfil: FC<PerfilProps> = (props) => {

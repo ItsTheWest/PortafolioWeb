@@ -12,8 +12,8 @@ type ProyectosProps = {
   description: string;
   tech: Tech[];
   image: string;
-  githubUrl: string;
-  liveUrl: string;
+  githubUrl?: string;
+  liveUrl?: string;
 };
 
 export const Proyectos: React.FC<ProyectosProps> = ({
@@ -28,9 +28,11 @@ export const Proyectos: React.FC<ProyectosProps> = ({
   const [copied, setCopied] = useState(false);
 
   const copyLink = () => {
-    navigator.clipboard.writeText(liveUrl);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    if (liveUrl) {
+      navigator.clipboard.writeText(liveUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    }
   };
 
   return (
@@ -50,31 +52,35 @@ export const Proyectos: React.FC<ProyectosProps> = ({
           ))}
         </div>
         <div className="project-actions">
-          <button
-            onClick={copyLink}
-            title="Copiar link"
-            className="action-btn copy-btn"
-            aria-label="Copiar link"
-            type="button"
-          >
-            <span className={`icon-wrapper${copied ? ' copied' : ''}`}>
-              <i className="fa-solid fa-link icon icon-copy"></i>
-              <i className="fa-solid fa-check icon icon-check"></i>
-            </span>
-          </button>
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Ver en GitHub"
-            className="action-btn"
-            aria-label="Ver en GitHub"
-            tabIndex={0}
-          >
-            <span className="icon-wrapper">
-              <i className="fa-brands fa-github icon"></i>
-            </span>
-          </a>
+          {liveUrl && (
+            <button
+              onClick={copyLink}
+              title="Copiar link"
+              className="action-btn copy-btn"
+              aria-label="Copiar link"
+              type="button"
+            >
+              <span className={`icon-wrapper${copied ? ' copied' : ''}`}>
+                <i className="fa-solid fa-link icon icon-copy"></i>
+                <i className="fa-solid fa-check icon icon-check"></i>
+              </span>
+            </button>
+          )}
+          {githubUrl && (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Ver en GitHub"
+              className="action-btn"
+              aria-label="Ver en GitHub"
+              tabIndex={0}
+            >
+              <span className="icon-wrapper">
+                <i className="fa-brands fa-github icon"></i>
+              </span>
+            </a>
+          )}
         </div>
       </div>
       <div className="project-image">

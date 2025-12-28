@@ -1,12 +1,12 @@
 {
-    "nav": {
-        "inicio": "Inicio",
-      "sobremi": "Sobre mí",
-      "tegnologías": "Tegnologías",
-      "proyectos": "Proyectos",
-        "experiencia": "Experiencia",
-        "idiomas": "Idiomas"
-    },
+  "nav": {
+    "inicio": "Inicio",
+    "sobremi": "Sobre mí",
+    "tegnologías": "Tegnologías",
+    "proyectos": "Proyectos",
+    "experiencia": "Experiencia",
+    "idiomas": "Idiomas"
+  },
   "perfil": {
     "alt": "Perfil",
     "hola": "Hola,",
@@ -17,7 +17,7 @@
       "Desarrollador Web Junior"
     ]
   },
-  "sobremi":{
+  "sobremi": {
     "Parrafo1": "Soy un apasionado de la tecnología y el desarrollo web, con una sólida formación como Técnico Medio en Informática y experiencia práctica en la creación de sitios web, además siempre estoy buscando aprender nuevas tecnologías para mejorar mis habilidades.",
     "Parrafo2": "Mi objetivo es contribuir al éxito de proyectos web innovadores, aportando soluciones creativas y eficientes. Estoy comprometido con el aprendizaje continuo y la mejora constante,  buscando oportunidades para crecer profesionalmente en el campo del desarrollo web."
   },
@@ -36,13 +36,18 @@
     "proyectos": "Proyectos"
   },
   "tecnologias": {
-    "parrafo": "Este apartado reúne los lenguajes que manejo y he aplicado en el ámbito del desarrollo web, interfaces dinámicas, aplicaciones escalables y soluciones robustas"
+    "parrafo": "Este apartado reúne las tecnologías que manejo y he aplicado en el ámbito del desarrollo web, interfaces dinámicas, aplicaciones escalables y soluciones robustas"
   },
   "proyectos": {
     "item1": {
       "title": "Sistema Web de Análisis Estadístico",
       "subtitle": "Proyecto de Bachiller",
       "description": "Junto a un equipo de tres personas, se diseñó y desarrolló un sistema web orientado al análisis de precios y demanda en una cadena de supermercados, utilizando herramientas estadísticas para facilitar la toma de decisiones comerciales"
+    },
+    "item2": {
+      "title": "Sistema web de Inventario y Facturación",
+      "subtitle": "Proyecto Personal (En Desarrollo)",
+      "description": "Este sistema web integral automatiza la gestión de inventario y la facturación de las empresas, ademas de proporcionar reportes y estadísticas detalladas de ventas, e integra procesos clave mediante la automatización con Inteligencia Artificial (IA)."
     }
   },
   "footer": {
@@ -52,5 +57,4 @@
     "es": "Español",
     "en": "Inglés"
   }
-  
 }
