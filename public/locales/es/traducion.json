@@ -48,6 +48,11 @@
       "title": "Sistema web de Inventario y Facturación",
       "subtitle": "Proyecto Personal (En Desarrollo)",
       "description": "Este sistema web integral automatiza la gestión de inventario y la facturación de las empresas, ademas de proporcionar reportes y estadísticas detalladas de ventas, e integra procesos clave mediante la automatización con Inteligencia Artificial (IA)."
+    },
+    "item3": {
+      "title": "Sistema web para los contratos de personas",
+      "subtitle": "Prueba Técnica - Seguros Miranda",
+      "description": "Este sistema web permite añadir a personas con un formulario y poder gestionar que contrato tiene cada una mediante una vista en la que estan todas las personas pertenecientes a la base de datos.Toda la descripcion del proceso se encuentra en el README.md"
     }
   },
   "footer": {

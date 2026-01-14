@@ -48,6 +48,11 @@
       "title": "Inventory and Billing Web System",
       "subtitle": "Personal Project (In Development)",
       "description": "This comprehensive web system automates inventory management and billing for businesses, providing detailed sales reports and statistics. It integrates key processes through AI automation."
+    },
+    "item3": {
+      "title": "Web System for Contracts",
+      "subtitle": "Technical Test - Seguros Miranda",
+      "description": "This web system allows adding people with a form and managing which contract each one has through a view in which all people are displayed. Toda la descripcion del proceso se encuentra en el README.md"
     }
   },
   "footer": {
