@@ -1,4 +1,4 @@
-*{
+* {
   font-family: "Ancizar Sans", sans-serif;
   margin: 0;
 }
@@ -10,13 +10,14 @@ body {
 
 body {
   min-height: 100vh;
-  background-color: #171717; /* neutral-950 */
-  background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(49, 47, 170, 0.3), rgba(11, 11, 39, 0.3));
+  background-color: #171717;
+  /* neutral-950 */
+  background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.offline-container{
+.offline-container {
   min-height: 100vh;
   height: 100vh;
   display: flex;
@@ -33,11 +34,11 @@ body {
   box-sizing: border-box;
 }
 
-.offline-card{
+.offline-card {
   max-width: 620px;
   width: calc(100% - 2rem);
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 2rem;
@@ -48,18 +49,19 @@ body {
   box-sizing: border-box;
 }
 
-.offline-card h1{
+.offline-card h1 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
 }
 
-.offline-card p{
+.offline-card p {
   color: #cbd5e1;
   animation: textFadeIn 0.8s ease-out 0.2s both;
 }
 
 .wifi-icon {
-  margin-bottom: 1rem; /* Reduced from 1.5rem */
+  margin-bottom: 1rem;
+  /* Reduced from 1.5rem */
   color: #ef4444;
   animation: wifiPulse 2s ease-in-out infinite;
 }
@@ -68,7 +70,7 @@ body {
   filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.3));
 }
 
-main{
+main {
   margin-left: 3%;
   margin-right: 3%;
 }
@@ -76,7 +78,7 @@ main{
 .title {
   font-size: 2.1rem;
   font-weight: bold;
-  background: linear-gradient(90deg, #ffffff, #007bff, #ffa600 , #ffffff);
+  background: linear-gradient(90deg, #ffffff, #007bff, #ffa600, #ffffff);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -92,24 +94,26 @@ main{
   0% {
     background-position: 0% center;
   }
+
   100% {
     background-position: 200% center;
   }
 }
 
-.parra{
+.parra {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #ffffff; /* text-slate-300 */
+  color: #ffffff;
+  /* text-slate-300 */
   font-size: 18px;
-max-width: 800px;
-margin: auto;
-margin-bottom: 1rem;
-margin-top: 1.5rem;
- line-height: 1.6;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  line-height: 1.6;
 }
 
- @media (max-width: 400px) {
+@media (max-width: 400px) {
   .title {
     font-size: 1.8rem;
     margin-top: 10%;
@@ -121,17 +125,19 @@ margin-top: 1.5rem;
     margin: auto;
     margin-bottom: 1rem;
   }
- }
+}
 
- h2[id], section[id] {
-  scroll-margin-top: 70px; /* Cambia 80px por la altura de tu header */
+h2[id],
+section[id] {
+  scroll-margin-top: 70px;
+  /* Cambia 80px por la altura de tu header */
 }
 
 @media (max-width: 800px) {
   .offline-container {
     padding: 0.5rem;
   }
-  
+
   .offline-card {
     width: calc(100% - 1rem);
     padding: 1.5rem;
@@ -148,27 +154,27 @@ margin-top: 1.5rem;
   .offline-container {
     padding: 0.25rem;
   }
-  
+
   .offline-card {
     width: calc(100% - 0.5rem);
     padding: 1rem;
     border-radius: 12px;
   }
-  
+
   .offline-card h1 {
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
   }
-  
+
   .offline-card p {
     font-size: 0.9rem;
     line-height: 1.4;
   }
-  
+
   .wifi-icon {
     margin-bottom: 0.75rem;
   }
-  
+
   .wifi-icon svg {
     width: 4em;
     height: 4em;
@@ -180,15 +186,15 @@ margin-top: 1.5rem;
   .offline-card {
     padding: 0.75rem;
   }
-  
+
   .offline-card h1 {
     font-size: 1.3rem;
   }
-  
+
   .offline-card p {
     font-size: 0.85rem;
   }
-  
+
   .wifi-icon svg {
     width: 3.5em;
     height: 3.5em;
@@ -200,26 +206,26 @@ margin-top: 1.5rem;
   .offline-container {
     padding: 0.25rem;
   }
-  
+
   .offline-card {
     padding: 1rem;
     max-width: 500px;
   }
-  
+
   .wifi-icon {
     margin-bottom: 0.5rem;
   }
-  
+
   .wifi-icon svg {
     width: 3em;
     height: 3em;
   }
-  
+
   .offline-card h1 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .offline-card p {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
@@ -231,9 +237,11 @@ margin-top: 1.5rem;
     opacity: 0;
     transform: translateY(30px) scale(0.9);
   }
+
   50% {
     transform: translateY(-5px) scale(1.02);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -245,6 +253,7 @@ margin-top: 1.5rem;
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -252,10 +261,13 @@ margin-top: 1.5rem;
 }
 
 @keyframes wifiPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(1.1);
     opacity: 0.8;

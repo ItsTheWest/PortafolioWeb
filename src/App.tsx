@@ -1,35 +1,34 @@
 import './App.css'
-import Navegador, { Dropdown } from './components/menu/Navegador'
-import Perfil, { Typewriter } from './components/Perfil/Perfil'
-import Tecnologias from './components/tecnologias/Tecnologias';
+import Navegador, { Dropdown } from './components/menu/Navegador';
+import Perfil, { Typewriter } from './components/Perfil/Perfil';
 import Experiencia from './components/Experiencia/Experiencia';
 import { Proyectos } from './components/Proyectos/Proyectos';
 import { Footer } from './components/footer/footer';
 import Sobremi from './components/sobremi/Sobremi';
 import { Suspense, useEffect, useState } from 'react';
 import { useTranslation } from "react-i18next";
+import Squares from './componenty/Squares';
+import LogoLoop from './componenty/LogoLoop';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet } from 'react-icons/si';
+
+const techLogos = [
+  { node: <SiReact />, title: "React", href: "https://react.dev" },
+  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  { node: <SiAngular />, title: "Angular", href: "https://angular.io" },
+  { node: <SiLaravel />, title: "Laravel", href: "https://laravel.com" },
+  { node: <SiJavascript />, title: "JavaScript", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+  { node: <SiSupabase />, title: "Supabase", href: "https://supabase.com" },
+  { node: <SiGithub />, title: "GitHub", href: "https://github.com" },
+  { node: <SiGit />, title: "Git", href: "https://git-scm.com" },
+  { node: <SiMysql />, title: "MySQL", href: "https://www.mysql.com" },
+  { node: <SiDotnet />, title: ".NET", href: "https://dotnet.microsoft.com/" },
+];
 
 function App() {
+
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
   const { t } = useTranslation();
-  const skills = [
-    { icon: '/img/htmlLogo.svg', name: 'HTML5', bgColor: '#e44d26' },
-    { icon: '/img/cssLogo.svg', name: 'CSS3', bgColor: '#264de4' },
-    { icon: '/img/tailwindLogo.svg', name: 'Tailwind', bgColor: '#1bd4ecff' },
-    { icon: '/img/jsLogo.svg', name: 'JavaScript', bgColor: '#f0db4f' },
-    { icon: '/img/tsLogo.svg', name: 'TypeScript', bgColor: 'rgba(22, 93, 247, 1)' },
-    { icon: '/img/phpLogo.svg', name: 'PHP', bgColor: '#8892BF' },
-    { icon: '/img/cLogo.svg', name: 'C++', bgColor: '#00599C' },
-    { icon: '/img/365Logo.png', name: 'M365', bgColor: '#00758F' },
-    { icon: '/img/reactLogo.svg', name: 'React', bgColor: '#61DBFB' },
-    { icon: '/img/angularLogo.svg', name: 'Angular', bgColor: '#dd0031' },
-    { icon: '/img/laravelLogo.svg', name: 'Laravel', bgColor: '#FF2D20' },
-    { icon: '/img/mysqlLogo.svg', name: 'Mysql', bgColor: '#00758F' },
-    { icon: '/img/gitLogo.svg', name: 'GitHub', bgColor: 'rgba(255, 255, 255, 1)' },
-    { icon: '/img/git2Logo.svg', name: 'Git', bgColor: '#FF2D20' },
-    { icon: '/img/supabaseLogo.svg', name: 'Supabase', bgColor: '#67c25eff' },
-
-  ];
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
@@ -95,6 +94,15 @@ function App() {
 
   return (
     <>
+      <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+        <Squares
+          speed={0.4}
+          squareSize={40}
+          direction='down'
+          borderColor='#333'
+          hoverFillColor='#444'
+        />
+      </div>
       <Suspense fallback="Cargando traduciones">
         <Navegador>
 
@@ -110,7 +118,20 @@ function App() {
           <hr></hr>
           <h2 id="Tec" className="title">{t('secciones.tecnologias')}</h2>
           <p className='parra'>{t('tecnologias.parrafo')}</p>
-          <Tecnologias skills={skills} />
+          <div style={{ height: '100px', position: 'relative', marginTop: '40px', width: '100%', maxWidth: '800px', margin: '40px auto', display: 'flex', alignItems: 'center' }}>
+            <LogoLoop
+              logos={techLogos}
+              speed={60}
+              direction="left"
+              logoHeight={50}
+              gap={60}
+              hoverSpeed={0}
+              scaleOnHover
+              fadeOut
+              ariaLabel="Technology partners"
+            />
+          </div>
+
           <hr></hr>
           <h2 id="Ex" className="title">{t('secciones.experiencia')}</h2>
           <Experiencia></Experiencia>

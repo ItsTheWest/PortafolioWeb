@@ -1,0 +1,129 @@
+.logo-loop-root {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+    /* Allow vertical overflow for hover effects */
+    padding-top: 20px;
+    /* Add space for scaling */
+    padding-bottom: 20px;
+    margin-top: -20px;
+    /* Offset the padding to maintain layout */
+    margin-bottom: -20px;
+    /* Width handling is done via inline styles usually, but let's ensure it behaves */
+}
+
+.logo-loop-root.vertical {
+    overflow: hidden;
+    height: 100%;
+    display: inline-block;
+}
+
+/* Track */
+.logo-loop-track {
+    display: flex;
+    will-change: transform;
+    user-select: none;
+    position: relative;
+    z-index: 0;
+    width: max-content;
+    flex-direction: row;
+}
+
+.logo-loop-root.vertical .logo-loop-track {
+    flex-direction: column;
+    height: max-content;
+    width: 100%;
+}
+
+/* Lists */
+.logo-loop-list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.logo-loop-root.vertical .logo-loop-list {
+    flex-direction: column;
+}
+
+/* Items */
+.logo-loop-item {
+    flex: none;
+    line-height: 1;
+    /* We use CSS variables for spacing in the component, but we can also set defaults */
+    margin-right: var(--logoloop-gap, 32px);
+    font-size: var(--logoloop-logoHeight, 28px);
+}
+
+.logo-loop-root.vertical .logo-loop-item {
+    margin-right: 0;
+    margin-bottom: var(--logoloop-gap, 32px);
+}
+
+/* Content/Links */
+.logo-loop-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: opacity 0.2s linear;
+    color: inherit;
+    /* Inherit color from parent */
+}
+
+.logo-loop-link:hover {
+    opacity: 0.8;
+}
+
+.logo-loop-content {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Images */
+.logo-loop-image {
+    height: var(--logoloop-logoHeight, 28px);
+    width: auto;
+    display: block;
+    object-fit: contain;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+/* Gradient Fades using Mask Image */
+.logo-loop-root.faded {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.logo-loop-root.vertical.faded {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+/* Hover Scaling */
+.logo-loop-item.scale-hover .logo-loop-content,
+.logo-loop-item.scale-hover .logo-loop-image {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-loop-item.scale-hover:hover .logo-loop-content,
+.logo-loop-item.scale-hover:hover .logo-loop-image {
+    transform: scale(1.2);
+}
+
+/* Grayscale styling for icons to match design */
+.logo-loop-root svg {
+    fill: currentColor;
+    /* Ensure SVGs use current text color */
+    color: #ffffff !important;
+    /* Neutral gray like in the design */
+    transition: color 0.3s ease;
+}
+
+.logo-loop-root svg:hover {
+    color: #ffffff !important;
+    /* White on hover */
+}
