@@ -40,6 +40,7 @@ function Navegador(props:NavegadorProps) {
     { href: "#Tec", icon: "fa-solid fa-code", label: t('nav.tegnologías') },
     { href: "#Ex", icon: "fa-solid fa-briefcase", label: t('nav.experiencia') },
     { href: "#Pro", icon: "fa-solid fa-folder-open", label: t('nav.proyectos') },
+    { href: "#Contacto", icon: "fa-solid fa-paper-plane", label: t('nav.contacto') },
     { href: "#Lang", icon: "fa-solid fa-globe", label: t('nav.idiomas'), isLang: true }
   ];
 
@@ -73,10 +74,27 @@ function Navegador(props:NavegadorProps) {
       
       {/* Menú de escritorio */}
       <nav className="desktop-nav">
-        <a href="#Yo">{t('nav.sobremi')}</a>
-        <a href="#Tec">{t('nav.tegnologías')}</a>
-        <a href="#Ex">{t('nav.experiencia')}</a>
-        <a href="#Pro">{t('nav.proyectos')}</a>
+        {[
+          { id: 'Yo', label: t('nav.sobremi') },
+          { id: 'Tec', label: t('nav.tegnologías') },
+          { id: 'Ex', label: t('nav.experiencia') },
+          { id: 'Pro', label: t('nav.proyectos') },
+          { id: 'Contacto', label: t('nav.contacto') },
+        ].map(item => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById(item.id)?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+              });
+            }}
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
       <div className="acciones desktop-actions">
         {children}
@@ -104,10 +122,19 @@ function Navegador(props:NavegadorProps) {
             <a
               key={opt.href}
               href={opt.href}
-              onClick={() => { 
+              onClick={(e) => { 
+                e.preventDefault();
+                const targetId = opt.href.replace('#', '');
                 setSelectedMenu(opt.href); 
-                setShowLangSubmenu(false); // <-- Cierra el submenú de idiomas si estaba abierto
-                closeMenu(); 
+                setShowLangSubmenu(false);
+                closeMenu();
+                // Small delay so the mobile menu closes first before scrolling
+                setTimeout(() => {
+                  document.getElementById(targetId)?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                  });
+                }, 280);
               }}
               className={selectedMenu === opt.href ? "selected" : ""}
             >

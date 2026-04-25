@@ -5,6 +5,7 @@
     "tegnologías": "Technologies",
     "proyectos": "Projects",
     "experiencia": "Experience",
+    "contacto": "Contact",
     "idiomas": "Languages"
   },
   "perfil": {
@@ -19,7 +20,13 @@
   },
   "sobremi": {
     "Parrafo1": "I am passionate about technology and web development, with a solid background as an IT Technician and practical experience creating websites. I am always looking to learn new technologies to improve my skills.",
-    "Parrafo2": "My goal is to contribute to the success of innovative web projects by providing creative and efficient solutions. I am committed to continuous learning and constant improvement, seeking opportunities to grow professionally in the field of web development."
+    "Parrafo2": "My goal is to contribute to the success of innovative web projects by providing creative and efficient solutions. I am committed to continuous learning and constant improvement, seeking opportunities to grow professionally in the field of web development.",
+    "card1Title": "Concepts before code",
+    "card1Desc": "Designing and modeling relational databases to build solid foundations.",
+    "card2Title": "AI-Powered Development",
+    "card2Desc": "Leveraging Artificial Intelligence tools to prototype and code faster.",
+    "card3Title": "Clean & Scalable Code",
+    "card3Desc": "Building interactive and efficient components using technologies like React."
   },
   "experiencia": [
     {
@@ -33,7 +40,8 @@
     "sobremi": "About Me",
     "tecnologias": "Technologies",
     "experiencia": "Experience",
-    "proyectos": "Projects"
+    "proyectos": "Projects",
+    "contacto": "Contact"
   },
   "tecnologias": {
     "parrafo": "This section brings together the technologies that I handle at a good level and have applied in the field of web development, dynamic interfaces, scalable applications and robust solutions."
@@ -48,7 +56,19 @@
       "title": "Inventory and Billing Web System",
       "subtitle": "Personal Project (In Development)",
       "description": "This comprehensive web system automates inventory management and billing for businesses, providing detailed sales reports and statistics. It integrates key processes through AI automation."
+    },
+    "item3": {
+      "title": "Payment Management System — Cádiz FC",
+      "subtitle": "Client Project",
+      "description": "Web platform that centralizes and automates payment management for a sports team, fully replacing a manual Excel-based workflow. The system receives payment records through a public external form, enables comprehensive management of players, categories, and internal payments, generates reports filtered by category and date range, and sends automated notifications — all from a unified admin panel."
     }
+  },
+  "contacto": {
+    "eyebrow": "Ready to collaborate?",
+    "headline1": "Let's talk and",
+    "headline2": "build something great.",
+    "sub": "I'm available for freelance projects, collaborations, or just a chat about tech. Don't hesitate to reach out.",
+    "emailBtn": "Email"
   },
   "footer": {
     "texto": "Built by {{name}} {{year}}  Turning ideas into code."

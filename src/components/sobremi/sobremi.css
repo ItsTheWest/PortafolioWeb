@@ -1,74 +1,136 @@
-.contenedor-sobremi {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px; /* Espaciado considerable entre texto e imagen */
-  max-width: 790px;
-    margin: auto;
-    margin-bottom: 3rem;
-    margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
+/* ══════════════════════════════════════════════════
+   Sobremi — text-only, aligned with the page grid
+   max-width + margin:auto mirrors .parra in App.css
+   ══════════════════════════════════════════════════ */
 
-.sobremi-texto {
-  flex: 1 1 1px;
+.sobremi-section {
+  max-width: 800px;      /* Restored to 800px to maintain grid alignment */
+  margin: 1.5rem auto 3rem;
   font-size: 18px;
   color: #e5e5e5;
-   line-height: 1.6;
+  line-height: 1.7;
 }
 
-.sobremi-imagen {
-  flex: 0 0 220px;
+.sobremi-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem; /* Reduced gap to keep things compact */
+}
+
+.sobremi-text {
+  flex: 1; /* Reset to 1 to reduce text width */
+}
+
+.sobremi-visual {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.sobremi-imagen-img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #23272f;
-  box-shadow: 0 2px 16px #0ea4e9c2;
-  background: #171717;
+.sobremi-p2 {
+  margin-top: 1.2rem;
 }
 
-/* Responsive para pantallas pequeñas */
-@media (max-width: 630px) {
-  .contenedor-sobremi {
-    flex-direction: column;
-    gap: 24px;
-    align-items: stretch;
-  }
-  .sobremi-imagen {
-    justify-content: center;
-    margin-top: 1rem;
-  }
+/* ── CardSwap Component ───────────────────────────── */
+.card-swap-container {
+  position: relative;
+  width: 250px; /* Base width of one card */
+  height: 350px; /* Base height */
+  margin-right: 50px; /* Reserve space for cards shifted to the right */
+  margin-top: 50px; /* Reserve space for cards shifted up */
+  perspective: 1000px;
+}
 
-    .sobremi-texto {
-         text-align: center;
-        
-    }
+.card-swap-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px; /* A bit more square like a window */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Top border only, no side/bottom borders as requested */
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background-color: #111;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.card-title {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.card-img-wrapper {
+  height: calc(100% - 40px); /* Fill the rest of the card */
+  width: 100%;
+  overflow: hidden;
+  background-color: #0a0a0a;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card-swap-item:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 850px) {
+  .sobremi-content {
+    flex-direction: column;
+    gap: 3rem; /* Reduced mobile gap */
+  }
+  
+  .sobremi-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 630px) {
+  .sobremi-section {
+    font-size: 16px;
+  }
+  
+  .card-swap-container {
+    width: 220px;
+    height: 310px;
+  }
 }
 
 @media (max-width: 400px) {
-  .sobremi-texto {
-    font-size: 16px;
-      text-align: center;
-      margin: auto;
-      max-width: 89%;
+  .sobremi-section {
+    font-size: 15px;
+    max-width: 89%;       /* same breakpoint as .parra */
   }
-
-  }
-  .sobremi-imagen-img {
-    width: 220px;
-    height: 220px;
-  }
-
-  @media (max-width:  800px) {
-  .contenedor-sobremi {
-   margin: 1rem;
-   margin-bottom: 4rem;
+  
+  .card-swap-container {
+    width: 200px;
+    height: 280px;
   }
 }

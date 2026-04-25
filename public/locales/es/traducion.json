@@ -5,6 +5,7 @@
     "tegnologías": "Tegnologías",
     "proyectos": "Proyectos",
     "experiencia": "Experiencia",
+    "contacto": "Contacto",
     "idiomas": "Idiomas"
   },
   "perfil": {
@@ -19,7 +20,13 @@
   },
   "sobremi": {
     "Parrafo1": "Soy un apasionado de la tecnología y el desarrollo web, con una sólida formación como Técnico Medio en Informática y experiencia práctica en la creación de sitios web, además siempre estoy buscando aprender nuevas tecnologías para mejorar mis habilidades.",
-    "Parrafo2": "Mi objetivo es contribuir al éxito de proyectos web innovadores, aportando soluciones creativas y eficientes. Estoy comprometido con el aprendizaje continuo y la mejora constante,  buscando oportunidades para crecer profesionalmente en el campo del desarrollo web."
+    "Parrafo2": "Mi objetivo es contribuir al éxito de proyectos web innovadores, aportando soluciones creativas y eficientes. Estoy comprometido con el aprendizaje continuo y la mejora constante,  buscando oportunidades para crecer profesionalmente en el campo del desarrollo web.",
+    "card1Title": "Conceptos antes que código",
+    "card1Desc": "Diseño y modelado de bases de datos relacionales para construir cimientos sólidos.",
+    "card2Title": "Desarrollo con IA",
+    "card2Desc": "Uso de herramientas de Inteligencia Artificial para prototipar y programar más rápido.",
+    "card3Title": "Código limpio y escalable",
+    "card3Desc": "Creación de componentes interactivos y eficientes utilizando tecnologías como React."
   },
   "experiencia": [
     {
@@ -33,7 +40,8 @@
     "sobremi": "Sobre Mi",
     "tecnologias": "Tecnologías",
     "experiencia": "Experiencia",
-    "proyectos": "Proyectos"
+    "proyectos": "Proyectos",
+    "contacto": "Contacto"
   },
   "tecnologias": {
     "parrafo": "Este apartado reúne las tecnologías que manejo en un buen nivel y he aplicado en el ámbito del desarrollo web, interfaces dinámicas, aplicaciones escalables y soluciones robustas"
@@ -48,7 +56,19 @@
       "title": "Sistema web de Inventario y Facturación",
       "subtitle": "Proyecto Personal (En Desarrollo)",
       "description": "Este sistema web integral automatiza la gestión de inventario y la facturación de las empresas, ademas de proporcionar reportes y estadísticas detalladas de ventas, e integra procesos clave mediante la automatización con Inteligencia Artificial (IA)."
+    },
+    "item3": {
+      "title": "Sistema de Gestión de Pagos — Cádiz FC",
+      "subtitle": "Proyecto para Cliente",
+      "description": "Plataforma web que centraliza y automatiza el control de pagos de un equipo deportivo, reemplazando por completo un proceso manual que se llevaba en hojas de Excel. El sistema recibe los registros de pago a través de un formulario público externo, permite la gestión integral de jugadores, categorías y pagos internos, genera reportes filtrados por categoría y rango de fechas, y envía notificaciones automáticas. Todo desde un panel administrativo unificado."
     }
+  },
+  "contacto": {
+    "eyebrow": "¿Listo para colaborar?",
+    "headline1": "Hablemos y",
+    "headline2": "construyamos algo increíble.",
+    "sub": "Estoy disponible para proyectos freelance, colaboraciones o simplemente para conversar sobre tecnología. No dudes en escribirme.",
+    "emailBtn": "Correo"
   },
   "footer": {
     "texto": "Desarrollado por {{name}}  {{year}}  Transformando ideas en código."
