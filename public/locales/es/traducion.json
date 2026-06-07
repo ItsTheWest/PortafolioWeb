@@ -61,6 +61,11 @@
       "title": "Sistema de Gestión de Pagos — Cádiz FC",
       "subtitle": "Proyecto para Cliente",
       "description": "Plataforma web que centraliza y automatiza el control de pagos de un equipo deportivo, reemplazando por completo un proceso manual que se llevaba en hojas de Excel. El sistema recibe los registros de pago a través de un formulario público externo, permite la gestión integral de jugadores, categorías y pagos internos, genera reportes filtrados por categoría y rango de fechas, y envía notificaciones automáticas. Todo desde un panel administrativo unificado."
+    },
+    "item4": {
+      "title": "Módulo de Gestión de Activos — Odoo",
+      "subtitle": "Módulo Personalizado ERP",
+      "description": "Módulo personalizado para Odoo ERP diseñado para optimizar el inventario, asignación y mantenimiento programado de activos fijos de la empresa, facilitando la visualización mediante vistas Kanban y reportes estadísticos dinámicos."
     }
   },
   "contacto": {

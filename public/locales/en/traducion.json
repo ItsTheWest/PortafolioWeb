@@ -61,6 +61,11 @@
       "title": "Payment Management System — Cádiz FC",
       "subtitle": "Client Project",
       "description": "Web platform that centralizes and automates payment management for a sports team, fully replacing a manual Excel-based workflow. The system receives payment records through a public external form, enables comprehensive management of players, categories, and internal payments, generates reports filtered by category and date range, and sends automated notifications — all from a unified admin panel."
+    },
+    "item4": {
+      "title": "Asset Management Module — Odoo",
+      "subtitle": "Custom ERP Module",
+      "description": "Custom Odoo ERP module designed to optimize fixed asset inventory, assignment, and maintenance scheduling, featuring detailed reports and a Kanban tracking view."
     }
   },
   "contacto": {

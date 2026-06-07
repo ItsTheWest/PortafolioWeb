@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiOdoo } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -41,6 +41,8 @@ const pythonIcon = <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20
 const supabaseIcon = <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 256 263"><defs><linearGradient id="sbGrad1" x1="20.862%" x2="63.426%" y1="20.687%" y2="44.071%"><stop offset="0%" stopColor="#249361" /><stop offset="100%" stopColor="#3ecf8e" /></linearGradient></defs><path fill="url(#sbGrad1)" d="M149.602 258.579c-6.718 8.46-20.338 3.824-20.5-6.977l-2.367-157.984h106.229c19.24 0 29.971 22.223 18.007 37.292z" /><path fill="#3ecf8e" d="M106.399 4.37c6.717-8.461 20.338-3.826 20.5 6.976l1.037 157.984H23.037c-19.241 0-29.973-22.223-18.008-37.292z" /></svg>;
 const n8nIcon = <img src="/img/n8nLogo.svg" alt="n8n" width={20} height={20} />;
 const nexticon = <img src="/nextjsicon.svg" alt="Next.js" width={20} height={20} />;
+const odooIcon = <SiOdoo color="#714B67" />;
+const postgresqlIcon = <SiPostgresql color="#4169E1" />;
 
 function App() {
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
@@ -92,6 +94,27 @@ function App() {
         { name: 'TypeScript', icon: tsIcon },
         { name: 'Supabase', icon: supabaseIcon },
         { name: 'Tailwind CSS', icon: tailwindIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item4.title'),
+      subtitle: t('proyectos.item4.subtitle'),
+      description: t('proyectos.item4.description'),
+      longDescription: t('proyectos.item4.description'),
+      image: '/img/odooproyect/actives.png',
+      images: [
+        '/img/odooproyect/kavan.png',
+        '/img/odooproyect/actives.png',
+        '/img/odooproyect/calendar.png',
+        '/img/odooproyect/estadistics.png',
+        '/img/odooproyect/tipeofactive.png',
+      ],
+      videoUrl: '/img/odooproyect/video.mp4',
+      tech: [
+        { name: 'Odoo', icon: odooIcon },
+        { name: 'Python', icon: pythonIcon },
+        { name: 'JavaScript', icon: jsIcon },
+        { name: 'PostgreSQL', icon: postgresqlIcon },
       ],
     },
   ];

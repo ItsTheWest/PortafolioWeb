@@ -55,20 +55,28 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
   const [copied, setCopied] = useState(false);
   const [visible, setVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showVideo, setShowVideo] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
 
-  // Build slide list: images + optional video
+  // Build slide list: images
   const imageSlides: string[] = proyecto.images && proyecto.images.length > 0
     ? proyecto.images
     : [proyecto.image];
   const hasVideo = !!proyecto.videoUrl;
-  const totalSlides = imageSlides.length + (hasVideo ? 1 : 0);
-  const showCarousel = totalSlides > 1;
+  const totalSlides = imageSlides.length;
+  // Carousel is only active/visible when NOT showing the video, and there are multiple images
+  const showCarousel = totalSlides > 1 && !showVideo;
 
   const goToSlide = (index: number) => {
     if (index < 0) setCurrentSlide(totalSlides - 1);
     else if (index >= totalSlides) setCurrentSlide(0);
     else setCurrentSlide(index);
   };
+
+  // Reset imageLoading whenever the slide changes or view mode changes
+  useEffect(() => {
+    setImageLoading(true);
+  }, [currentSlide, showVideo]);
 
   // Trigger enter animation after mount
   useEffect(() => {
@@ -104,8 +112,6 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
     }
   };
 
-  const isVideoSlide = hasVideo && currentSlide === totalSlides - 1;
-
   const modalContent = (
     <div
       className={`pm-overlay${visible ? ' pm-overlay--visible' : ''}`}
@@ -127,11 +133,25 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
         {/* ── Hero / Carousel ── */}
         <div className="pm-hero-wrapper">
           <div className="pm-hero">
-            {isVideoSlide ? (
+            {/* Loading Shimmer Spinner */}
+            {!showVideo && imageLoading && (
+              <div className="pm-hero-skeleton">
+                <div className="pm-skeleton-shimmer" />
+                <div className="pm-skeleton-spinner">
+                  <svg className="pm-spinner-svg" viewBox="0 0 50 50">
+                    <circle className="pm-spinner-path" cx="25" cy="25" r="20" fill="none" strokeWidth="4"></circle>
+                  </svg>
+                </div>
+              </div>
+            )}
+
+            {/* Video or Image Carousel */}
+            {showVideo && proyecto.videoUrl ? (
               <video
                 src={proyecto.videoUrl}
                 className="pm-hero-video"
                 controls
+                autoPlay
                 playsInline
                 preload="metadata"
               />
@@ -139,14 +159,43 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
               <img
                 src={imageSlides[currentSlide]}
                 alt={`${proyecto.title} - ${currentSlide + 1}`}
-                className="pm-hero-img"
+                className={`pm-hero-img ${imageLoading ? 'pm-img-loading' : 'pm-img-loaded'}`}
+                onLoad={() => setImageLoading(false)}
                 loading="lazy"
               />
             )}
+            
             <div className="pm-hero-gradient" />
 
             {proyecto.status && (
               <span className="pm-status-badge">{proyecto.status}</span>
+            )}
+
+            {/* Floating Video/Gallery Toggle Button */}
+            {hasVideo && (
+              <button
+                className="pm-video-toggle-btn"
+                onClick={(e) => { e.stopPropagation(); setShowVideo(!showVideo); }}
+                aria-label={showVideo ? "Ver galería de fotos" : "Ver video de demostración"}
+              >
+                {showVideo ? (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                    <span>Ver Galería</span>
+                  </>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <span>Ver Video</span>
+                  </>
+                )}
+              </button>
             )}
 
             {/* Carousel controls */}
@@ -172,13 +221,9 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
                   {Array.from({ length: totalSlides }).map((_, i) => (
                     <button
                       key={i}
-                      className={`pm-carousel-dot${i === currentSlide ? ' pm-carousel-dot--active' : ''}${hasVideo && i === totalSlides - 1 ? ' pm-carousel-dot--video' : ''}`}
+                      className={`pm-carousel-dot${i === currentSlide ? ' pm-carousel-dot--active' : ''}`}
                       onClick={(e) => { e.stopPropagation(); goToSlide(i); }}
-                      aria-label={
-                        hasVideo && i === totalSlides - 1
-                          ? 'Ver video'
-                          : `Imagen ${i + 1}`
-                      }
+                      aria-label={`Imagen ${i + 1}`}
                     />
                   ))}
                 </div>
