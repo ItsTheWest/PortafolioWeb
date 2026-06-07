@@ -65,7 +65,7 @@
     "item4": {
       "title": "Módulo de Gestión de Activos — Odoo",
       "subtitle": "Módulo Personalizado ERP",
-      "description": "Módulo personalizado para Odoo ERP diseñado para optimizar el inventario, asignación y mantenimiento programado de activos fijos de la empresa, facilitando la visualización mediante vistas Kanban y reportes estadísticos dinámicos."
+      "description": "Módulo personalizado para Odoo ERP diseñado para optimizar el inventario, asignación y mantenimiento programado de activos fijos. Integra procesos de Inteligencia Artificial (IA) para analizar el nivel de riesgo de los activos y extraer automáticamente datos estructurados a partir de documentos digitalizados, facilitando su control mediante vistas Kanban y reportes estadísticos dinámicos."
     }
   },
   "contacto": {

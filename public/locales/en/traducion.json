@@ -65,7 +65,7 @@
     "item4": {
       "title": "Asset Management Module — Odoo",
       "subtitle": "Custom ERP Module",
-      "description": "Custom Odoo ERP module designed to optimize fixed asset inventory, assignment, and maintenance scheduling, featuring detailed reports and a Kanban tracking view."
+      "description": "Custom Odoo ERP module designed to optimize fixed asset inventory, assignment, and maintenance scheduling. It integrates AI processes to analyze asset risk levels and automatically extract structured data from digitized documents, streamlining control via Kanban views and dynamic statistical reports."
     }
   },
   "contacto": {
