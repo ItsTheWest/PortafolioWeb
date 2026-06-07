@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiOdoo } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -41,7 +41,12 @@ const pythonIcon = <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20
 const supabaseIcon = <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 256 263"><defs><linearGradient id="sbGrad1" x1="20.862%" x2="63.426%" y1="20.687%" y2="44.071%"><stop offset="0%" stopColor="#249361" /><stop offset="100%" stopColor="#3ecf8e" /></linearGradient></defs><path fill="url(#sbGrad1)" d="M149.602 258.579c-6.718 8.46-20.338 3.824-20.5-6.977l-2.367-157.984h106.229c19.24 0 29.971 22.223 18.007 37.292z" /><path fill="#3ecf8e" d="M106.399 4.37c6.717-8.461 20.338-3.826 20.5 6.976l1.037 157.984H23.037c-19.241 0-29.973-22.223-18.008-37.292z" /></svg>;
 const n8nIcon = <img src="/img/n8nLogo.svg" alt="n8n" width={20} height={20} />;
 const nexticon = <img src="/nextjsicon.svg" alt="Next.js" width={20} height={20} />;
-const odooIcon = <SiOdoo color="#714B67" />;
+const odooIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={20} height={20}>
+    <rect width="24" height="24" rx="5" fill="#714B67" />
+    <path d="M12 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 9.6c-2 0-3.6-1.6-3.6-3.6S10 8.4 12 8.4s3.6 1.6 3.6 3.6-1.6 3.6-3.6 3.6z" fill="#FFFFFF" />
+  </svg>
+);
 const postgresqlIcon = <SiPostgresql color="#4169E1" />;
 
 function App() {
