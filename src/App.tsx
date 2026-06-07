@@ -93,7 +93,16 @@ function App() {
       subtitle: t('proyectos.item3.subtitle'),
       description: t('proyectos.item3.description'),
       longDescription: t('proyectos.item3.description'),
-      image: '/img/proyectiocadiz.png',
+      image: '/img/cadiz/inicio.png',
+      images: [
+        '/img/cadiz/inicio.png',
+        '/img/cadiz/form.png',
+        '/img/cadiz/categoria.png',
+        '/img/cadiz/gestion.png',
+        '/img/cadiz/jugadores.png',
+        '/img/cadiz/notis.png',
+        '/img/cadiz/pago.png',
+      ],
       tech: [
         { name: 'Next.js', icon: nexticon },
         { name: 'TypeScript', icon: tsIcon },
