@@ -115,6 +115,7 @@ function App() {
         '/img/odooproyect/tipeofactive.png',
       ],
       videoUrl: '/img/odooproyect/video.mp4',
+      githubUrl: 'https://github.com/ItsTheWest/odoo-activos-intangibles',
       tech: [
         { name: 'Odoo', icon: odooIcon },
         { name: 'Python', icon: pythonIcon },
