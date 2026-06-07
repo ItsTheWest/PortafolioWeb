@@ -96,12 +96,12 @@ function App() {
       image: '/img/cadiz/inicio.png',
       images: [
         '/img/cadiz/inicio.png',
-        '/img/cadiz/form.png',
-        '/img/cadiz/categoria.png',
-        '/img/cadiz/gestion.png',
         '/img/cadiz/jugadores.png',
-        '/img/cadiz/notis.png',
+        '/img/cadiz/categoria.png',
         '/img/cadiz/pago.png',
+        '/img/cadiz/notis.png',
+        '/img/cadiz/gestion.png',
+        '/img/cadiz/form.png',
       ],
       tech: [
         { name: 'Next.js', icon: nexticon },
