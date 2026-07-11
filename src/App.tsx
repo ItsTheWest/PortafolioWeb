@@ -118,6 +118,7 @@ function App() {
         '/img/cadiz/gestion.png',
         '/img/cadiz/form.png',
       ],
+      videoUrl: '/img/cadiz/cadizfc video v1.mp4',
       tech: [
         { name: 'Next.js', icon: nexticon },
         { name: 'TypeScript', icon: tsIcon },
