@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -41,6 +41,7 @@ const pythonIcon = <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20
 const supabaseIcon = <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 256 263"><defs><linearGradient id="sbGrad1" x1="20.862%" x2="63.426%" y1="20.687%" y2="44.071%"><stop offset="0%" stopColor="#249361" /><stop offset="100%" stopColor="#3ecf8e" /></linearGradient></defs><path fill="url(#sbGrad1)" d="M149.602 258.579c-6.718 8.46-20.338 3.824-20.5-6.977l-2.367-157.984h106.229c19.24 0 29.971 22.223 18.007 37.292z" /><path fill="#3ecf8e" d="M106.399 4.37c6.717-8.461 20.338-3.826 20.5 6.976l1.037 157.984H23.037c-19.241 0-29.973-22.223-18.008-37.292z" /></svg>;
 const n8nIcon = <img src="/img/n8nLogo.svg" alt="n8n" width={20} height={20} />;
 const nexticon = <img src="/nextjsicon.svg" alt="Next.js" width={20} height={20} />;
+const dockerIcon = <SiDocker color="#2496ED" />;
 const odooIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={20} height={20}>
     <rect width="24" height="24" rx="5" fill="#714B67" />
@@ -76,16 +77,32 @@ function App() {
       subtitle: t('proyectos.item2.subtitle'),
       description: t('proyectos.item2.description'),
       longDescription: t('proyectos.item2.description'),
-      status: 'En Desarrollo',
-      image: '/img/stockmanager.jpg',
+      image: '/img/stockmanager/login.jpg',
+      images: [
+
+        '/img/stockmanager/dashboard.jpg',
+        '/img/stockmanager/inventory.jpg',
+        '/img/stockmanager/provider.jpg',
+        '/img/stockmanager/invoice.jpg',
+        '/img/stockmanager/sales.jpg',
+        '/img/stockmanager/asistnece.jpg',
+        '/img/stockmanager/notify.jpg',
+        '/img/stockmanager/stadistics.jpg',
+        '/img/stockmanager/perfil.jpg',
+        '/img/stockmanager/login.jpg',
+      ],
+      videoUrl: '/img/stockmanager/video stockmanager 1.1.mp4',
+      githubUrl: 'https://github.com/ItsTheWest/StockManager',
+      liveUrl: 'https://github.com/ItsTheWest/StockManager',
       tech: [
         { name: 'Next.js', icon: nexticon },
-        { name: 'Tailwind CSS', icon: tailwindIcon },
+        { name: 'Docker', icon: dockerIcon },
         { name: 'Django', icon: djangoIcon },
-        { name: 'TypeScript', icon: tsIcon },
-        { name: 'Python', icon: pythonIcon },
-        { name: 'Supabase', icon: supabaseIcon },
         { name: 'n8n', icon: n8nIcon },
+        { name: 'Python', icon: pythonIcon },
+        { name: 'TypeScript', icon: tsIcon },
+        { name: 'Supabase', icon: supabaseIcon },
+        { name: 'Tailwind CSS', icon: tailwindIcon },
       ],
     },
     {
@@ -103,6 +120,7 @@ function App() {
         '/img/cadiz/gestion.png',
         '/img/cadiz/form.png',
       ],
+      videoUrl: '/img/cadiz/cadizfc video v1.mp4',
       tech: [
         { name: 'Next.js', icon: nexticon },
         { name: 'TypeScript', icon: tsIcon },
