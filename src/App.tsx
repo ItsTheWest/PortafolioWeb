@@ -79,7 +79,6 @@ function App() {
       longDescription: t('proyectos.item2.description'),
       image: '/img/stockmanager/login.jpg',
       images: [
-        '/img/stockmanager/login.jpg',
         '/img/stockmanager/dashboard.jpg',
         '/img/stockmanager/inventory.jpg',
         '/img/stockmanager/provider.jpg',
@@ -89,9 +88,11 @@ function App() {
         '/img/stockmanager/notify.jpg',
         '/img/stockmanager/stadistics.jpg',
         '/img/stockmanager/perfil.jpg',
+        '/img/stockmanager/login.jpg',
       ],
       videoUrl: '/img/stockmanager/video stockmanager 1.1.mp4',
       githubUrl: 'https://github.com/ItsTheWest/StockManager',
+      liveUrl: 'https://github.com/ItsTheWest/StockManager',
       tech: [
         { name: 'Next.js', icon: nexticon },
         { name: 'Docker', icon: dockerIcon },
