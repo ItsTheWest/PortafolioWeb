@@ -8,8 +8,6 @@
   overflow: hidden;
   padding: 5rem 2rem 6rem;
   text-align: center;
-  /* Subtle top separator to break from previous section */
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* ── Radial glow behind the text ─────────────────────── */
@@ -20,12 +18,10 @@
   translate: -50% -50%;
   width: 700px;
   height: 400px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(14, 165, 233, 0.12) 0%,
-    rgba(255, 166, 0, 0.06) 50%,
-    transparent 70%
-  );
+  background: radial-gradient(ellipse at center,
+      rgba(14, 165, 233, 0.12) 0%,
+      rgba(255, 166, 0, 0.06) 50%,
+      transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -120,6 +116,7 @@
   color: #fff;
   box-shadow: 0 4px 20px rgba(14, 165, 233, 0.35);
 }
+
 .cta-btn--primary:hover {
   background: #0284c7;
   transform: translateY(-3px);
@@ -133,6 +130,7 @@
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: none;
 }
+
 .cta-btn--secondary:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.28);
