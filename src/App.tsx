@@ -182,15 +182,12 @@ function App() {
       longDescription: t('proyectos.item5.longDescription'),
       image: '/img/gestureflow.png',
       githubUrl: 'https://github.com/ItsTheWest/GestureFlow',
-      status: t('proyectos.item5.status'),
+      liveUrl: 'https://github.com/ItsTheWest/GestureFlow',
       tech: [
         { name: 'Python', icon: pythonIcon },
         { name: 'NumPy', icon: numpyIcon },
         { name: 'TensorFlow', icon: tensorflowIcon },
-        { name: 'MediaPipe', icon: mediapipeIcon },
-        { name: 'scikit-learn', icon: sklearnIcon },
         { name: 'OpenCV', icon: opencvIcon },
-        { name: 'CustomTkinter', icon: customtkinterIcon },
       ],
     },
   ];
