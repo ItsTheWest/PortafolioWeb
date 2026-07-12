@@ -66,6 +66,13 @@
       "title": "Módulo de Gestión de Activos — Odoo",
       "subtitle": "Módulo Personalizado ERP",
       "description": "Módulo personalizado para Odoo ERP diseñado para optimizar el inventario, asignación y mantenimiento programado de activos fijos. Integra procesos de Inteligencia Artificial (IA) para analizar el nivel de riesgo de los activos y extraer automáticamente datos estructurados a partir de documentos digitalizados, facilitando su control mediante vistas Kanban y reportes estadísticos dinámicos."
+    },
+    "item5": {
+      "title": "GestureFlow",
+      "subtitle": "Proyecto de Aprendizaje — ML & Visión por Computadora",
+      "status": "En Desarrollo",
+      "description": "Pipeline completo de reconocimiento de gestos de mano en tiempo real para control de escritorio, combinando MediaPipe, redes LSTM y control de entrada del sistema operativo.",
+      "longDescription": "Pipeline end-to-end que recorre todo el ciclo de vida del Machine Learning aplicado a visión por computadora. Captura los puntos de referencia de la mano mediante cámara web con MediaPipe HandLandmarker, entrena una red neuronal LSTM con secuencias de gestos personalizadas, y traduce los gestos reconocidos en acciones reales del sistema operativo: movimiento del cursor (suavizado con EMA), clic izquierdo y cambio de espacio de trabajo virtual. El proyecto incluye un dashboard unificado en CustomTkinter que integra los modos de recolección de datos, entrenamiento, inferencia y control, todo desde una interfaz de escritorio de tema oscuro con viewport de cámara en vivo."
     }
   },
   "contacto": {

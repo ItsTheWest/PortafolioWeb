@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -49,6 +49,30 @@ const odooIcon = (
   </svg>
 );
 const postgresqlIcon = <SiPostgresql color="#4169E1" />;
+const tensorflowIcon = <SiTensorflow color="#FF6F00" />;
+const numpyIcon = <SiNumpy color="#4DABCF" />;
+const opencvIcon = <SiOpencv color="#5C3EE8" />;
+const mediapipeIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="10" fill="#00BCD4" opacity="0.15" />
+    <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 4l4 4-4 4-4-4 4-4z" fill="#00BCD4" />
+  </svg>
+);
+const sklearnIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24">
+    <rect width="24" height="24" rx="4" fill="#F7931E" />
+    <path d="M12 4.5C8 4.5 5 7.5 5 11.5s3 7 7 7 7-3 7-7-3-7-7-7zm0 11c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z" fill="#fff" />
+  </svg>
+);
+const customtkinterIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24">
+    <rect width="24" height="24" rx="6" fill="#1C1C2E" />
+    <rect x="3" y="3" width="8" height="5" rx="1" fill="#6C63FF" />
+    <rect x="13" y="3" width="8" height="5" rx="1" fill="#6C63FF" opacity="0.6" />
+    <rect x="3" y="10" width="18" height="11" rx="1" fill="#6C63FF" opacity="0.3" />
+    <circle cx="12" cy="15.5" r="2" fill="#6C63FF" />
+  </svg>
+);
 
 function App() {
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
@@ -149,6 +173,24 @@ function App() {
         { name: 'Python', icon: pythonIcon },
         { name: 'JavaScript', icon: jsIcon },
         { name: 'PostgreSQL', icon: postgresqlIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item5.title'),
+      subtitle: t('proyectos.item5.subtitle'),
+      description: t('proyectos.item5.description'),
+      longDescription: t('proyectos.item5.longDescription'),
+      image: '/img/gestureflow.png',
+      githubUrl: 'https://github.com/ItsTheWest/GestureFlow',
+      status: t('proyectos.item5.status'),
+      tech: [
+        { name: 'Python', icon: pythonIcon },
+        { name: 'NumPy', icon: numpyIcon },
+        { name: 'TensorFlow', icon: tensorflowIcon },
+        { name: 'MediaPipe', icon: mediapipeIcon },
+        { name: 'scikit-learn', icon: sklearnIcon },
+        { name: 'OpenCV', icon: opencvIcon },
+        { name: 'CustomTkinter', icon: customtkinterIcon },
       ],
     },
   ];
