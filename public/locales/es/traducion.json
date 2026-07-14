@@ -6,6 +6,7 @@
     "proyectos": "Proyectos",
     "experiencia": "Experiencia",
     "contacto": "Contacto",
+    "certificados": "Certificados",
     "idiomas": "Idiomas"
   },
   "perfil": {
@@ -41,10 +42,40 @@
     "tecnologias": "Tecnologías",
     "experiencia": "Experiencia",
     "proyectos": "Proyectos",
-    "contacto": "Contacto"
+    "contacto": "Contacto",
+    "certificados": "Certificados"
   },
   "tecnologias": {
     "parrafo": "Este apartado reúne las tecnologías que manejo en un buen nivel y he aplicado en el ámbito del desarrollo web, interfaces dinámicas, aplicaciones escalables y soluciones robustas"
+  },
+  "certificados": {
+    "parrafo": "Una recopilación de las credenciales y certificaciones que respaldan mis habilidades y conocimientos técnicos.",
+    "items": [
+      {
+        "title": "Desarrollo Frontend con React",
+        "issuer": "Coderhouse",
+        "date": "2024",
+        "description": "Formación especializada en la construcción de interfaces dinámicas y SPA utilizando React.js, gestión de estado con Context API/Redux, enrutamiento con React Router y hooks personalizados.",
+        "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&auto=format&fit=crop&q=60",
+        "link": "https://coderhouse.com"
+      },
+      {
+        "title": "Bases de Datos y SQL",
+        "issuer": "Oracle Academy",
+        "date": "2024",
+        "description": "Modelado de bases de datos relacionales, normalización, optimización de consultas SQL y diseño conceptual y físico de bases de datos robustas.",
+        "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&auto=format&fit=crop&q=60",
+        "link": "https://oracle.com"
+      },
+      {
+        "title": "Programación en Python",
+        "issuer": "Cisco Networking Academy",
+        "date": "2023",
+        "description": "Dominio de la sintaxis básica y avanzada del lenguaje Python, principios de programación orientada a objetos (POO), manejo de excepciones y desarrollo de algoritmos de resolución de problemas.",
+        "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=60",
+        "link": "https://netacad.com"
+      }
+    ]
   },
   "proyectos": {
     "item1": {

@@ -6,6 +6,7 @@
     "proyectos": "Projects",
     "experiencia": "Experience",
     "contacto": "Contact",
+    "certificados": "Certificates",
     "idiomas": "Languages"
   },
   "perfil": {
@@ -41,10 +42,40 @@
     "tecnologias": "Technologies",
     "experiencia": "Experience",
     "proyectos": "Projects",
-    "contacto": "Contact"
+    "contacto": "Contact",
+    "certificados": "Certificates"
   },
   "tecnologias": {
     "parrafo": "This section brings together the technologies that I handle at a good level and have applied in the field of web development, dynamic interfaces, scalable applications and robust solutions."
+  },
+  "certificados": {
+    "parrafo": "A collection of credentials and certifications validating my technical skills and knowledge.",
+    "items": [
+      {
+        "title": "Frontend Development with React",
+        "issuer": "Coderhouse",
+        "date": "2024",
+        "description": "Specialized training in building dynamic interfaces and SPAs using React.js, state management with Context API/Redux, routing with React Router, and custom hooks.",
+        "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&auto=format&fit=crop&q=60",
+        "link": "https://coderhouse.com"
+      },
+      {
+        "title": "Databases and SQL",
+        "issuer": "Oracle Academy",
+        "date": "2024",
+        "description": "Relational database modeling, normalization, SQL query optimization, and conceptual & physical design of robust databases.",
+        "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&auto=format&fit=crop&q=60",
+        "link": "https://oracle.com"
+      },
+      {
+        "title": "Python Programming",
+        "issuer": "Cisco Networking Academy",
+        "date": "2023",
+        "description": "Mastery of Python language basic and advanced syntax, Object-Oriented Programming (OOP) principles, exception handling, and development of problem-solving algorithms.",
+        "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&auto=format&fit=crop&q=60",
+        "link": "https://netacad.com"
+      }
+    ]
   },
   "proyectos": {
     "item1": {
