@@ -14,20 +14,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 2rem;
   position: relative;
+  width: 100%;
 }
 
 /* Carousel arrows */
 .carousel-arrow {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #ffffff;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +37,7 @@
   outline: none;
   flex-shrink: 0;
   backdrop-filter: blur(8px);
+  z-index: 10;
 }
 
 .carousel-arrow:hover {
@@ -50,39 +52,81 @@
   transform: scale(0.95);
 }
 
-/* Carousel Viewport */
-.carousel-viewport {
+/* Carousel Track Container (shows center and parts of side cards) */
+.carousel-track-container {
   flex: 1;
-  overflow: hidden;
   position: relative;
-  min-height: 460px;
+  overflow: hidden;
+  padding: 1.5rem 0;
   display: flex;
   justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
   align-items: center;
-}
-
-/* Slide Card */
-.carousel-slide-card {
+  justify-content: center;
+  gap: 1.5rem;
   width: 100%;
-  max-width: 580px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  padding: 1.25rem;
-  box-sizing: border-box;
+  max-width: 680px;
 }
 
+/* Slide Cards */
+.carousel-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1rem;
+  box-sizing: border-box;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Active card in the center */
+.carousel-card.active {
+  width: 320px;
+  opacity: 1;
+  z-index: 5;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.12);
+  pointer-events: auto;
+}
+
+/* Prev/Next cards on the sides */
+.carousel-card.prev,
+.carousel-card.next {
+  width: 160px;
+  height: 120px; /* Small height since description is hidden */
+  opacity: 0.35;
+  z-index: 2;
+  cursor: pointer;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+/* Hide descriptions/details on side cards to focus on the active card */
+.carousel-card.prev .carousel-details,
+.carousel-card.next .carousel-details {
+  display: none;
+}
+
+/* Certificate Image Frame (made smaller/more little) */
 .carousel-image-frame {
   position: relative;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
+  transition: all 0.3s ease;
+}
+
+/* Shrink image on active card to look proportional ("more litle") */
+.carousel-card.active .carousel-image-frame {
+  width: 85%;
+  margin: 0 auto 0.75rem;
 }
 
 .carousel-image-frame img {
@@ -94,40 +138,61 @@
 .carousel-image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.4));
+  background: linear-gradient(to bottom, transparent 65%, rgba(0, 0, 0, 0.3));
 }
 
+/* Active details styles */
 .carousel-details {
-  margin-top: 1.25rem;
+  margin-top: 0.5rem;
   text-align: left;
 }
 
 .carousel-meta {
   display: flex;
-  gap: 1.25rem;
-  font-size: 0.85rem;
+  gap: 1rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .carousel-issuer, .carousel-date {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
 }
 
 .carousel-title-display {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.4rem 0;
 }
 
 .carousel-description-display {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
   margin: 0;
+}
+
+/* Side gradient fades / overlays */
+.carousel-fade-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.left-fade {
+  left: 0;
+  background: linear-gradient(to right, #171717 15%, rgba(23, 23, 23, 0) 100%);
+}
+
+.right-fade {
+  right: 0;
+  background: linear-gradient(to left, #171717 15%, rgba(23, 23, 23, 0) 100%);
 }
 
 /* Dots Indicators */
@@ -135,12 +200,12 @@
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .carousel-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   border: none;
@@ -156,48 +221,49 @@
 .carousel-dot.active {
   background: #007bff;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.8);
-  width: 18px;
+  width: 16px;
   border-radius: 4px;
 }
 
 /* Responsive adjustment */
 @media (max-width: 650px) {
   .cert-carousel-container {
-    gap: 0.5rem;
+    gap: 0.25rem;
   }
   
   .carousel-arrow {
     position: absolute;
-    z-index: 10;
-    width: 40px;
-    height: 40px;
-    background: rgba(23, 23, 23, 0.75);
+    z-index: 12;
+    width: 38px;
+    height: 38px;
+    background: rgba(23, 23, 23, 0.8);
     border-color: rgba(255, 255, 255, 0.15);
   }
   
   .carousel-arrow.left {
-    left: -5px;
+    left: 2px;
   }
   
   .carousel-arrow.right {
-    right: -5px;
+    right: 2px;
   }
   
-  .carousel-viewport {
-    min-height: 400px;
+  .carousel-track {
+    max-width: 100%;
+    gap: 0.5rem;
   }
   
-  .carousel-slide-card {
-    padding: 0.85rem;
-    max-width: 90%;
-    margin: 0 auto;
+  .carousel-card.prev,
+  .carousel-card.next {
+    display: none; /* Hide side cards on mobile to leave full space for center card */
   }
   
-  .carousel-title-display {
-    font-size: 1.15rem;
+  .carousel-card.active {
+    width: 100%;
+    max-width: 290px;
   }
   
-  .carousel-description-display {
-    font-size: 0.85rem;
+  .carousel-fade-overlay {
+    display: none;
   }
 }
