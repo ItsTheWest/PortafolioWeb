@@ -40,6 +40,7 @@ function Navegador(props:NavegadorProps) {
     { href: "#Tec", icon: "fa-solid fa-code", label: t('nav.tegnologías') },
     { href: "#Ex", icon: "fa-solid fa-briefcase", label: t('nav.experiencia') },
     { href: "#Pro", icon: "fa-solid fa-folder-open", label: t('nav.proyectos') },
+    { href: "#Certificados", icon: "fa-solid fa-award", label: t('nav.certificados') },
     { href: "#Contacto", icon: "fa-solid fa-paper-plane", label: t('nav.contacto') },
     { href: "#Lang", icon: "fa-solid fa-globe", label: t('nav.idiomas'), isLang: true }
   ];
@@ -79,6 +80,7 @@ function Navegador(props:NavegadorProps) {
           { id: 'Tec', label: t('nav.tegnologías') },
           { id: 'Ex', label: t('nav.experiencia') },
           { id: 'Pro', label: t('nav.proyectos') },
+          { id: 'Certificados', label: t('nav.certificados') },
           { id: 'Contacto', label: t('nav.contacto') },
         ].map(item => (
           <a
