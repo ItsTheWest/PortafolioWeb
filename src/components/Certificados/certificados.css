@@ -98,6 +98,17 @@
   opacity: 0.6;
   transform: scale(0.96);
 }
+/* Prev image fades on its right edge toward the center */
+.strip-img--prev {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 60%);
+  mask-image: linear-gradient(to right, transparent 0%, black 60%);
+}
+
+/* Next image fades on its left edge toward the center */
+.strip-img--next {
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 60%);
+  mask-image: linear-gradient(to left, transparent 0%, black 60%);
+}
 
 .strip-img--side img {
   width: 100%;
