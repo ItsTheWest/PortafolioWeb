@@ -49,9 +49,6 @@ const Certificados: React.FC = () => {
 
         {/* Strip */}
         <div className="strip-viewport">
-          {/* Left gradient fade */}
-          <div className="strip-fade strip-fade--left" />
-
           <div className="strip-track">
             {/* Prev image — partially visible */}
             <div
@@ -86,8 +83,6 @@ const Certificados: React.FC = () => {
             </div>
           </div>
 
-          {/* Right gradient fade */}
-          <div className="strip-fade strip-fade--right" />
         </div>
 
         {/* Right Arrow */}
