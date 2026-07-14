@@ -9,278 +9,195 @@
   text-align: center;
 }
 
-.certificados-container {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 2rem;
-  margin-top: 3rem;
-  align-items: start;
-}
-
-/* Navigation List on the Left */
-.cert-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.cert-list-item {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1.25rem;
-  border-radius: 12px;
+/* Carousel Container styling */
+.cert-carousel-container {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  cursor: pointer;
-  text-align: left;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  outline: none;
 }
 
-.cert-list-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  transform: translateX(5px);
-}
-
-.cert-list-item.active {
-  background: rgba(0, 123, 255, 0.08);
-  border-color: rgba(0, 123, 255, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
-}
-
-.cert-item-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
+/* Carousel arrows */
+.carousel-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-}
-
-.cert-list-item.active .cert-item-icon {
-  background: rgba(0, 123, 255, 0.2);
-  border-color: rgba(0, 123, 255, 0.4);
-}
-
-.award-icon {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.6);
-  transition: color 0.3s ease;
-}
-
-.cert-list-item.active .award-icon {
-  color: #007bff;
-}
-
-.cert-item-info h4 {
-  font-size: 1rem;
-  font-weight: 600;
   color: #ffffff;
-  margin: 0 0 0.25rem 0;
-  line-height: 1.4;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+  flex-shrink: 0;
+  backdrop-filter: blur(8px);
 }
 
-.cert-item-info p {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0;
-}
-
-.arrow-indicator {
-  margin-left: auto;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
-}
-
-.cert-list-item.active .arrow-indicator {
+.carousel-arrow:hover {
+  background: rgba(0, 123, 255, 0.15);
+  border-color: rgba(0, 123, 255, 0.4);
   color: #007bff;
-  transform: translateX(3px);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.25);
+  transform: scale(1.08);
 }
 
-.active-indicator {
-  position: absolute;
-  left: 0;
-  top: 15%;
-  bottom: 15%;
-  width: 4px;
-  background: #007bff;
-  border-radius: 0 4px 4px 0;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+.carousel-arrow:active {
+  transform: scale(0.95);
 }
 
-/* Right Side: Showcase with 3D Tilt Card */
-.cert-showcase {
+/* Carousel Viewport */
+.carousel-viewport {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  min-height: 460px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.cert-card-wrapper {
+/* Slide Card */
+.carousel-slide-card {
   width: 100%;
-  max-width: 600px;
-  perspective: 1000px;
-}
-
-.cert-3d-card {
+  max-width: 580px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  transform-style: preserve-3d;
+  padding: 1.25rem;
+  box-sizing: border-box;
 }
 
-.cert-card-inner {
-  padding: 1.5rem;
-}
-
-.cert-image-frame {
+.carousel-image-frame {
   position: relative;
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transform: translateZ(30px);
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
 }
 
-.cert-image-frame img {
+.carousel-image-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
 }
 
-.cert-image-overlay {
+.carousel-image-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.4));
 }
 
-.cert-card-glare {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
+.carousel-details {
+  margin-top: 1.25rem;
+  text-align: left;
 }
 
-.cert-details {
-  margin-top: 1.5rem;
-  transform: translateZ(50px);
-}
-
-.cert-meta {
+.carousel-meta {
   display: flex;
   gap: 1.25rem;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
-.cert-issuer, .cert-date {
+.carousel-issuer, .carousel-date {
   display: flex;
   align-items: center;
   gap: 0.35rem;
 }
 
-.cert-title-display {
-  font-size: 1.5rem;
+.carousel-title-display {
+  font-size: 1.35rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 0.5rem 0;
 }
 
-.cert-description-display {
-  font-size: 0.95rem;
+.carousel-description-display {
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
-  min-height: 80px;
+  margin: 0;
 }
 
-.cert-verify-btn {
-  display: inline-flex;
-  align-items: center;
+/* Dots Indicators */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  color: #ffffff;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
+  margin-top: 1.5rem;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
 }
 
-.cert-verify-btn:hover {
-  background: linear-gradient(135deg, #0088ff, #0066cc);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.4);
 }
 
-/* Responsiveness */
-@media (max-width: 900px) {
-  .certificados-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .cert-list {
-    flex-direction: row;
-    overflow-x: auto;
-    padding-bottom: 0.75rem;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
-  }
-  
-  .cert-list::-webkit-scrollbar {
-    height: 4px;
-  }
-  
-  .cert-list::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-  
-  .cert-list-item {
-    flex: 0 0 280px;
-    transform: none !important;
-  }
-  
-  .active-indicator {
-    left: 15%;
-    right: 15%;
-    top: auto;
-    bottom: 0;
-    height: 3px;
-    width: auto;
-    border-radius: 4px 4px 0 0;
-  }
+.carousel-dot.active {
+  background: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.8);
+  width: 18px;
+  border-radius: 4px;
 }
 
-@media (max-width: 480px) {
-  .cert-list-item {
-    flex: 0 0 240px;
+/* Responsive adjustment */
+@media (max-width: 650px) {
+  .cert-carousel-container {
+    gap: 0.5rem;
+  }
+  
+  .carousel-arrow {
+    position: absolute;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: rgba(23, 23, 23, 0.75);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .carousel-arrow.left {
+    left: -5px;
+  }
+  
+  .carousel-arrow.right {
+    right: -5px;
+  }
+  
+  .carousel-viewport {
+    min-height: 400px;
+  }
+  
+  .carousel-slide-card {
     padding: 0.85rem;
+    max-width: 90%;
+    margin: 0 auto;
   }
   
-  .cert-title-display {
-    font-size: 1.25rem;
+  .carousel-title-display {
+    font-size: 1.15rem;
   }
   
-  .cert-description-display {
+  .carousel-description-display {
     font-size: 0.85rem;
-    min-height: auto;
   }
 }

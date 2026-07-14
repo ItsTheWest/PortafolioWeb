@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { FiAward, FiExternalLink, FiCalendar, FiChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiCalendar, FiAward } from 'react-icons/fi';
 import './certificados.css';
 
 interface CertificateItem {
@@ -16,165 +16,110 @@ interface CertificateItem {
 const Certificados: React.FC = () => {
   const { t } = useTranslation();
   const certificates = t('certificados.items', { returnObjects: true }) as CertificateItem[];
-  
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  // States for 3D card tilt
-  const [rotateX, setRotateX] = useState<number>(0);
-  const [rotateY, setRotateY] = useState<number>(0);
-  const [glareX, setGlareX] = useState<number>(50);
-  const [glareY, setGlareY] = useState<number>(50);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [direction, setDirection] = useState<number>(0); // -1 for left, 1 for right
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    
-    const card = cardRef.current;
-    const rect = card.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    
-    // Convert to percentage (-0.5 to 0.5)
-    const xPct = (mouseX / width) - 0.5;
-    const yPct = (mouseY / height) - 0.5;
-    
-    // Rotate amount
-    const maxRotation = 15; // Max 15 degrees tilt
-    const rX = -yPct * maxRotation;
-    const rY = xPct * maxRotation;
-    
-    setRotateX(rX);
-    setRotateY(rY);
-    
-    // Glare position
-    setGlareX((mouseX / width) * 100);
-    setGlareY((mouseY / height) * 100);
+  if (!certificates || certificates.length === 0) return null;
+
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 150 : -150,
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1
+    },
+    exit: (dir: number) => ({
+      x: dir < 0 ? 150 : -150,
+      opacity: 0
+    })
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    setRotateX(0);
-    setRotateY(0);
+  const handleNext = () => {
+    setDirection(1);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % certificates.length);
   };
 
-  const currentCert = certificates[selectedIndex];
+  const handlePrev = () => {
+    setDirection(-1);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + certificates.length) % certificates.length);
+  };
 
-  if (!certificates || certificates.length === 0) {
-    return null;
-  }
+  const currentCert = certificates[currentIndex];
 
   return (
     <section className="certificados-section">
       <p className="parra text-center">{t('certificados.parrafo')}</p>
       
-      <div className="certificados-container">
-        {/* Left Side: Navigation List */}
-        <div className="cert-list">
-          {certificates.map((cert, index) => (
-            <button
-              key={index}
-              className={`cert-list-item ${index === selectedIndex ? 'active' : ''}`}
-              onClick={() => setSelectedIndex(index)}
-              aria-label={`Ver certificado ${cert.title}`}
+      <div className="cert-carousel-container">
+        {/* Left Arrow */}
+        <button className="carousel-arrow left" onClick={handlePrev} aria-label="Anterior">
+          <FiChevronLeft />
+        </button>
+
+        {/* Carousel Slide Area */}
+        <div className="carousel-viewport">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: 'spring', stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+              }}
+              className="carousel-slide-card"
             >
-              <div className="cert-item-icon">
-                <FiAward className="award-icon" />
+              <div className="carousel-image-frame">
+                <img src={currentCert.image} alt={currentCert.title} />
+                <div className="carousel-image-overlay" />
               </div>
-              <div className="cert-item-info">
-                <h4>{cert.title}</h4>
-                <p>{cert.issuer} • {cert.date}</p>
+              <div className="carousel-details">
+                <div className="carousel-meta">
+                  <span className="carousel-issuer">
+                    <FiAward /> {currentCert.issuer}
+                  </span>
+                  <span className="carousel-date">
+                    <FiCalendar /> {currentCert.date}
+                  </span>
+                </div>
+                <h3 className="carousel-title-display">{currentCert.title}</h3>
+                <p className="carousel-description-display">{currentCert.description}</p>
               </div>
-              <FiChevronRight className="arrow-indicator" />
-              {index === selectedIndex && (
-                <motion.div
-                  className="active-indicator"
-                  layoutId="activeIndicator"
-                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                />
-              )}
-            </button>
-          ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        {/* Right Side: Showcase with 3D Tilt Card */}
-        <div className="cert-showcase">
-          <div className="cert-card-wrapper">
-            <motion.div
-              ref={cardRef}
-              className="cert-3d-card"
-              onMouseMove={handleMouseMove}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={handleMouseLeave}
-              animate={{
-                rotateX: rotateX,
-                rotateY: rotateY,
-                transformPerspective: 1000
-              }}
-              transition={{
-                type: 'spring',
-                stiffness: isHovered ? 400 : 150,
-                damping: isHovered ? 30 : 20
-              }}
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedIndex}
-                  className="cert-card-inner"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {/* Certificate Image Frame */}
-                  <div className="cert-image-frame">
-                    <img src={currentCert.image} alt={currentCert.title} />
-                    <div className="cert-image-overlay" />
-                    {isHovered && (
-                      <div
-                        className="cert-card-glare"
-                        style={{
-                          background: `radial-gradient(circle 120px at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.15), transparent)`
-                        }}
-                      />
-                    )}
-                  </div>
-                  
-                  {/* Certificate Details */}
-                  <div className="cert-details">
-                    <div className="cert-meta">
-                      <span className="cert-issuer">
-                        <FiAward /> {currentCert.issuer}
-                      </span>
-                      <span className="cert-date">
-                        <FiCalendar /> {currentCert.date}
-                      </span>
-                    </div>
-                    
-                    <h3 className="cert-title-display">{currentCert.title}</h3>
-                    <p className="cert-description-display">{currentCert.description}</p>
-                    
-                    <a
-                      href={currentCert.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cert-verify-btn"
-                    >
-                      <span>Verificar Credencial</span>
-                      <FiExternalLink />
-                    </a>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
-          </div>
-        </div>
+        {/* Right Arrow */}
+        <button className="carousel-arrow right" onClick={handleNext} aria-label="Siguiente">
+          <FiChevronRight />
+        </button>
+      </div>
+
+      {/* Dot Indicators */}
+      <div className="carousel-dots">
+        {certificates.map((_, index) => (
+          <button
+            key={index}
+            className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => {
+              setDirection(index > currentIndex ? 1 : -1);
+              setSelectedIndex(index);
+            }}
+            aria-label={`Ir al certificado ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );
+
+  function setSelectedIndex(index: number) {
+    setCurrentIndex(index);
+  }
 };
 
 export default Certificados;
