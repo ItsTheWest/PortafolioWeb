@@ -70,7 +70,7 @@
 
 /* Center — main card */
 .strip-img--center {
-  width: 64%;
+  width: 56%;
   aspect-ratio: 16 / 10;
   opacity: 1;
   z-index: 3;
