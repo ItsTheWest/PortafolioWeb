@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
@@ -13,11 +13,33 @@ interface CertificateItem {
   link: string;
 }
 
+const AUTOPLAY_MS = 4000;
+const SWIPE_THRESHOLD = 40;
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth <= 600
+  );
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 600px)');
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return isMobile;
+};
+
 const Certificados: React.FC = () => {
   const { t } = useTranslation();
   const certificates = t('certificados.items', { returnObjects: true }) as CertificateItem[];
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [direction, setDirection] = useState<number>(0);
+  const isMobile = useIsMobile();
+
+  // Touch / drag state
+  const touchStartX = useRef<number | null>(null);
+  const isDragging = useRef(false);
+  const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   if (!certificates || certificates.length === 0) return null;
 
@@ -26,14 +48,42 @@ const Certificados: React.FC = () => {
   const getAdjacentIndex = (offset: number) =>
     (currentIndex + offset + total) % total;
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setDirection(-1);
-    setCurrentIndex(getAdjacentIndex(-1));
+    setCurrentIndex((prev) => (prev - 1 + total) % total);
+  }, [total]);
+
+  const handleNext = useCallback(() => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % total);
+  }, [total]);
+
+  // Auto-play on mobile
+  useEffect(() => {
+    if (!isMobile) return;
+    autoplayRef.current = setInterval(() => {
+      if (!isDragging.current) handleNext();
+    }, AUTOPLAY_MS);
+    return () => {
+      if (autoplayRef.current) clearInterval(autoplayRef.current);
+    };
+  }, [isMobile, handleNext]);
+
+  // Touch handlers
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    isDragging.current = true;
   };
 
-  const handleNext = () => {
-    setDirection(1);
-    setCurrentIndex(getAdjacentIndex(1));
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) >= SWIPE_THRESHOLD) {
+      if (delta > 0) handleNext();
+      else handlePrev();
+    }
+    touchStartX.current = null;
+    isDragging.current = false;
   };
 
   const prevIdx = getAdjacentIndex(-1);
@@ -42,13 +92,21 @@ const Certificados: React.FC = () => {
   return (
     <section className="certificados-section">
       <div className="cert-strip">
-        {/* Left Arrow */}
-        <button className="strip-arrow strip-arrow--left" onClick={handlePrev} aria-label="Anterior">
+        {/* Left Arrow — hidden on mobile */}
+        <button
+          className="strip-arrow strip-arrow--left strip-arrow--hide-mobile"
+          onClick={handlePrev}
+          aria-label="Anterior"
+        >
           <FiChevronLeft />
         </button>
 
         {/* Strip */}
-        <div className="strip-viewport">
+        <div
+          className="strip-viewport"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
           <div className="strip-track">
             {/* Prev image — partially visible */}
             <div
@@ -82,11 +140,14 @@ const Certificados: React.FC = () => {
               <img src={certificates[nextIdx].image} alt={certificates[nextIdx].title} />
             </div>
           </div>
-
         </div>
 
-        {/* Right Arrow */}
-        <button className="strip-arrow strip-arrow--right" onClick={handleNext} aria-label="Siguiente">
+        {/* Right Arrow — hidden on mobile */}
+        <button
+          className="strip-arrow strip-arrow--right strip-arrow--hide-mobile"
+          onClick={handleNext}
+          aria-label="Siguiente"
+        >
           <FiChevronRight />
         </button>
       </div>
