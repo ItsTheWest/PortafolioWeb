@@ -58,16 +58,15 @@ const Certificados: React.FC = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
   }, [total]);
 
-  // Auto-play on desktop (mobile uses swipe only)
+  // Auto-play on all screen sizes
   useEffect(() => {
-    if (isMobile) return;
     autoplayRef.current = setInterval(() => {
       if (!isDragging.current) handleNext();
     }, AUTOPLAY_MS);
     return () => {
       if (autoplayRef.current) clearInterval(autoplayRef.current);
     };
-  }, [isMobile, handleNext]);
+  }, [handleNext]);
 
   // Touch handlers
   const onTouchStart = (e: React.TouchEvent) => {
