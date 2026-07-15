@@ -160,6 +160,11 @@
     font-size: 1rem;
   }
 
+  /* Hide arrow buttons on mobile — user navigates via swipe */
+  .strip-arrow--hide-mobile {
+    display: none;
+  }
+
   .strip-img--center {
     width: 78%;
   }
@@ -171,5 +176,12 @@
 
   .strip-fade {
     width: 50px;
+  }
+
+  /* Make the viewport feel swipe-friendly */
+  .strip-viewport {
+    touch-action: pan-y pinch-zoom;
+    cursor: grab;
+    user-select: none;
   }
 }
