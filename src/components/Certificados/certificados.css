@@ -149,39 +149,35 @@
 
 /* Responsive */
 @media (max-width: 600px) {
+  /* No gap needed — arrows are gone, sides are hidden */
   .cert-strip {
-    gap: 0.25rem;
-  }
-  
-  .strip-arrow {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
-    font-size: 1rem;
+    gap: 0;
   }
 
-  /* Hide arrow buttons on mobile — user navigates via swipe */
+  /* Hide arrow buttons — user navigates via swipe */
   .strip-arrow--hide-mobile {
     display: none;
   }
 
-  .strip-img--center {
-    width: 78%;
-  }
-
+  /* Hide peek-side images entirely */
   .strip-img--side {
-    width: 15%;
-    opacity: 0.3;
+    display: none;
   }
 
-  .strip-fade {
-    width: 50px;
+  /* Center card fills the full horizontal strip */
+  .strip-img--center {
+    width: 100%;
   }
 
-  /* Make the viewport feel swipe-friendly */
+  /* Remove inner gap so card truly fills edge-to-edge */
+  .strip-track {
+    gap: 0;
+    padding: 0;
+  }
+
+  /* Swipe-friendly viewport */
   .strip-viewport {
     touch-action: pan-y pinch-zoom;
-    cursor: grab;
     user-select: none;
   }
 }
