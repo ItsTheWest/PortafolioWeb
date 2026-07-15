@@ -149,6 +149,11 @@
 
 /* Responsive */
 @media (max-width: 600px) {
+  /* Match horizontal margins of all other sections */
+  .certificados-section {
+    padding: 0 0.85rem;
+  }
+
   /* No gap needed — arrows are gone, sides are hidden */
   .cert-strip {
     gap: 0;
@@ -164,12 +169,12 @@
     display: none;
   }
 
-  /* Center card fills the full horizontal strip */
+  /* Center card fills the constrained container (not the full viewport) */
   .strip-img--center {
     width: 100%;
   }
 
-  /* Remove inner gap so card truly fills edge-to-edge */
+  /* Remove inner gap so card truly fills edge-to-edge within its padding */
   .strip-track {
     gap: 0;
     padding: 0;
