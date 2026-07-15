@@ -220,9 +220,9 @@ header {
 
 .dropdown-toggle {
   width: 6rem;
-  background: #0b0c0c;
-  padding: 4px 16px;
-  border: none;
+  background: #1b1c1c;
+  padding: 3px 16px;
+  border: 1px solid #007bff;
   cursor: pointer;
   font-weight: bold;
   border-radius: 6px;
@@ -250,8 +250,8 @@ header {
   font-size: 0.9rem;
   padding: 0;
   list-style: none;
-  background: #0b0c0c;
-  border: 1px solid #979797;
+  background: #1b1c1c;
+  border: 1px solid #007bff;
   border-radius: 6px;
   overflow: hidden;
   max-height: 0;
