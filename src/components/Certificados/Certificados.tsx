@@ -58,9 +58,9 @@ const Certificados: React.FC = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
   }, [total]);
 
-  // Auto-play on mobile
+  // Auto-play on desktop (mobile uses swipe only)
   useEffect(() => {
-    if (!isMobile) return;
+    if (isMobile) return;
     autoplayRef.current = setInterval(() => {
       if (!isDragging.current) handleNext();
     }, AUTOPLAY_MS);
