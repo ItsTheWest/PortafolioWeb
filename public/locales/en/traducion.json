@@ -54,7 +54,7 @@
     },
     "item2": {
       "title": "Inventory and Billing Web System",
-      "subtitle": "Personal Project (In Development)",
+      "subtitle": "Full-Stack Web Application",
       "description": "This comprehensive web system automates inventory management and billing for businesses, providing detailed sales reports and statistics. It integrates key processes through AI automation."
     },
     "item3": {
@@ -66,6 +66,13 @@
       "title": "Asset Management Module — Odoo",
       "subtitle": "Custom ERP Module",
       "description": "Custom Odoo ERP module designed to optimize fixed asset inventory, assignment, and maintenance scheduling. It integrates AI processes to analyze asset risk levels and automatically extract structured data from digitized documents, streamlining control via Kanban views and dynamic statistical reports."
+    },
+    "item5": {
+      "title": "GestureFlow",
+      "subtitle": "Desktop Software — ML & Computer Vision",
+      "status": "In Development",
+      "description": "End-to-end real-time hand gesture recognition pipeline for desktop control, combining MediaPipe, LSTM neural networks, and OS-level input control.",
+      "longDescription": "A full end-to-end pipeline that walks through the complete Machine Learning lifecycle applied to computer vision. It captures hand landmarks via webcam using MediaPipe HandLandmarker, trains an LSTM neural network on custom gesture sequences, and translates recognized gestures into real OS actions — cursor movement (EMA-smoothed), left click, and virtual workspace switching. The project features a unified CustomTkinter dashboard integrating data collection, training, inference, and control modes, all from a dark-themed desktop UI with a live camera viewport."
     }
   },
   "contacto": {
