@@ -148,7 +148,7 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
             {/* Video or Image Carousel */}
             {showVideo && proyecto.videoUrl ? (
               <video
-                src={proyecto.videoUrl}
+                src={proyecto.videoUrl.startsWith('http') ? `/api/serve-blob?pathname=${encodeURIComponent(proyecto.videoUrl)}` : proyecto.videoUrl}
                 className="pm-hero-video"
                 controls
                 autoPlay
