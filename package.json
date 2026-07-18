@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/gsap": "^1.20.2",
+    "@vercel/blob": "^2.6.1",
     "framer-motion": "^12.23.12",
     "gsap": "^3.15.0",
     "i18next": "^25.4.0",
