@@ -54,7 +54,7 @@
     },
     "item2": {
       "title": "Sistema web de Inventario y Facturación",
-      "subtitle": "Proyecto Personal",
+      "subtitle": "Aplicación Web Full-Stack",
       "description": "Este sistema web integral automatiza la gestión de inventario y la facturación de las empresas, ademas de proporcionar reportes y estadísticas detalladas de ventas, e integra procesos clave mediante la automatización con Inteligencia Artificial (IA)."
     },
     "item3": {
@@ -69,7 +69,7 @@
     },
     "item5": {
       "title": "GestureFlow",
-      "subtitle": "Proyecto de Aprendizaje — ML & Visión por Computadora",
+      "subtitle": "Software de Escritorio — ML y Visión",
       "description": "Pipeline completo de reconocimiento de gestos de mano en tiempo real para control de escritorio, combinando MediaPipe, redes LSTM y control de entrada del sistema operativo.",
       "longDescription": "Pipeline end-to-end que recorre todo el ciclo de vida del Machine Learning aplicado a visión por computadora. Captura los puntos de referencia de la mano mediante cámara web con MediaPipe HandLandmarker, entrena una red neuronal LSTM con secuencias de gestos personalizadas, y traduce los gestos reconocidos en acciones reales del sistema operativo: movimiento del cursor (suavizado con EMA), clic izquierdo y cambio de espacio de trabajo virtual. El proyecto incluye un dashboard unificado en CustomTkinter que integra los modos de recolección de datos, entrenamiento, inferencia y control, todo desde una interfaz de escritorio de tema oscuro con viewport de cámara en vivo."
     }
