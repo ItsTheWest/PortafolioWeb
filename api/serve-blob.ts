@@ -5,38 +5,35 @@ export const config = {
 };
 
 /**
- * Serverless function running on Vercel Edge Runtime to securely fetch
- * and serve private Vercel Blobs.
+ * Serverless edge function that proxies private Vercel Blob files.
+ * Authenticates via BLOB_READ_WRITE_TOKEN env var so the client
+ * never needs direct access to signed URLs.
  *
- * @param request Standard Web standard API request object.
- * @returns Standard Web standard API response object.
+ * @param request - Standard Web API request object.
+ * @returns Streamed blob content with appropriate headers.
  */
 export default async function handler(request: Request): Promise<Response> {
-  const url = new URL(request.url);
-  const pathname = url.searchParams.get("pathname");
+  const { searchParams } = new URL(request.url);
+  const blobUrl = searchParams.get("url");
 
-  if (!pathname) {
-    return new Response(JSON.stringify({ error: "Missing pathname" }), {
+  if (!blobUrl) {
+    return new Response(JSON.stringify({ error: "Missing url parameter" }), {
       status: 400,
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
     });
   }
 
   try {
-    const result = await get(pathname, {
-      access: "private",
-    });
+    const result = await get(blobUrl, { access: "private" });
 
-    if (!result) {
+    if (!result || !result.stream) {
       return new Response("Not found", { status: 404 });
     }
 
     return new Response(result.stream, {
       headers: {
-        "Cache-Control": "private, no-cache, no-store, must-revalidate",
         "Content-Type": result.blob.contentType ?? "application/octet-stream",
+        "Cache-Control": "public, max-age=31536000, immutable",
         "X-Content-Type-Options": "nosniff",
       },
     });
@@ -44,9 +41,7 @@ export default async function handler(request: Request): Promise<Response> {
     console.error("Error retrieving blob:", error);
     return new Response(JSON.stringify({ error: "Failed to retrieve blob" }), {
       status: 500,
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
     });
   }
 }
