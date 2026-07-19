@@ -25,3 +25,6 @@ dist-ssr
 *.sw?
 
 
+# Video assets (served via Vercel Blob)
+*.mp4
+*.webm

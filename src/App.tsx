@@ -95,7 +95,7 @@ function App() {
         '/img/stockmanager/perfil.jpg',
         '/img/stockmanager/login.jpg',
       ],
-      videoUrl: '/img/stockmanager/video stockmanager 1.1.mp4',
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Stockmanager_2.0.webm',
       githubUrl: 'https://github.com/ItsTheWest/StockManager',
       liveUrl: 'https://github.com/ItsTheWest/StockManager',
       tech: [
@@ -124,7 +124,7 @@ function App() {
         '/img/cadiz/gestion.png',
         '/img/cadiz/form.png',
       ],
-      videoUrl: '/img/cadiz/cadizfc video v1.mp4',
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Cadizfc_2.0.webm',
       tech: [
         { name: 'Next.js', icon: nexticon },
         { name: 'TypeScript', icon: tsIcon },
@@ -145,7 +145,7 @@ function App() {
         '/img/odooproyect/estadistics.png',
         '/img/odooproyect/tipeofactive.png',
       ],
-      videoUrl: '/img/odooproyect/odoo.mp4',
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/odoo2.0.webm',
       githubUrl: 'https://github.com/ItsTheWest/odoo-activos-intangibles',
       liveUrl: 'https://github.com/ItsTheWest/odoo-activos-intangibles',
       tech: [
@@ -160,7 +160,8 @@ function App() {
       subtitle: t('proyectos.item5.subtitle'),
       description: t('proyectos.item5.description'),
       longDescription: t('proyectos.item5.longDescription'),
-      image: '/img/gestureflow.png',
+      image: '/img/gestureflow/gestureflowimg.jpg',
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Getsureflow-2.0.webm',
       githubUrl: 'https://github.com/ItsTheWest/GestureFlow',
       liveUrl: 'https://github.com/ItsTheWest/GestureFlow',
       tech: [
