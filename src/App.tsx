@@ -161,6 +161,7 @@ function App() {
       description: t('proyectos.item5.description'),
       longDescription: t('proyectos.item5.longDescription'),
       image: '/img/gestureflow.png',
+      videoUrl: 'https://nvh37prwmituwcl8.private.blob.vercel-storage.com/video%20of%20proyects/Getsureflow-2.0.webm',
       githubUrl: 'https://github.com/ItsTheWest/GestureFlow',
       liveUrl: 'https://github.com/ItsTheWest/GestureFlow',
       tech: [
