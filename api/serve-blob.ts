@@ -1,16 +1,14 @@
-import { get } from "@vercel/blob";
-
 export const config = {
   runtime: "edge",
 };
 
 /**
- * Serverless edge function that proxies private Vercel Blob files.
- * Authenticates via BLOB_READ_WRITE_TOKEN env var so the client
- * never needs direct access to signed URLs.
+ * Serverless edge function that redirects requests to the private blob CDN URL.
+ * This permits browsers to natively perform HTTP Range requests (206 Partial Content)
+ * for video streaming/scrubbing, avoiding loading issues on Safari/Chrome.
  *
  * @param request - Standard Web API request object.
- * @returns Streamed blob content with appropriate headers.
+ * @returns 307 Temporary Redirect response to the blob.
  */
 export default async function handler(request: Request): Promise<Response> {
   const { searchParams } = new URL(request.url);
@@ -23,25 +21,7 @@ export default async function handler(request: Request): Promise<Response> {
     });
   }
 
-  try {
-    const result = await get(blobUrl, { access: "private" });
-
-    if (!result || !result.stream) {
-      return new Response("Not found", { status: 404 });
-    }
-
-    return new Response(result.stream, {
-      headers: {
-        "Content-Type": result.blob.contentType ?? "application/octet-stream",
-        "Cache-Control": "public, max-age=31536000, immutable",
-        "X-Content-Type-Options": "nosniff",
-      },
-    });
-  } catch (error) {
-    console.error("Error retrieving blob:", error);
-    return new Response(JSON.stringify({ error: "Failed to retrieve blob" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
+  // Redirect to the blob URL. The signed blob URL contains temporary access tokens
+  // so the CDN serves it directly, providing native seeking and mobile play compatibility.
+  return Response.redirect(blobUrl, 307);
 }
