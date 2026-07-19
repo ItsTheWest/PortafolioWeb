@@ -95,7 +95,7 @@ function App() {
         '/img/stockmanager/perfil.jpg',
         '/img/stockmanager/login.jpg',
       ],
-      videoUrl: 'https://nvh37prwmituwcl8.private.blob.vercel-storage.com/video%20of%20proyects/Stockmanager%202.0.webm?vercel-blob-valid-until=1784420950951&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfblZoMzdQcldNSXRVd0NMOCIsIm93bmVySWQiOiJ0ZWFtX3FkdHp1eEpMU2QxVjMwaW5nNndON0FBaiIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzg0NDYzMjc0NzA5LCJpYXQiOjE3ODQ0MjAwNzQ3ODl9.c9rwJh__CfP0hkvq0aSILqfv1BSsZE3pSp0i6bLOHSo&vercel-blob-signature=AWiHdkQGvaNuYZXSMRgjWhWQyttb-aUW3MxhNUyX2i8',
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Stockmanager_2.0.webm',
       githubUrl: 'https://github.com/ItsTheWest/StockManager',
       liveUrl: 'https://github.com/ItsTheWest/StockManager',
       tech: [
@@ -124,7 +124,7 @@ function App() {
         '/img/cadiz/gestion.png',
         '/img/cadiz/form.png',
       ],
-      videoUrl: 'https://nvh37prwmituwcl8.private.blob.vercel-storage.com/video%20of%20proyects/Cadizfc%202.0.webm?vercel-blob-valid-until=1784420926738&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfblZoMzdQcldNSXRVd0NMOCIsIm93bmVySWQiOiJ0ZWFtX3FkdHp1eEpMU2QxVjMwaW5nNndON0FBaiIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzg0NDYzMjc0NzA5LCJpYXQiOjE3ODQ0MjAwNzQ3ODl9.c9rwJh__CfP0hkvq0aSILqfv1BSsZE3pSp0i6bLOHSo&vercel-blob-signature=FegEnUDhmOpVucJfmQRhK4_2PNr-oxkdskWYLqXjJhQ',
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Cadizfc_2.0.webm',
       tech: [
         { name: 'Next.js', icon: nexticon },
         { name: 'TypeScript', icon: tsIcon },
@@ -145,7 +145,7 @@ function App() {
         '/img/odooproyect/estadistics.png',
         '/img/odooproyect/tipeofactive.png',
       ],
-      videoUrl: 'https://nvh37prwmituwcl8.private.blob.vercel-storage.com/video%20of%20proyects/odoo2.0.webm?vercel-blob-valid-until=1784420990764&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfblZoMzdQcldNSXRVd0NMOCIsIm93bmVySWQiOiJ0ZWFtX3FkdHp1eEpMU2QxVjMwaW5nNndON0FBaiIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzg0NDYzMjc0NzA5LCJpYXQiOjE3ODQ0MjAwNzQ3ODl9.c9rwJh__CfP0hkvq0aSILqfv1BSsZE3pSp0i6bLOHSo&vercel-blob-signature=1OLzo31fbwmp1DM-2QC6suD-ONnkShoXmrHfjoOdyUI',
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/odoo2.0.webm',
       githubUrl: 'https://github.com/ItsTheWest/odoo-activos-intangibles',
       liveUrl: 'https://github.com/ItsTheWest/odoo-activos-intangibles',
       tech: [
@@ -161,7 +161,7 @@ function App() {
       description: t('proyectos.item5.description'),
       longDescription: t('proyectos.item5.longDescription'),
       image: '/img/gestureflow.png',
-      videoUrl: 'https://nvh37prwmituwcl8.private.blob.vercel-storage.com/video%20of%20proyects/Getsureflow-2.0.webm?vercel-blob-valid-until=1784420938664&vercel-blob-delegation=eyJzdG9yZUlkIjoic3RvcmVfblZoMzdQcldNSXRVd0NMOCIsIm93bmVySWQiOiJ0ZWFtX3FkdHp1eEpMU2QxVjMwaW5nNndON0FBaiIsInBhdGhuYW1lIjoiKiIsIm9wZXJhdGlvbnMiOlsiZ2V0IiwiaGVhZCJdLCJ2YWxpZFVudGlsIjoxNzg0NDYzMjc0NzA5LCJpYXQiOjE3ODQ0MjAwNzQ3ODl9.c9rwJh__CfP0hkvq0aSILqfv1BSsZE3pSp0i6bLOHSo&vercel-blob-signature=2RbnpiHV9G1tIz44Bltr2TndDLv4QHSrS1fnuHO5bRg',
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Getsureflow-2.0.webm',
       githubUrl: 'https://github.com/ItsTheWest/GestureFlow',
       liveUrl: 'https://github.com/ItsTheWest/GestureFlow',
       tech: [
