@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -26,6 +26,7 @@ const techLogos = [
   { node: <SiGit />, title: "Git", href: "https://git-scm.com" },
   { node: <SiMysql />, title: "MySQL", href: "https://www.mysql.com" },
   { node: <SiDotnet />, title: ".NET", href: "https://dotnet.microsoft.com/" },
+  { node: <SiDocker />, title: "Docker", href: "https://www.docker.com" },
 ];
 
 // ─── Inline SVG helpers (kept here to avoid a separate file) ──────────────────
@@ -49,6 +50,9 @@ const odooIcon = (
   </svg>
 );
 const postgresqlIcon = <SiPostgresql color="#4169E1" />;
+const tensorflowIcon = <SiTensorflow color="#FF6F00" />;
+const numpyIcon = <SiNumpy color="#4DABCF" />;
+const opencvIcon = <SiOpencv color="#5C3EE8" />;
 
 function App() {
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
@@ -149,6 +153,21 @@ function App() {
         { name: 'Python', icon: pythonIcon },
         { name: 'JavaScript', icon: jsIcon },
         { name: 'PostgreSQL', icon: postgresqlIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item5.title'),
+      subtitle: t('proyectos.item5.subtitle'),
+      description: t('proyectos.item5.description'),
+      longDescription: t('proyectos.item5.longDescription'),
+      image: '/img/gestureflow.png',
+      githubUrl: 'https://github.com/ItsTheWest/GestureFlow',
+      liveUrl: 'https://github.com/ItsTheWest/GestureFlow',
+      tech: [
+        { name: 'Python', icon: pythonIcon },
+        { name: 'NumPy', icon: numpyIcon },
+        { name: 'TensorFlow', icon: tensorflowIcon },
+        { name: 'OpenCV', icon: opencvIcon },
       ],
     },
   ];
