@@ -91,7 +91,7 @@ function App() {
         '/img/stockmanager/perfil.jpg',
         '/img/stockmanager/login.jpg',
       ],
-      videoUrl: '/img/stockmanager/video stockmanager 1.1.mp4',
+      videoUrl: 'https://nvh37prwmituwcl8.private.blob.vercel-storage.com/video%20of%20proyects/Stockmanager%202.0.webm',
       githubUrl: 'https://github.com/ItsTheWest/StockManager',
       liveUrl: 'https://github.com/ItsTheWest/StockManager',
       tech: [
@@ -120,7 +120,7 @@ function App() {
         '/img/cadiz/gestion.png',
         '/img/cadiz/form.png',
       ],
-      videoUrl: '/img/cadiz/cadizfc video v1.mp4',
+      videoUrl: 'https://nvh37prwmituwcl8.private.blob.vercel-storage.com/video%20of%20proyects/Cadizfc%202.0.webm',
       tech: [
         { name: 'Next.js', icon: nexticon },
         { name: 'TypeScript', icon: tsIcon },
@@ -141,7 +141,7 @@ function App() {
         '/img/odooproyect/estadistics.png',
         '/img/odooproyect/tipeofactive.png',
       ],
-      videoUrl: '/img/odooproyect/odoo.mp4',
+      videoUrl: 'https://nvh37prwmituwcl8.private.blob.vercel-storage.com/video%20of%20proyects/odoo2.0.webm',
       githubUrl: 'https://github.com/ItsTheWest/odoo-activos-intangibles',
       liveUrl: 'https://github.com/ItsTheWest/odoo-activos-intangibles',
       tech: [
