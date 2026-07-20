@@ -1,38 +1,38 @@
 import './menustyle.css';
 import React, { useState, useEffect, useRef } from "react";
-import type { ReactNode } from "react"; 
+import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 
-interface NavegadorProps{
-  children?:ReactNode;
+interface NavegadorProps {
+  children?: ReactNode;
 }
 
-function Navegador(props:NavegadorProps) {
- const{children} = props;
- const [isMenuOpen, setIsMenuOpen] = useState(false);
- const [selectedMenu, setSelectedMenu] = useState<string>("#");
- const [showLangSubmenu, setShowLangSubmenu] = useState(false); // Nuevo estado para submenú idiomas
- const { t, i18n } = useTranslation();
+function Navegador(props: NavegadorProps) {
+  const { children } = props;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedMenu, setSelectedMenu] = useState<string>("#");
+  const [showLangSubmenu, setShowLangSubmenu] = useState(false); // Nuevo estado para submenú idiomas
+  const { t, i18n } = useTranslation();
 
- const toggleMenu = () => {
-   setIsMenuOpen(!isMenuOpen);
- };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
- const closeMenu = () => {
-   setIsMenuOpen(false);
- };
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
- // Cerrar menú al hacer clic fuera
- useEffect(() => {
-   const handleClickOutside = (e: MouseEvent) => {
-     const target = e.target as Element;
-     if (!target.closest('.menu-container') && !target.closest('.hamburger-btn')) {
-       setIsMenuOpen(false);
-     }
-   };
-   document.addEventListener("mousedown", handleClickOutside);
-   return () => document.removeEventListener("mousedown", handleClickOutside);
- }, []);
+  // Cerrar menú al hacer clic fuera
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Element;
+      if (!target.closest('.menu-container') && !target.closest('.hamburger-btn')) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Opciones del menú lateral
   const menuOptions = [
@@ -64,174 +64,174 @@ function Navegador(props:NavegadorProps) {
 
   return (
     <>
-    <header>
-    <div className="contenedorMenu">
-      <div className="logo">
-          <a href="#">
-        <img src="/img/logo-nfdev.png"></img>
-         </a>
-        </div>
-      
-      {/* Menú de escritorio */}
-      <nav className="desktop-nav">
-        {[
-          { id: 'Yo', label: t('nav.sobremi') },
-          { id: 'Tec', label: t('nav.tegnologías') },
-          { id: 'Ex', label: t('nav.experiencia') },
-          { id: 'Pro', label: t('nav.proyectos') },
-          { id: 'Contacto', label: t('nav.contacto') },
-        ].map(item => (
-          <a
-            key={item.id}
-            href={`#${item.id}`}
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById(item.id)?.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-              });
-            }}
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
-      <div className="acciones desktop-actions">
-        {children}
-      </div>
-    </div>
-  </header>
+      <header>
+        <div className="contenedorMenu">
+          <div className="logo">
+            <a href="#">
+              <img src="img/brand/logo-nfdev.png" />
+            </a>
+          </div>
 
-  {/* Botón hamburguesa para móvil - fuera del header */}
-  <button className="hamburger-btn" onClick={toggleMenu}>
-    <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
-    <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
-    <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
-  </button>
-
-  {/* Menú lateral móvil */}
-  <div className={`menu-container ${isMenuOpen ? 'open' : ''}`}>
-    <div className="menu-overlay" onClick={closeMenu}></div>
-    <div className="menu-sidebar">
-      <div className="menu-header">
-        <h3>Menú</h3>
-      </div>
-      <nav className="mobile-nav">
-        {menuOptions.map(opt => (
-          !opt.isLang ? (
-            <a
-              key={opt.href}
-              href={opt.href}
-              onClick={(e) => { 
-                e.preventDefault();
-                const targetId = opt.href.replace('#', '');
-                setSelectedMenu(opt.href); 
-                setShowLangSubmenu(false);
-                closeMenu();
-                // Small delay so the mobile menu closes first before scrolling
-                setTimeout(() => {
-                  document.getElementById(targetId)?.scrollIntoView({
+          {/* Menú de escritorio */}
+          <nav className="desktop-nav">
+            {[
+              { id: 'Yo', label: t('nav.sobremi') },
+              { id: 'Tec', label: t('nav.tegnologías') },
+              { id: 'Ex', label: t('nav.experiencia') },
+              { id: 'Pro', label: t('nav.proyectos') },
+              { id: 'Contacto', label: t('nav.contacto') },
+            ].map(item => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(item.id)?.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start',
                   });
-                }, 280);
-              }}
-              className={selectedMenu === opt.href ? "selected" : ""}
-            >
-              <i className={opt.icon}></i>{opt.label}
-            </a>
-          ) : (
-            <div key={opt.href} style={{position: "relative"}}>
-              <a
-                href="#"
-                onClick={e => {
-                  e.preventDefault();
-                  setSelectedMenu(""); // Limpiar selección al abrir idiomas
-                  setShowLangSubmenu(v => !v);
                 }}
-                className={showLangSubmenu ? "selected" : ""}
-                style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}
               >
-                <span>
-                  <i className={opt.icon}></i>{opt.label}
-                </span>
-                <i className={`fa-solid fa-chevron-${showLangSubmenu ? "up" : "down"}`} style={{marginLeft: 8}}></i>
+                {item.label}
               </a>
-              {showLangSubmenu && (
-                <div
-                  className={`lang-submenu${showLangSubmenu ? " open" : ""}`}
-                  aria-expanded={showLangSubmenu}
+            ))}
+          </nav>
+          <div className="acciones desktop-actions">
+            {children}
+          </div>
+        </div>
+      </header>
+
+      {/* Botón hamburguesa para móvil - fuera del header */}
+      <button className="hamburger-btn" onClick={toggleMenu}>
+        <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+        <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+        <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+      </button>
+
+      {/* Menú lateral móvil */}
+      <div className={`menu-container ${isMenuOpen ? 'open' : ''}`}>
+        <div className="menu-overlay" onClick={closeMenu}></div>
+        <div className="menu-sidebar">
+          <div className="menu-header">
+            <h3>Menú</h3>
+          </div>
+          <nav className="mobile-nav">
+            {menuOptions.map(opt => (
+              !opt.isLang ? (
+                <a
+                  key={opt.href}
+                  href={opt.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetId = opt.href.replace('#', '');
+                    setSelectedMenu(opt.href);
+                    setShowLangSubmenu(false);
+                    closeMenu();
+                    // Small delay so the mobile menu closes first before scrolling
+                    setTimeout(() => {
+                      document.getElementById(targetId)?.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                      });
+                    }, 280);
+                  }}
+                  className={selectedMenu === opt.href ? "selected" : ""}
                 >
-                  {LANGUAGES.map(lang => (
-                    <a
-                      key={lang.code}
-                      href="#"
-                      onClick={e => {
-                        e.preventDefault();
-                        // Cambia el idioma global
-                        i18n.changeLanguage(lang.code);
-                        setTimeout(() => {
-                          setShowLangSubmenu(false);
-                          closeMenu();
-                        }, 0);
-                      }}
-                      className={`lang-option${selectedLang === lang.code ? " selected" : ""}`}
+                  <i className={opt.icon}></i>{opt.label}
+                </a>
+              ) : (
+                <div key={opt.href} style={{ position: "relative" }}>
+                  <a
+                    href="#"
+                    onClick={e => {
+                      e.preventDefault();
+                      setSelectedMenu(""); // Limpiar selección al abrir idiomas
+                      setShowLangSubmenu(v => !v);
+                    }}
+                    className={showLangSubmenu ? "selected" : ""}
+                    style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
+                  >
+                    <span>
+                      <i className={opt.icon}></i>{opt.label}
+                    </span>
+                    <i className={`fa-solid fa-chevron-${showLangSubmenu ? "up" : "down"}`} style={{ marginLeft: 8 }}></i>
+                  </a>
+                  {showLangSubmenu && (
+                    <div
+                      className={`lang-submenu${showLangSubmenu ? " open" : ""}`}
+                      aria-expanded={showLangSubmenu}
                     >
-                      <span style={{display: 'inline-flex', alignItems: 'center'}}>
-                        {/* Placeholder mientras la imagen carga; luego se muestra la imagen */}
-                        {!flagsLoaded[lang.code] && (
-                          <span className="flag-placeholder" aria-hidden="true" />
-                        )}
-                        <img
-                          src={lang.icon}
-                          alt={lang.label}
-                          className="lang-flag-svg"
-                          style={{display: flagsLoaded[lang.code] ? 'inline-block' : 'none'}}
-                          onLoad={() => setFlagsLoaded(prev => ({...prev, [lang.code]: true}))}
-                          onError={() => setFlagsLoaded(prev => ({...prev, [lang.code]: false}))}
-                        />
-                      </span>
-                      {lang.label}
-                      {selectedLang === lang.code && (
-                        <i className="fa-solid fa-check lang-check"></i>
-                      )}
-                    </a>
-                  ))}
+                      {LANGUAGES.map(lang => (
+                        <a
+                          key={lang.code}
+                          href="#"
+                          onClick={e => {
+                            e.preventDefault();
+                            // Cambia el idioma global
+                            i18n.changeLanguage(lang.code);
+                            setTimeout(() => {
+                              setShowLangSubmenu(false);
+                              closeMenu();
+                            }, 0);
+                          }}
+                          className={`lang-option${selectedLang === lang.code ? " selected" : ""}`}
+                        >
+                          <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+                            {/* Placeholder mientras la imagen carga; luego se muestra la imagen */}
+                            {!flagsLoaded[lang.code] && (
+                              <span className="flag-placeholder" aria-hidden="true" />
+                            )}
+                            <img
+                              src={lang.icon}
+                              alt={lang.label}
+                              className="lang-flag-svg"
+                              style={{ display: flagsLoaded[lang.code] ? 'inline-block' : 'none' }}
+                              onLoad={() => setFlagsLoaded(prev => ({ ...prev, [lang.code]: true }))}
+                              onError={() => setFlagsLoaded(prev => ({ ...prev, [lang.code]: false }))}
+                            />
+                          </span>
+                          {lang.label}
+                          {selectedLang === lang.code && (
+                            <i className="fa-solid fa-check lang-check"></i>
+                          )}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          )
-        ))}
-      </nav>
-      <div className="mobile-actions">
-        {children}
+              )
+            ))}
+          </nav>
+          <div className="mobile-actions">
+            {children}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  </>
+    </>
   )
 }
 
 
-    
+
 export const Dropdown: React.FC = () => {
   const { t, i18n } = useTranslation(); // Hook para acceder y cambiar el idioma global
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
- 
+
   // Determina el idioma seleccionado según el idioma actual de i18n
   const selectedCode = i18n.language.startsWith("en") ? "en" : "es";
   const selected = selectedCode === 'en' ? t('lang.en') : t('lang.es');
   const optionsCodes = ["es", "en"].filter(code => code !== selectedCode);
- 
+
   const toggleDropdown = () => setIsOpen(prev => !prev);
- 
+
   const handleSelect = (code: string) => {
     // Cambia el idioma global según la opción seleccionada
     i18n.changeLanguage(code);
     setIsOpen(false); // Cierra el menú después de seleccionar
   };
- 
+
   // Cierre automático al hacer clic fuera del dropdown
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -242,7 +242,7 @@ export const Dropdown: React.FC = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
- 
+
   return (
     <div className="dropdown" ref={dropdownRef}>
       <button className="dropdown-toggle" onClick={toggleDropdown}>
@@ -259,7 +259,7 @@ export const Dropdown: React.FC = () => {
     </div>
   );
 };
-    
-    
+
+
 
 export default Navegador;

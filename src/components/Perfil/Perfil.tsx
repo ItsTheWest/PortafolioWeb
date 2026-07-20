@@ -17,7 +17,7 @@ const Perfil: FC<PerfilProps> = (props) => {
   return (
     <div className="container-perfil">
       <div className="profile-pic">
-        <img src="/img/profile.jpeg" alt={t("perfil.alt")} />
+        <img src="/img/profile/profile.jpeg" alt={t("perfil.alt")} />
       </div>
       <div className="info">
         <h1>{t("perfil.hola")} <span>{t("perfil.nombre")}</span></h1>

@@ -5,9 +5,9 @@ import { FiCode, FiPenTool, FiSettings } from 'react-icons/fi';
 import './sobremi.css';
 
 const CARDS_DATA = [
-  { id: 1, img: '/img/imgcard3.png', bg: '#0a0a0a', title: 'sobremi.card1Title', icon: <FiCode /> },
-  { id: 2, img: '/img/imgcard2.png', bg: '#0a0a0a', title: 'sobremi.card2Title', icon: <FiPenTool /> },
-  { id: 3, img: '/img/imgcard1.jpg', bg: '#0a0a0a', title: 'sobremi.card3Title', icon: <FiSettings /> },
+  { id: 1, img: '/img/misc/imgcard3.png', bg: '#0a0a0a', title: 'sobremi.card1Title', icon: <FiCode /> },
+  { id: 2, img: '/img/misc/imgcard2.png', bg: '#0a0a0a', title: 'sobremi.card2Title', icon: <FiPenTool /> },
+  { id: 3, img: '/img/misc/imgcard1.jpg', bg: '#0a0a0a', title: 'sobremi.card3Title', icon: <FiSettings /> },
 ];
 
 export default function CardSwap() {
