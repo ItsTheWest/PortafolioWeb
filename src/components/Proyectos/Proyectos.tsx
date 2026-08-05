@@ -18,8 +18,10 @@ export type Proyecto = {
   image: string;
   /** Optional array of images for the carousel. Falls back to [image] if not set. */
   images?: string[];
-  /** Optional video URL (mp4, webm, etc.) shown as an extra slide in the carousel */
+  /** Optional single video URL — use videos[] for multiple. */
   videoUrl?: string;
+  /** Optional array of video URLs for a multi-video carousel. Takes precedence over videoUrl. */
+  videos?: string[];
   githubUrl?: string;
   liveUrl?: string;
   /** Optional longer body shown only inside the modal */
@@ -56,13 +58,22 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
   const [visible, setVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState(0);
   const [imageLoading, setImageLoading] = useState(true);
+
+  // Derive the effective video list: prefer videos[] array, fall back to single videoUrl
+  const videoList: string[] = proyecto.videos && proyecto.videos.length > 0
+    ? proyecto.videos
+    : proyecto.videoUrl
+      ? [proyecto.videoUrl]
+      : [];
+  const hasVideo = videoList.length > 0;
+  const hasMultipleVideos = videoList.length > 1;
 
   // Build slide list: images
   const imageSlides: string[] = proyecto.images && proyecto.images.length > 0
     ? proyecto.images
     : [proyecto.image];
-  const hasVideo = !!proyecto.videoUrl;
   const totalSlides = imageSlides.length;
   // Carousel is only active/visible when NOT showing the video, and there are multiple images
   const showCarousel = totalSlides > 1 && !showVideo;
@@ -73,10 +84,21 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
     else setCurrentSlide(index);
   };
 
+  const goToVideo = (index: number) => {
+    if (index < 0) setCurrentVideo(videoList.length - 1);
+    else if (index >= videoList.length) setCurrentVideo(0);
+    else setCurrentVideo(index);
+  };
+
   // Reset imageLoading whenever the slide changes or view mode changes
   useEffect(() => {
     setImageLoading(true);
   }, [currentSlide, showVideo]);
+
+  // Reset video index when switching to/from video mode
+  useEffect(() => {
+    if (!showVideo) setCurrentVideo(0);
+  }, [showVideo]);
 
   // Trigger enter animation after mount
   useEffect(() => {
@@ -133,7 +155,7 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
         {/* ── Hero / Carousel ── */}
         <div className="pm-hero-wrapper">
           <div className="pm-hero">
-            {/* Loading Shimmer Spinner */}
+            {/* Loading Shimmer Spinner (only for images) */}
             {!showVideo && imageLoading && (
               <div className="pm-hero-skeleton">
                 <div className="pm-skeleton-shimmer" />
@@ -145,16 +167,49 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
               </div>
             )}
 
-            {/* Video or Image Carousel */}
-            {showVideo && proyecto.videoUrl ? (
-              <video
-                src={proyecto.videoUrl}
-                className="pm-hero-video"
-                controls
-                autoPlay
-                playsInline
-                preload="metadata"
-              />
+            {/* ── Video carousel or image carousel ── */}
+            {showVideo ? (
+              <div className="pm-video-carousel">
+                <video
+                  key={videoList[currentVideo]}
+                  src={videoList[currentVideo]}
+                  className="pm-hero-video"
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                />
+                {/* Multi-video nav */}
+                {hasMultipleVideos && (
+                  <>
+                    <button
+                      className="pm-carousel-btn pm-carousel-btn--prev"
+                      onClick={(e) => { e.stopPropagation(); goToVideo(currentVideo - 1); }}
+                      aria-label="Video anterior"
+                    >
+                      <ChevronLeft />
+                    </button>
+                    <button
+                      className="pm-carousel-btn pm-carousel-btn--next"
+                      onClick={(e) => { e.stopPropagation(); goToVideo(currentVideo + 1); }}
+                      aria-label="Siguiente video"
+                    >
+                      <ChevronRight />
+                    </button>
+                    <div className="pm-carousel-dots">
+                      {videoList.map((_, i) => (
+                        <button
+                          key={i}
+                          className={`pm-carousel-dot${i === currentVideo ? ' pm-carousel-dot--active' : ''}`}
+                          onClick={(e) => { e.stopPropagation(); goToVideo(i); }}
+                          aria-label={`Video ${i + 1}`}
+                        />
+                      ))}
+                    </div>
+                    <span className="pm-video-counter">{currentVideo + 1} / {videoList.length}</span>
+                  </>
+                )}
+              </div>
             ) : (
               <img
                 src={imageSlides[currentSlide]}
@@ -164,7 +219,7 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
                 loading="lazy"
               />
             )}
-            
+
             <div className="pm-hero-gradient" />
 
             {proyecto.status && (
@@ -176,7 +231,7 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
               <button
                 className="pm-video-toggle-btn"
                 onClick={(e) => { e.stopPropagation(); setShowVideo(!showVideo); }}
-                aria-label={showVideo ? "Ver galería de fotos" : "Ver video de demostración"}
+                aria-label={showVideo ? "Ver galería de fotos" : "Ver videos de demostración"}
               >
                 {showVideo ? (
                   <>
@@ -192,13 +247,13 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                    <span>Ver Video</span>
+                    <span>{hasMultipleVideos ? `Ver Videos (${videoList.length})` : 'Ver Video'}</span>
                   </>
                 )}
               </button>
             )}
 
-            {/* Carousel controls */}
+            {/* Image carousel controls (only in gallery mode) */}
             {showCarousel && (
               <>
                 <button
