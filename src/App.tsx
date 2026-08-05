@@ -81,11 +81,10 @@ function App() {
       subtitle: t('proyectos.item2.subtitle'),
       description: t('proyectos.item2.description'),
       longDescription: t('proyectos.item2.description'),
-      image: '/img/stockmanager/login.jpg',
+      image: '/img/stockmanager/dashboard.jpg',
       images: [
-
-        '/img/stockmanager/dashboard.jpg',
         '/img/stockmanager/inventory.jpg',
+        '/img/stockmanager/dashboard.jpg',
         '/img/stockmanager/provider.jpg',
         '/img/stockmanager/invoice.jpg',
         '/img/stockmanager/sales.jpg',
@@ -95,7 +94,7 @@ function App() {
         '/img/stockmanager/perfil.jpg',
         '/img/stockmanager/login.jpg',
       ],
-      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Stockmanager_2.0.webm',
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/stockbot.webm',
       githubUrl: 'https://github.com/ItsTheWest/StockManager',
       liveUrl: 'https://github.com/ItsTheWest/StockManager',
       tech: [
