@@ -343,8 +343,13 @@ function App() {
             <h2 id="Pro" className="title">{t('secciones.proyectos')}</h2>
             <ProyectosGrid proyectos={proyectosData} />
           </ScrollReveal>
-
+          <br></br>
+          <br></br>
+          <br></br>
           <hr></hr>
+          <br></br>
+          <br></br>
+          <br></br>
 
           <ScrollReveal animation="fade-up" threshold={0.2} duration={1.8}>
             <Contacto />
