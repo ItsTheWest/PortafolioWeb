@@ -87,6 +87,10 @@
       "status": "In Development",
       "description": "A mobile application that lets you keep a detailed log of your vehicle expenses and a maintenance logbook for all changes made. It includes an AI-powered assistant to audit damages and an interactive map to locate nearby spare parts based on your car or motorcycle model.",
       "longDescription": "Odix turns vehicle maintenance into a complete, reliable digital record. It gives you detailed control over your expenses — fuel, spare parts, and services — plus a logbook with the full history of changes and repairs for each vehicle, including mileage, dates, and photo evidence. An AI-powered assistant analyzes the symptoms you describe and suggests the most likely faults, combining a local database with real-time internet searches. An interactive map also helps you locate nearby spare parts based on your car or motorcycle make and model. It is built with Flutter and Dart, following a clean architecture with a feature-first approach."
+    },
+    "toggle": {
+      "more": "View more projects",
+      "less": "View less"
     }
   },
   "contacto": {

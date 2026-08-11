@@ -86,6 +86,10 @@
       "status": "En Desarrollo",
       "description": "Aplicación móvil que permite llevar un registro detallado de los gastos de tu vehículo y una bitácora de todos los cambios realizados. Incluye un asistente con IA para auditar daños y un mapa interactivo para ubicar repuestos cercanos según el modelo de tu carro o moto.",
       "longDescription": "Odix convierte el mantenimiento de tu vehículo en un registro digital completo y confiable. Permite llevar el control detallado de los gastos —combustible, repuestos y servicios— y una bitácora con el historial completo de cambios y reparaciones de cada vehículo, incluyendo kilometraje, fechas y fotos de evidencia. Un asistente impulsado por IA analiza los síntomas que describes y sugiere las fallas más probables, combinando una base de datos local con búsquedas en internet en tiempo real. Además, un mapa interactivo te ayuda a ubicar repuestos cercanos según la marca y el modelo de tu carro o moto. Está desarrollada en Flutter con Dart, siguiendo una arquitectura limpia con un enfoque feature-first."
+    },
+    "toggle": {
+      "more": "Ver más proyectos",
+      "less": "Ver menos"
     }
   },
   "contacto": {

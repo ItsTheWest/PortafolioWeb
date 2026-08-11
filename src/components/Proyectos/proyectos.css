@@ -286,3 +286,85 @@
     padding: 0.85rem 0.9rem 0.9rem;
   }
 }
+
+/* ─── Collapsible extra rows ─────────────────────────────────────────── */
+.pc-extra-grid {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease;
+}
+
+.pc-extra-grid--open {
+  max-height: 2000px; /* generous upper bound */
+  opacity: 1;
+}
+
+/* Remove the default top margin since .pc-grid already has it */
+.pc-grid--extra {
+  margin-top: 1.25rem;
+  padding-bottom: 0;
+}
+
+/* ─── Toggle button ──────────────────────────────────────────────────── */
+.pc-toggle-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.pc-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.4rem;
+  max-width: 100%;
+  white-space: nowrap;
+  background: transparent;
+  border: 1px solid rgba(14, 165, 233, 0.45);
+  border-radius: 99px;
+  color: #0ea5e9;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.pc-toggle-btn:hover {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.75);
+  box-shadow: 0 0 18px rgba(14, 165, 233, 0.12);
+  color: #38bdf8;
+}
+
+.pc-toggle-chevron {
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pc-toggle-btn--open .pc-toggle-chevron {
+  transform: rotate(180deg);
+}
+
+/* Mobile — keep the toggle button tappable and centered without overflow */
+@media (max-width: 520px) {
+  .pc-toggle-row {
+    margin-top: 1.25rem;
+    padding-inline: 0.85rem; /* match .pc-grid mobile side padding */
+  }
+
+  .pc-toggle-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.82rem;
+  }
+}

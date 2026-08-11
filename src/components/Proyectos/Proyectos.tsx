@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import './proyectos.css';
 import './ProyectoModal.css';
 
@@ -436,17 +437,26 @@ const ProyectoCard: React.FC<CardProps> = ({ proyecto, index, onClick }) => {
 
 // ─── Grid Container ───────────────────────────────────────────────────────────
 
+const INITIAL_VISIBLE = 6;
+
 interface ProyectosGridProps {
   proyectos: Proyecto[];
 }
 
 export const ProyectosGrid: React.FC<ProyectosGridProps> = ({ proyectos }) => {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState<Proyecto | null>(null);
+  const [expanded, setExpanded] = useState(false);
+
+  const visible = proyectos.slice(0, INITIAL_VISIBLE);
+  const hidden  = proyectos.slice(INITIAL_VISIBLE);
+  const hasMore = hidden.length > 0;
 
   return (
     <>
+      {/* ── Always-visible rows (first 6) ── */}
       <div className="pc-grid">
-        {proyectos.map((p, i) => (
+        {visible.map((p, i) => (
           <ProyectoCard
             key={i}
             proyecto={p}
@@ -455,6 +465,52 @@ export const ProyectosGrid: React.FC<ProyectosGridProps> = ({ proyectos }) => {
           />
         ))}
       </div>
+
+      {/* ── Collapsible extra rows ── */}
+      {hasMore && (
+        <div
+          className={`pc-extra-grid${expanded ? ' pc-extra-grid--open' : ''}`}
+        >
+          <div className="pc-grid pc-grid--extra">
+            {hidden.map((p, i) => (
+              <ProyectoCard
+                key={INITIAL_VISIBLE + i}
+                proyecto={p}
+                index={INITIAL_VISIBLE + i}
+                onClick={() => setSelected(p)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── Show more / less button ── */}
+      {hasMore && (
+        <div className="pc-toggle-row">
+          <button
+            className={`pc-toggle-btn${expanded ? ' pc-toggle-btn--open' : ''}`}
+            onClick={() => setExpanded(!expanded)}
+            aria-expanded={expanded}
+          >
+            <span>{expanded ? t('proyectos.toggle.less') : t('proyectos.toggle.more')}</span>
+            <svg
+              className="pc-toggle-chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M6 9l6 6 6-6"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
 
       {selected && (
         <ProyectoModal proyecto={selected} onClose={() => setSelected(null)} />
