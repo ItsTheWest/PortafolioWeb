@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -53,6 +53,9 @@ const postgresqlIcon = <SiPostgresql color="#4169E1" />;
 const tensorflowIcon = <SiTensorflow color="#FF6F00" />;
 const numpyIcon = <SiNumpy color="#4DABCF" />;
 const opencvIcon = <SiOpencv color="#5C3EE8" />;
+const flutterIcon = <SiFlutter color="#54C5F8" />;
+const dartIcon = <SiDart color="#00B4AB" />;
+const fastapiIcon = <SiFastapi color="#009688" />;
 
 function App() {
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
@@ -60,22 +63,6 @@ function App() {
 
   // Build project list here so it re-evaluates with translations
   const proyectosData: Proyecto[] = [
-    {
-      title: t('proyectos.item1.title'),
-      subtitle: t('proyectos.item1.subtitle'),
-      description: t('proyectos.item1.description'),
-      longDescription: t('proyectos.item1.description'),
-      image: '/img/elvalle/proyectoelvalle.png',
-      githubUrl: 'https://github.com/ItsTheWest/SistemaWebDeAnalisis',
-      liveUrl: 'https://github.com/ItsTheWest/SistemaWebDeAnalisis',
-      tech: [
-        { name: 'HTML', icon: htmlIcon },
-        { name: 'CSS', icon: cssIcon },
-        { name: 'JavaScript', icon: jsIcon },
-        { name: 'Laravel', icon: laravelIcon },
-        { name: 'MySQL', icon: mysqlIcon },
-      ],
-    },
     {
       title: t('proyectos.item2.title'),
       subtitle: t('proyectos.item2.subtitle'),
@@ -172,6 +159,61 @@ function App() {
         { name: 'NumPy', icon: numpyIcon },
         { name: 'TensorFlow', icon: tensorflowIcon },
         { name: 'OpenCV', icon: opencvIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item6.title'),
+      subtitle: t('proyectos.item6.subtitle'),
+      description: t('proyectos.item6.description'),
+      longDescription: t('proyectos.item6.longDescription'),
+      image: '/img/kiosgo/products.png',
+      images: [
+        '/img/kiosgo/login.png',
+        '/img/kiosgo/products.png',
+        '/img/kiosgo/ordenes.png',
+        '/img/kiosgo/chat.png',
+        '/img/kiosgo/directions.png',
+      ],
+      status: t('proyectos.item6.status'),
+      tech: [
+        { name: 'Next.js', icon: nexticon },
+        { name: 'TypeScript', icon: tsIcon },
+        { name: 'FastAPI', icon: fastapiIcon },
+        { name: 'Supabase', icon: supabaseIcon },
+        { name: 'Tailwind CSS', icon: tailwindIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item7.title'),
+      subtitle: t('proyectos.item7.subtitle'),
+      description: t('proyectos.item7.description'),
+      longDescription: t('proyectos.item7.longDescription'),
+      image: '/img/autobitacora/autos.png',
+      images: [
+        '/img/autobitacora/login.png',
+        '/img/autobitacora/autos.png',
+        '/img/autobitacora/bitacora.png',
+      ],
+      status: t('proyectos.item7.status'),
+      tech: [
+        { name: 'Flutter', icon: flutterIcon },
+        { name: 'Dart', icon: dartIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item1.title'),
+      subtitle: t('proyectos.item1.subtitle'),
+      description: t('proyectos.item1.description'),
+      longDescription: t('proyectos.item1.description'),
+      image: '/img/elvalle/proyectoelvalle.png',
+      githubUrl: 'https://github.com/ItsTheWest/SistemaWebDeAnalisis',
+      liveUrl: 'https://github.com/ItsTheWest/SistemaWebDeAnalisis',
+      tech: [
+        { name: 'HTML', icon: htmlIcon },
+        { name: 'CSS', icon: cssIcon },
+        { name: 'JavaScript', icon: jsIcon },
+        { name: 'Laravel', icon: laravelIcon },
+        { name: 'MySQL', icon: mysqlIcon },
       ],
     },
   ];

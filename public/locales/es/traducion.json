@@ -72,6 +72,20 @@
       "subtitle": "Software de Escritorio — ML y Visión",
       "description": "Pipeline completo de reconocimiento de gestos de mano en tiempo real para control de escritorio, combinando MediaPipe, redes LSTM y control de entrada del sistema operativo.",
       "longDescription": "Pipeline end-to-end que recorre todo el ciclo de vida del Machine Learning aplicado a visión por computadora. Captura los puntos de referencia de la mano mediante cámara web con MediaPipe HandLandmarker, entrena una red neuronal LSTM con secuencias de gestos personalizadas, y traduce los gestos reconocidos en acciones reales del sistema operativo: movimiento del cursor (suavizado con EMA), clic izquierdo y cambio de espacio de trabajo virtual. El proyecto incluye un dashboard unificado en CustomTkinter que integra los modos de recolección de datos, entrenamiento, inferencia y control, todo desde una interfaz de escritorio de tema oscuro con viewport de cámara en vivo."
+    },
+    "item6": {
+      "title": "Kiosgo",
+      "subtitle": "Plataforma Web de Comercio Local",
+      "status": "En Desarrollo",
+      "description": "Plataforma web que permite a negocios y emprendimientos publicar un catálogo de productos para que sus clientes puedan elegirlos mediante un carrito de compras y generar órdenes de compra desde cualquier lugar. Su punto fuerte es el chat interactivo en tiempo real y un mapa que muestra los emprendimientos más cercanos a ti.",
+      "longDescription": "Kiosgo conecta negocios y emprendimientos locales con sus clientes en un solo lugar. Los comercios publican su catálogo de productos y gestionan las órdenes desde un panel propio, mientras que los clientes arman su carrito y generan pedidos de compra sin necesidad de contacto presencial. Entre sus características destacadas están un chat interactivo en tiempo real para resolver dudas directamente con cada negocio y un mapa que permite descubrir los emprendimientos más cercanos según tu ubicación. Está construido como un monorepo full-stack: el frontend corre con Next.js, la API con FastAPI, y la base de datos y autenticación se apoyan en Supabase, todo desplegado en Vercel."
+    },
+    "item7": {
+      "title": "Odix",
+      "subtitle": "App Móvil para Gestión Vehicular",
+      "status": "En Desarrollo",
+      "description": "Aplicación móvil que permite llevar un registro detallado de los gastos de tu vehículo y una bitácora de todos los cambios realizados. Incluye un asistente con IA para auditar daños y un mapa interactivo para ubicar repuestos cercanos según el modelo de tu carro o moto.",
+      "longDescription": "Odix convierte el mantenimiento de tu vehículo en un registro digital completo y confiable. Permite llevar el control detallado de los gastos —combustible, repuestos y servicios— y una bitácora con el historial completo de cambios y reparaciones de cada vehículo, incluyendo kilometraje, fechas y fotos de evidencia. Un asistente impulsado por IA analiza los síntomas que describes y sugiere las fallas más probables, combinando una base de datos local con búsquedas en internet en tiempo real. Además, un mapa interactivo te ayuda a ubicar repuestos cercanos según la marca y el modelo de tu carro o moto. Está desarrollada en Flutter con Dart, siguiendo una arquitectura limpia con un enfoque feature-first."
     }
   },
   "contacto": {

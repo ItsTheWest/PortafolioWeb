@@ -73,6 +73,20 @@
       "status": "In Development",
       "description": "End-to-end real-time hand gesture recognition pipeline for desktop control, combining MediaPipe, LSTM neural networks, and OS-level input control.",
       "longDescription": "A full end-to-end pipeline that walks through the complete Machine Learning lifecycle applied to computer vision. It captures hand landmarks via webcam using MediaPipe HandLandmarker, trains an LSTM neural network on custom gesture sequences, and translates recognized gestures into real OS actions — cursor movement (EMA-smoothed), left click, and virtual workspace switching. The project features a unified CustomTkinter dashboard integrating data collection, training, inference, and control modes, all from a dark-themed desktop UI with a live camera viewport."
+    },
+    "item6": {
+      "title": "Kiosgo",
+      "subtitle": "Local Commerce Web Platform",
+      "status": "In Development",
+      "description": "A web platform that allows businesses and entrepreneurs to publish a product catalog so their customers can browse items through a shopping cart and place purchase orders from anywhere. Its standout features are a real-time interactive chat and a map that shows the nearest businesses to you.",
+      "longDescription": "Kiosgo connects local businesses and entrepreneurs with their customers in a single place. Merchants publish their product catalog and manage orders from their own panel, while customers build a shopping cart and place purchase orders without needing in-person contact. Its standout features include a real-time interactive chat to resolve doubts directly with each business, and a map that lets you discover the nearest shops based on your location. It is built as a full-stack monorepo: the frontend runs on Next.js, the API on FastAPI, and the database and authentication are powered by Supabase, all deployed on Vercel."
+    },
+    "item7": {
+      "title": "Odix",
+      "subtitle": "Mobile App for Vehicle Management",
+      "status": "In Development",
+      "description": "A mobile application that lets you keep a detailed log of your vehicle expenses and a maintenance logbook for all changes made. It includes an AI-powered assistant to audit damages and an interactive map to locate nearby spare parts based on your car or motorcycle model.",
+      "longDescription": "Odix turns vehicle maintenance into a complete, reliable digital record. It gives you detailed control over your expenses — fuel, spare parts, and services — plus a logbook with the full history of changes and repairs for each vehicle, including mileage, dates, and photo evidence. An AI-powered assistant analyzes the symptoms you describe and suggests the most likely faults, combining a local database with real-time internet searches. An interactive map also helps you locate nearby spare parts based on your car or motorcycle make and model. It is built with Flutter and Dart, following a clean architecture with a feature-first approach."
     }
   },
   "contacto": {
