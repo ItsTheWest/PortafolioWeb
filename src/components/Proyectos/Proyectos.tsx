@@ -29,6 +29,8 @@ export type Proyecto = {
   longDescription?: string;
   /** Badge / status label, e.g. "En Desarrollo" */
   status?: string;
+  /** Optional image fit mode for project cover: 'cover' (default) or 'contain' */
+  imageFit?: 'cover' | 'contain';
 };
 
 // ─── Carousel arrows & dots ───────────────────────────────────────────────────
@@ -380,6 +382,8 @@ const ProyectoCard: React.FC<CardProps> = ({ proyecto, index, onClick }) => {
     ? proyecto.images[0]
     : proyecto.image;
 
+  const isContain = proyecto.imageFit === 'contain';
+
   return (
     <article
       className="pc-card"
@@ -391,8 +395,13 @@ const ProyectoCard: React.FC<CardProps> = ({ proyecto, index, onClick }) => {
       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onClick()}
     >
       {/* Image */}
-      <div className="pc-img-wrap">
-        <img src={coverImage} alt={proyecto.title} className="pc-img" loading="lazy" />
+      <div className={`pc-img-wrap ${isContain ? 'pc-img-wrap--contain' : ''}`}>
+        <img
+          src={coverImage}
+          alt={proyecto.title}
+          className={`pc-img ${isContain ? 'pc-img--contain' : ''}`}
+          loading="lazy"
+        />
         <div className="pc-img-overlay" />
         {proyecto.status && <span className="pc-status">{proyecto.status}</span>}
         {/* Hover CTA */}

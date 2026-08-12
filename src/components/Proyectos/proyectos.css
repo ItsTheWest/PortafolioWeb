@@ -72,11 +72,21 @@
   flex-shrink: 0;
 }
 
+.pc-img-wrap--contain {
+  background: #141416;
+}
+
 .pc-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pc-img--contain {
+  object-fit: contain;
+  padding: 0.35rem 0;
+  box-sizing: border-box;
 }
 
 .pc-card:hover .pc-img {

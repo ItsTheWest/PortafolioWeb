@@ -194,6 +194,7 @@ function App() {
         '/img/autobitacora/autos.png',
         '/img/autobitacora/bitacora.png',
       ],
+      imageFit: 'contain',
       status: t('proyectos.item7.status'),
       tech: [
         { name: 'Flutter', icon: flutterIcon },
