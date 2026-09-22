@@ -30,9 +30,15 @@
   },
   "experiencia": [
     {
+      "title": "IT Support & Software Developer",
+      "company": "A2 Softway — TecnoSoluciones LR",
+      "date": "September 2025 - Nowadays",
+      "description": "Deployment, configuration, and technical support for A2 Softway legacy enterprise systems (Administrative, Accounting, and Hospitality). Development and integration of bespoke software solutions to optimize operational workflows. Installation of local network infrastructure with structured cabling and administration of internal Windows servers with shared folder permissions."
+    },
+    {
       "title": "Documentation Analyst",
       "company": "Clover International, C.A",
-      "date": "May 2025 - Nowadays",
+      "date": "May 2025 - October 2025",
       "description": "Responsible for developing an application to manage processes related to a bidding process, using Microsoft 365 technological tools. Also collaborated in the development of a business quotation web system, implemented with Angular CLI, MySQL, and JavaScript."
     }
   ],
