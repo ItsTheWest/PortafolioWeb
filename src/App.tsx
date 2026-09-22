@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi, SiAstro, SiSvelte } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -56,6 +56,8 @@ const opencvIcon = <SiOpencv color="#5C3EE8" />;
 const flutterIcon = <SiFlutter color="#54C5F8" />;
 const dartIcon = <SiDart color="#00B4AB" />;
 const fastapiIcon = <SiFastapi color="#009688" />;
+const astroIcon = <SiAstro color="#FF5D01" />;
+const svelteIcon = <SiSvelte color="#FF3E00" />;
 
 function App() {
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
@@ -120,6 +122,19 @@ function App() {
         { name: 'TypeScript', icon: tsIcon },
         { name: 'Supabase', icon: supabaseIcon },
         { name: 'Tailwind CSS', icon: tailwindIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item8.title'),
+      subtitle: t('proyectos.item8.subtitle'),
+      description: t('proyectos.item8.description'),
+      longDescription: t('proyectos.item8.description'),
+      image: '/img/tecnosoluciones/landing.png',
+      tech: [
+        { name: 'Astro', icon: astroIcon },
+        { name: 'Tailwind CSS', icon: tailwindIcon },
+        { name: 'Svelte', icon: svelteIcon },
+        { name: 'JavaScript', icon: jsIcon },
       ],
     },
     {
