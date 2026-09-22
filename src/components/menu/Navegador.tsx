@@ -68,7 +68,7 @@ function Navegador(props: NavegadorProps) {
         <div className="contenedorMenu">
           <div className="logo">
             <a href="#">
-              <img src="img/brand/logo-nfdev.png" />
+              <img src="/img/brand/logo-nfdev.png" alt="Nelson Figueroa Logo" />
             </a>
           </div>
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
+import SkeletonImage from '../common/SkeletonImage';
 import './proyectos.css';
 import './ProyectoModal.css';
 
@@ -396,7 +397,7 @@ const ProyectoCard: React.FC<CardProps> = ({ proyecto, index, onClick }) => {
     >
       {/* Image */}
       <div className={`pc-img-wrap ${isContain ? 'pc-img-wrap--contain' : ''}`}>
-        <img
+        <SkeletonImage
           src={coverImage}
           alt={proyecto.title}
           className={`pc-img ${isContain ? 'pc-img--contain' : ''}`}

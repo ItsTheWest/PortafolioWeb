@@ -2,6 +2,7 @@ import './perfilstyle.css'
 import { useEffect, useState } from "react";
 import type { ReactNode, FC } from "react";
 import { useTranslation } from "react-i18next";
+import SkeletonImage from '../common/SkeletonImage';
 
 interface PerfilProps {
   children?: ReactNode;
@@ -17,7 +18,11 @@ const Perfil: FC<PerfilProps> = (props) => {
   return (
     <div className="container-perfil">
       <div className="profile-pic">
-        <img src="/img/profile/profile.jpeg" alt={t("perfil.alt")} />
+        <SkeletonImage
+          src="/img/profile/profile.jpeg"
+          alt={t("perfil.alt")}
+          skeletonBorderRadius="50%"
+        />
       </div>
       <div className="info">
         <h1>{t("perfil.hola")} <span>{t("perfil.nombre")}</span></h1>

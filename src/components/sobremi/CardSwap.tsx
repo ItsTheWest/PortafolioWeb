@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { FiCode, FiPenTool, FiSettings } from 'react-icons/fi';
+import SkeletonImage from '../common/SkeletonImage';
 import './sobremi.css';
 
 const CARDS_DATA = [
@@ -60,7 +61,12 @@ export default function CardSwap() {
               <span className="card-title">{t(card.title)}</span>
             </div>
             <div className="card-img-wrapper">
-              <img src={card.img} alt={t(card.title)} className="card-img" />
+              <SkeletonImage
+                src={card.img}
+                alt={t(card.title)}
+                className="card-img"
+                loading="lazy"
+              />
             </div>
           </motion.div>
         );
