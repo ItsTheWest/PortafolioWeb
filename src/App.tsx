@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi, SiAstro, SiSvelte } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi, SiAstro, SiSvelte, SiGo, SiFastify } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -58,6 +58,24 @@ const dartIcon = <SiDart color="#00B4AB" />;
 const fastapiIcon = <SiFastapi color="#009688" />;
 const astroIcon = <SiAstro color="#FF5D01" />;
 const svelteIcon = <SiSvelte color="#FF3E00" />;
+const goIcon = <SiGo color="#00ADD8" />;
+const fastifyIcon = <SiFastify color="#FFFFFF" />;
+const sseIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4.93 19.07a10 10 0 0 1 0-14.14" />
+    <path d="M7.76 16.24a6 6 0 0 1 0-8.48" />
+    <circle cx="12" cy="12" r="2" fill="#10B981" />
+    <path d="M16.24 7.76a6 6 0 0 1 0 8.48" />
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+  </svg>
+);
+const sqlIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <ellipse cx="12" cy="5" rx="9" ry="3" />
+    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+  </svg>
+);
 
 function App() {
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
@@ -65,6 +83,26 @@ function App() {
 
   // Build project list here so it re-evaluates with translations
   const proyectosData: Proyecto[] = [
+    {
+      title: t('proyectos.a2gateway.title'),
+      subtitle: t('proyectos.a2gateway.subtitle'),
+      description: t('proyectos.a2gateway.description'),
+      longDescription: t('proyectos.a2gateway.longDescription'),
+      image: '/img/a2gateway/logs.png',
+      images: [
+        '/img/a2gateway/logs.png',
+        '/img/a2gateway/apitable.png',
+        '/img/a2gateway/apijson.png',
+      ],
+      tech: [
+        { name: 'Go', icon: goIcon },
+        { name: 'Fastify', icon: fastifyIcon },
+        { name: 'TypeScript', icon: tsIcon },
+        { name: 'PostgreSQL', icon: postgresqlIcon },
+        { name: 'SQL', icon: sqlIcon },
+        { name: 'SSE', icon: sseIcon },
+      ],
+    },
     {
       title: t('proyectos.item2.title'),
       subtitle: t('proyectos.item2.subtitle'),
