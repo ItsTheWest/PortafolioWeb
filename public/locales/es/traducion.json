@@ -98,6 +98,18 @@
       "subtitle": "Sitio Web Corporativo",
       "description": "Landing page corporativa moderna diseñada y desarrollada para TecnoSoluciones LR, orientada a la presentación de servicios de tecnología empresarial, soporte y catálogo de soluciones. Desarrollada con Astro y Svelte para garantizar tiempos de carga ultrarrápidos, interactividad fluida y una arquitectura web responsiva y optimizada."
     },
+    "a2gateway": {
+      "title": "A2 Gateway — Pipeline de Datos y Sincronización en Tiempo Real",
+      "subtitle": "Microservicio Go & Backend Fastify",
+      "description": "Sistema de alto rendimiento que inspecciona y procesa archivos .dat internos de a2 Softway mediante workers concurrentes en Go, normalizando la información en tablas SQL. Integra polling periódico para detección reactiva de cambios, servidor local para logs en tiempo real, backend Fastify con TypeScript centralizado en PostgreSQL y transmisión en vivo vía Server-Sent Events (SSE).",
+      "longDescription": "Arquitectura de integración y modernización de datos diseñada para desacoplar y procesar en tiempo real los sistemas legados basados en archivos .dat de a2 Softway:\n\n• Workers Concurrentes en Go: Rutinas en segundo plano optimizadas para la lectura, extracción y normalización de estructuras binarias/datos .dat en tablas SQL locales.\n• Detección Reactiva de Cambios: Motor de polling periódico de bajo impacto que audita modificaciones en el sistema de archivos para capturar altas y cambios en cuestión de milisegundos.\n• Servidor Local y Telemetría en Vivo: Servicio local embebido que expone logs, métricas y estado del pipeline en tiempo real para auditoría técnica.\n• Pipeline y Backend Centralizado: Conexión segura hacia un backend desarrollado en Fastify con TypeScript, consolidando y centralizando toda la información en una base de datos PostgreSQL en la nube.\n• Conexión Dual y Streaming SSE: Arquitectura con dos dominios desacoplados: el canal local de polling/ingesta y la distribución en tiempo real mediante Server-Sent Events (SSE) hacia aplicaciones consumidoras móviles y web."
+    },
+    "tecnoa2": {
+      "title": "TecnoA2 — Gestión Empresarial Móvil",
+      "subtitle": "Aplicación Móvil Multiplataforma",
+      "description": "Aplicación móvil para Android e iOS desarrollada con Flutter y Dart, conectada directamente al ecosistema a2 Softway a través de backend centralizado. Facilita la consulta y control de inventario, clientes, facturas y administración multiempresa con sincronización instantánea y fluida.",
+      "longDescription": "Solución móvil empresarial que extiende la operativa administrativa y comercial a dispositivos móviles Android e iOS:\n\n• Desarrollo Multiplataforma Nativo: Creada con Flutter y Dart, ofreciendo una interfaz rápida, reactiva y adaptable tanto para tablets como teléfonos móviles.\n• Módulos Operativos Clave: Incorpora gestión de empresas, directorio de clientes, historial y emisión de facturas, control de inventario con existencias en vivo, autenticación de usuarios y menú administrativo.\n• Sincronización en Tiempo Real: Enlace bidireccional con el backend en Fastify y base de datos PostgreSQL, recibiendo eventos en vivo mediante Server-Sent Events (SSE) para reflejar cambios de stock y facturación al instante.\n• Experiencia de Usuario Empresarial: Interfaz pensada para operaciones ágiles en almacén, ventas y gerencia, con soporte dentro y fuera de la oficina."
+    },
     "toggle": {
       "more": "Ver más proyectos",
       "less": "Ver menos"

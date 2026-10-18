@@ -99,6 +99,18 @@
       "subtitle": "Corporate Website",
       "description": "Modern corporate landing page designed and developed for TecnoSoluciones LR to showcase enterprise technology services, IT support, and business software solutions. Built with Astro and Svelte to deliver lightning-fast load times, smooth interactivity, and a responsive, highly-optimized architecture."
     },
+    "a2gateway": {
+      "title": "A2 Gateway — Real-Time Data Pipeline & Sync",
+      "subtitle": "Go Microservice & Fastify Backend",
+      "description": "High-performance data synchronization system that inspects internal .dat files from a2 Softway ERP using concurrent Go workers, normalizing records into relational SQL tables. Features periodic file polling for change detection, a local server for live logs, a Fastify + TypeScript backend connected to cloud PostgreSQL, and real-time streaming via Server-Sent Events (SSE).",
+      "longDescription": "Data integration and modernization architecture designed to decouple and process legacy .dat file-based systems from a2 Softway ERP in real time:\n\n• Concurrent Go Workers: High-throughput background workers in Go that parse, extract, and normalize raw binary/data .dat file records into relational SQL tables.\n• Reactive Change Polling: Low-overhead periodic polling engine monitoring file-system modifications to capture updates and additions in milliseconds.\n• Local Server & Live Telemetry: Embedded local service providing real-time streaming logs, sync health metrics, and audit diagnostics.\n• Centralized Backend Pipeline: Data pipeline pushing changes to a Fastify and TypeScript backend, centralizing operational data into a cloud PostgreSQL database.\n• Dual-Domain Architecture & SSE: Independent two-way connectivity featuring local ingestion from a2gateway and real-time event broadcasting via Server-Sent Events (SSE) to mobile and web consumers."
+    },
+    "tecnoa2": {
+      "title": "TecnoA2 — Mobile Business Management",
+      "subtitle": "Cross-Platform Mobile Application",
+      "description": "Cross-platform mobile application for Android and iOS built with Flutter and Dart, connecting directly to the a2 Softway ecosystem via the centralized backend. Enables real-time inventory management, client tracking, invoice lookup, and multi-company administration.",
+      "longDescription": "Enterprise mobile application bringing daily business and administrative workflows to Android and iOS mobile devices:\n\n• Cross-Platform Performance: Developed using Flutter and Dart, providing a fast, native-feeling user experience on both phones and tablets.\n• Core Enterprise Modules: Features multi-company management, client directories, invoice records, real-time inventory lookup with live quantities, secure login, and administrative controls.\n• Real-Time Cloud Sync: Direct integration with the Fastify and PostgreSQL backend, receiving live updates via Server-Sent Events (SSE) to ensure inventory and billing numbers are always synchronized.\n• Enterprise Workflow Ready: Tailored for sales representatives, warehouse staff, and management for seamless operations on the go."
+    },
     "toggle": {
       "more": "View more projects",
       "less": "View less"
