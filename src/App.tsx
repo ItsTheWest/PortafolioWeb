@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi, SiAstro, SiSvelte, SiGo, SiFastify } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi, SiAstro, SiSvelte, SiGo, SiFastify, SiAndroid, SiApple } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -60,6 +60,8 @@ const astroIcon = <SiAstro color="#FF5D01" />;
 const svelteIcon = <SiSvelte color="#FF3E00" />;
 const goIcon = <SiGo color="#00ADD8" />;
 const fastifyIcon = <SiFastify color="#FFFFFF" />;
+const androidIcon = <SiAndroid color="#3DDC84" />;
+const appleIcon = <SiApple color="#A2AAAD" />;
 const sseIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M4.93 19.07a10 10 0 0 1 0-14.14" />
@@ -104,39 +106,28 @@ function App() {
       ],
     },
     {
-      title: t('proyectos.item2.title'),
-      subtitle: t('proyectos.item2.subtitle'),
-      description: t('proyectos.item2.description'),
-      longDescription: t('proyectos.item2.description'),
-      image: '/img/stockmanager/dashboard.jpg',
+      title: t('proyectos.tecnoa2.title'),
+      subtitle: t('proyectos.tecnoa2.subtitle'),
+      description: t('proyectos.tecnoa2.description'),
+      longDescription: t('proyectos.tecnoa2.longDescription'),
+      image: '/img/tecnoa2/inicio.png',
       images: [
-        '/img/stockmanager/stockbot.png',
-        '/img/stockmanager/inventory.jpg',
-        '/img/stockmanager/dashboard.jpg',
-        '/img/stockmanager/provider.jpg',
-        '/img/stockmanager/invoice.jpg',
-        '/img/stockmanager/sales.jpg',
-        '/img/stockmanager/asistnece.jpg',
-        '/img/stockmanager/notify.jpg',
-        '/img/stockmanager/stadistics.jpg',
-        '/img/stockmanager/perfil.jpg',
-        '/img/stockmanager/login.jpg',
+        '/img/tecnoa2/inicio.png',
+        '/img/tecnoa2/inventario.png',
+        '/img/tecnoa2/facturas.png',
+        '/img/tecnoa2/clientes.png',
+        '/img/tecnoa2/admin-empresa.png',
+        '/img/tecnoa2/menu.png',
+        '/img/tecnoa2/login.png',
       ],
-      videos: [
-        'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Stockmanager_2.0.webm',
-        'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/stockbot.webm',
-      ],
-      githubUrl: 'https://github.com/ItsTheWest/StockManager',
-      liveUrl: 'https://github.com/ItsTheWest/StockManager',
+      imageFit: 'contain',
       tech: [
-        { name: 'Next.js', icon: nexticon },
-        { name: 'Docker', icon: dockerIcon },
-        { name: 'Django', icon: djangoIcon },
-        { name: 'n8n', icon: n8nIcon },
-        { name: 'Python', icon: pythonIcon },
-        { name: 'TypeScript', icon: tsIcon },
-        { name: 'Supabase', icon: supabaseIcon },
-        { name: 'Tailwind CSS', icon: tailwindIcon },
+        { name: 'Flutter', icon: flutterIcon },
+        { name: 'Dart', icon: dartIcon },
+        { name: 'Android', icon: androidIcon },
+        { name: 'iOS', icon: appleIcon },
+        { name: 'Fastify', icon: fastifyIcon },
+        { name: 'PostgreSQL', icon: postgresqlIcon },
       ],
     },
     {
@@ -173,6 +164,42 @@ function App() {
         { name: 'Tailwind CSS', icon: tailwindIcon },
         { name: 'Svelte', icon: svelteIcon },
         { name: 'JavaScript', icon: jsIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item2.title'),
+      subtitle: t('proyectos.item2.subtitle'),
+      description: t('proyectos.item2.description'),
+      longDescription: t('proyectos.item2.description'),
+      image: '/img/stockmanager/dashboard.jpg',
+      images: [
+        '/img/stockmanager/stockbot.png',
+        '/img/stockmanager/inventory.jpg',
+        '/img/stockmanager/dashboard.jpg',
+        '/img/stockmanager/provider.jpg',
+        '/img/stockmanager/invoice.jpg',
+        '/img/stockmanager/sales.jpg',
+        '/img/stockmanager/asistnece.jpg',
+        '/img/stockmanager/notify.jpg',
+        '/img/stockmanager/stadistics.jpg',
+        '/img/stockmanager/perfil.jpg',
+        '/img/stockmanager/login.jpg',
+      ],
+      videos: [
+        'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Stockmanager_2.0.webm',
+        'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/stockbot.webm',
+      ],
+      githubUrl: 'https://github.com/ItsTheWest/StockManager',
+      liveUrl: 'https://github.com/ItsTheWest/StockManager',
+      tech: [
+        { name: 'Next.js', icon: nexticon },
+        { name: 'Docker', icon: dockerIcon },
+        { name: 'Django', icon: djangoIcon },
+        { name: 'n8n', icon: n8nIcon },
+        { name: 'Python', icon: pythonIcon },
+        { name: 'TypeScript', icon: tsIcon },
+        { name: 'Supabase', icon: supabaseIcon },
+        { name: 'Tailwind CSS', icon: tailwindIcon },
       ],
     },
     {
