@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi, SiAstro, SiSvelte } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi, SiAstro, SiSvelte, SiGo, SiFastify, SiAndroid, SiApple, SiRedis, SiSqlite } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -27,6 +27,8 @@ const techLogos = [
   { node: <SiMysql />, title: "MySQL", href: "https://www.mysql.com" },
   { node: <SiDotnet />, title: ".NET", href: "https://dotnet.microsoft.com/" },
   { node: <SiDocker />, title: "Docker", href: "https://www.docker.com" },
+  { node: <SiDart />, title: "Dart", href: "https://dart.dev" },
+  { node: <SiFlutter />, title: "Flutter", href: "https://flutter.dev" },
 ];
 
 // ─── Inline SVG helpers (kept here to avoid a separate file) ──────────────────
@@ -58,6 +60,21 @@ const dartIcon = <SiDart color="#00B4AB" />;
 const fastapiIcon = <SiFastapi color="#009688" />;
 const astroIcon = <SiAstro color="#FF5D01" />;
 const svelteIcon = <SiSvelte color="#FF3E00" />;
+const goIcon = <SiGo color="#00ADD8" />;
+const fastifyIcon = <SiFastify color="#FFFFFF" />;
+const androidIcon = <SiAndroid color="#3DDC84" />;
+const appleIcon = <SiApple color="#A2AAAD" />;
+const redisIcon = <SiRedis color="#FF4438" />;
+const sqliteIcon = <SiSqlite color="#0086C9" />;
+const sseIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4.93 19.07a10 10 0 0 1 0-14.14" />
+    <path d="M7.76 16.24a6 6 0 0 1 0-8.48" />
+    <circle cx="12" cy="12" r="2" fill="#10B981" />
+    <path d="M16.24 7.76a6 6 0 0 1 0 8.48" />
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+  </svg>
+);
 
 function App() {
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
@@ -66,10 +83,93 @@ function App() {
   // Build project list here so it re-evaluates with translations
   const proyectosData: Proyecto[] = [
     {
+      title: t('proyectos.a2gateway.title'),
+      subtitle: t('proyectos.a2gateway.subtitle'),
+      description: t('proyectos.a2gateway.description'),
+      longDescription: t('proyectos.a2gateway.longDescription'),
+      image: '/img/a2gateway/logs.png',
+      images: [
+        '/img/a2gateway/logs.png',
+        '/img/a2gateway/apitable.png',
+        '/img/a2gateway/apijson.png',
+      ],
+      tech: [
+        { name: 'Go', icon: goIcon },
+        { name: 'Fastify', icon: fastifyIcon },
+        { name: 'TypeScript', icon: tsIcon },
+        { name: 'Redis', icon: redisIcon },
+        { name: 'Docker', icon: dockerIcon },
+        { name: 'PostgreSQL', icon: postgresqlIcon },
+        { name: 'SQLite', icon: sqliteIcon },
+        { name: 'SSE', icon: sseIcon },
+      ],
+    },
+    {
+      title: t('proyectos.tecnoa2.title'),
+      subtitle: t('proyectos.tecnoa2.subtitle'),
+      description: t('proyectos.tecnoa2.description'),
+      longDescription: t('proyectos.tecnoa2.longDescription'),
+      image: '/img/tecnoa2/inicio.png',
+      images: [
+        '/img/tecnoa2/inicio.png',
+        '/img/tecnoa2/inventario.png',
+        '/img/tecnoa2/facturas.png',
+        '/img/tecnoa2/clientes.png',
+        '/img/tecnoa2/admin-empresa.png',
+        '/img/tecnoa2/menu.png',
+        '/img/tecnoa2/login.png',
+      ],
+      imageFit: 'contain',
+      tech: [
+        { name: 'Flutter', icon: flutterIcon },
+        { name: 'Dart', icon: dartIcon },
+        { name: 'Android', icon: androidIcon },
+        { name: 'iOS', icon: appleIcon },
+        { name: 'Fastify', icon: fastifyIcon },
+        { name: 'PostgreSQL', icon: postgresqlIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item3.title'),
+      subtitle: t('proyectos.item3.subtitle'),
+      description: t('proyectos.item3.description'),
+      longDescription: t('proyectos.item3.longDescription'),
+      image: '/img/cadiz/inicio.png',
+      images: [
+        '/img/cadiz/inicio.png',
+        '/img/cadiz/jugadores.png',
+        '/img/cadiz/categoria.png',
+        '/img/cadiz/pago.png',
+        '/img/cadiz/notis.png',
+        '/img/cadiz/gestion.png',
+        '/img/cadiz/form.png',
+      ],
+      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Cadizfc_2.0.webm',
+      tech: [
+        { name: 'Next.js', icon: nexticon },
+        { name: 'TypeScript', icon: tsIcon },
+        { name: 'Supabase', icon: supabaseIcon },
+        { name: 'Tailwind CSS', icon: tailwindIcon },
+      ],
+    },
+    {
+      title: t('proyectos.item8.title'),
+      subtitle: t('proyectos.item8.subtitle'),
+      description: t('proyectos.item8.description'),
+      longDescription: t('proyectos.item8.longDescription'),
+      image: '/img/tecnosoluciones/landing.png',
+      tech: [
+        { name: 'Astro', icon: astroIcon },
+        { name: 'Tailwind CSS', icon: tailwindIcon },
+        { name: 'Svelte', icon: svelteIcon },
+        { name: 'JavaScript', icon: jsIcon },
+      ],
+    },
+    {
       title: t('proyectos.item2.title'),
       subtitle: t('proyectos.item2.subtitle'),
       description: t('proyectos.item2.description'),
-      longDescription: t('proyectos.item2.description'),
+      longDescription: t('proyectos.item2.longDescription'),
       image: '/img/stockmanager/dashboard.jpg',
       images: [
         '/img/stockmanager/stockbot.png',
@@ -102,46 +202,10 @@ function App() {
       ],
     },
     {
-      title: t('proyectos.item3.title'),
-      subtitle: t('proyectos.item3.subtitle'),
-      description: t('proyectos.item3.description'),
-      longDescription: t('proyectos.item3.description'),
-      image: '/img/cadiz/inicio.png',
-      images: [
-        '/img/cadiz/inicio.png',
-        '/img/cadiz/jugadores.png',
-        '/img/cadiz/categoria.png',
-        '/img/cadiz/pago.png',
-        '/img/cadiz/notis.png',
-        '/img/cadiz/gestion.png',
-        '/img/cadiz/form.png',
-      ],
-      videoUrl: 'https://rdjoyrwsaowm26kw.public.blob.vercel-storage.com/video%20of%20projects/Cadizfc_2.0.webm',
-      tech: [
-        { name: 'Next.js', icon: nexticon },
-        { name: 'TypeScript', icon: tsIcon },
-        { name: 'Supabase', icon: supabaseIcon },
-        { name: 'Tailwind CSS', icon: tailwindIcon },
-      ],
-    },
-    {
-      title: t('proyectos.item8.title'),
-      subtitle: t('proyectos.item8.subtitle'),
-      description: t('proyectos.item8.description'),
-      longDescription: t('proyectos.item8.description'),
-      image: '/img/tecnosoluciones/landing.png',
-      tech: [
-        { name: 'Astro', icon: astroIcon },
-        { name: 'Tailwind CSS', icon: tailwindIcon },
-        { name: 'Svelte', icon: svelteIcon },
-        { name: 'JavaScript', icon: jsIcon },
-      ],
-    },
-    {
       title: t('proyectos.item4.title'),
       subtitle: t('proyectos.item4.subtitle'),
       description: t('proyectos.item4.description'),
-      longDescription: t('proyectos.item4.description'),
+      longDescription: t('proyectos.item4.longDescription'),
       image: '/img/odooproyect/actives.png',
       images: [
         '/img/odooproyect/kavan.png',
@@ -220,7 +284,7 @@ function App() {
       title: t('proyectos.item1.title'),
       subtitle: t('proyectos.item1.subtitle'),
       description: t('proyectos.item1.description'),
-      longDescription: t('proyectos.item1.description'),
+      longDescription: t('proyectos.item1.longDescription'),
       image: '/img/elvalle/proyectoelvalle.png',
       githubUrl: 'https://github.com/ItsTheWest/SistemaWebDeAnalisis',
       liveUrl: 'https://github.com/ItsTheWest/SistemaWebDeAnalisis',
