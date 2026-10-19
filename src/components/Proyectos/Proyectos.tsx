@@ -52,6 +52,64 @@ const ChevronRight = () => (
 
 // ─── Modal ────────────────────────────────────────────────────────────────────
 
+const renderModalDescription = (content: string) => {
+  if (!content) return null;
+
+  const rawLines = content.split('\n').map((l) => l.trim()).filter(Boolean);
+  const introParagraphs: string[] = [];
+  const bulletItems: { title: string; body: string }[] = [];
+
+  for (const line of rawLines) {
+    if (line.startsWith('•') || line.startsWith('-') || line.startsWith('*')) {
+      const clean = line.replace(/^[•\-*]\s*/, '');
+      const colonIndex = clean.indexOf(':');
+      if (colonIndex > 0) {
+        bulletItems.push({
+          title: clean.slice(0, colonIndex + 1),
+          body: clean.slice(colonIndex + 1).trim(),
+        });
+      } else {
+        bulletItems.push({
+          title: '',
+          body: clean,
+        });
+      }
+    } else {
+      introParagraphs.push(line);
+    }
+  }
+
+  return (
+    <div className="pm-description-container">
+      {introParagraphs.length > 0 && (
+        <div className="pm-description-intro">
+          {introParagraphs.map((p, idx) => (
+            <p key={idx} className="pm-description-p">
+              {p}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {bulletItems.length > 0 && (
+        <ul className="pm-feature-list">
+          {bulletItems.map((item, idx) => (
+            <li key={idx} className="pm-feature-item">
+              <span className="pm-feature-bullet" aria-hidden="true" />
+              <div className="pm-feature-content">
+                {item.title && (
+                  <span className="pm-feature-title">{item.title} </span>
+                )}
+                <span className="pm-feature-text">{item.body}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
 interface ModalProps {
   proyecto: Proyecto;
   onClose: () => void;
@@ -300,9 +358,7 @@ const ProyectoModal: React.FC<ModalProps> = ({ proyecto, onClose }) => {
             </div>
           </div>
 
-          <p className="pm-description">
-            {proyecto.longDescription || proyecto.description}
-          </p>
+          {renderModalDescription(proyecto.longDescription || proyecto.description)}
 
           {/* Tech stack */}
           <div className="pm-section">
@@ -447,7 +503,7 @@ const ProyectoCard: React.FC<CardProps> = ({ proyecto, index, onClick }) => {
 
 // ─── Grid Container ───────────────────────────────────────────────────────────
 
-const INITIAL_VISIBLE = 6;
+const INITIAL_VISIBLE = 9;
 
 interface ProyectosGridProps {
   proyectos: Proyecto[];
@@ -464,7 +520,7 @@ export const ProyectosGrid: React.FC<ProyectosGridProps> = ({ proyectos }) => {
 
   return (
     <>
-      {/* ── Always-visible rows (first 6) ── */}
+      {/* ── Always-visible rows (first 9) ── */}
       <div className="pc-grid">
         {visible.map((p, i) => (
           <ProyectoCard
