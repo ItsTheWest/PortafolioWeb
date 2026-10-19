@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import Squares from './componenty/Squares';
 import LogoLoop from './componenty/LogoLoop';
 import { ScrollReveal } from './components/ScrollReveal/ScrollReveal';
-import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi, SiAstro, SiSvelte, SiGo, SiFastify, SiAndroid, SiApple } from 'react-icons/si';
+import { SiReact, SiTypescript, SiTailwindcss, SiAngular, SiLaravel, SiJavascript, SiSupabase, SiGithub, SiGit, SiMysql, SiDotnet, SiPostgresql, SiDocker, SiNumpy, SiOpencv, SiTensorflow, SiFlutter, SiDart, SiFastapi, SiAstro, SiSvelte, SiGo, SiFastify, SiAndroid, SiApple, SiRedis } from 'react-icons/si';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
@@ -62,6 +62,7 @@ const goIcon = <SiGo color="#00ADD8" />;
 const fastifyIcon = <SiFastify color="#FFFFFF" />;
 const androidIcon = <SiAndroid color="#3DDC84" />;
 const appleIcon = <SiApple color="#A2AAAD" />;
+const redisIcon = <SiRedis color="#FF4438" />;
 const sseIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M4.93 19.07a10 10 0 0 1 0-14.14" />
@@ -100,6 +101,8 @@ function App() {
         { name: 'Go', icon: goIcon },
         { name: 'Fastify', icon: fastifyIcon },
         { name: 'TypeScript', icon: tsIcon },
+        { name: 'Redis', icon: redisIcon },
+        { name: 'Docker', icon: dockerIcon },
         { name: 'PostgreSQL', icon: postgresqlIcon },
         { name: 'SQL', icon: sqlIcon },
         { name: 'SSE', icon: sseIcon },
